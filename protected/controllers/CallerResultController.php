@@ -159,7 +159,7 @@ class CallerResultController extends Controller
 		public function actionYesterdayFull() {
 				for($i=6;$i<10;$i++){
 					for($j=0;$j<10;$j++){
-						$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.$i.' and date = (CURDATE()-1) and `status_res_id` = '.$j.'')->queryRow();
+						$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.$i.' and `date` BETWEEN (NOW()-INTERVAL 48 HOUR) AND (NOW() - INTERVAL 24 HOUR) and `status_res_id` = '.$j.'')->queryRow();
 					}
 				}
 				$this->render('YesterdayFull',array('model'=>$model));
@@ -201,7 +201,7 @@ class CallerResultController extends Controller
 	}
 	public function actionCallerYesterdayReport() {
 						for($j=0;$j<10;$j++){
-							$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.Yii::app()->user->id.' and date = (CURDATE()-1) and `status_res_id` = '.$j.'')->queryRow();
+							$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.Yii::app()->user->id.' and `date` BETWEEN (NOW()-INTERVAL 48 HOUR) AND (NOW() - INTERVAL 24 HOUR) and `status_res_id` = '.$j.'')->queryRow();
 						}
 					$this->render('CallerYesterdayReport',array('model'=>$model));
 		}
