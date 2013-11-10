@@ -73,7 +73,7 @@ public function actionAdmin()
             $model->attributes=$_GET['CallLater'];
 		
 		$criteria = new CDbCriteria();
-        $criteria->condition = "caller_id = ".Yii::app()->user->id." and call_status = 0";
+        $criteria->condition = "caller_id = ".Yii::app()->user->id." and call_status in (0,5)";
 		$dataProvider=new CActiveDataProvider('CallLater', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),

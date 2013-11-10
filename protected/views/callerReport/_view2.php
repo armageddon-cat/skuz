@@ -66,6 +66,19 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('manager_id')); ?>:</b>
 	<?php echo CHtml::encode($data->manager->realname ." ". $data->manager->surname); ?>
 	<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('comm_proposal')); ?>:</b>
+	<?php $comm_proposal=CHtml::encode($data->CommProposal->res); 
+		
+			switch ($comm_proposal) {
+				case "Не Отправлено":
+					echo "<span class=\"red\">$comm_proposal</span>";
+					break;
+				case "Отправлено":
+					echo "<span class=\"green\">$comm_proposal</span>";
+					break;
+			}
+	?>
+	<br />
 	<b><?php echo CHtml::encode($data->getAttributeLabel('meeting_result')); ?>:</b>
 	<?php $result=CHtml::encode($data->meeting->result);
 			switch ($result) {

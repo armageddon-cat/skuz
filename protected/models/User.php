@@ -68,6 +68,7 @@ class User extends CActiveRecord
 			'surname'=>'Фамилия',
 			'email' => 'E-mail',
 			'ban'=>'Доступ',
+			'last_move'=>'Последняя активность'
 		);
 	}
 

@@ -17,6 +17,7 @@ $('.search-form form').submit(function(){
 ?>
 
 <h1>Список перезвонов</h1>
+<p>Тут видно список Ваших <b>Недозвонов</b> и <b>Отказов от услуг</b>. Возможно когда-нибудь Вам стоит им перезвонить.</p>
 
 <?php /*echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -36,8 +37,11 @@ $('.search-form form').submit(function(){
         'company',
         'site_address',
         'phone_number',
-        /*'caller_id',
-        'call_status',*/
+        /*'caller_id',*/
+        'call_status'=>array(
+            'name'=>'call_status',
+            'value'=>'$data->StatusOfCall->status',
+        ),
         array(
             'class'=>'CButtonColumn',
 			'template'=>'{delete}',

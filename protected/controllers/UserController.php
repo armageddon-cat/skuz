@@ -31,12 +31,30 @@ class UserController extends Controller
 				'actions'=>array('index','view','password', 'update', 'delete'),
 				'roles'=>array('5'),
 			),
+					array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('online'),
+				'users'=>array('*'),
+			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);
 	}
+		public function actionOnline()
+	{
+		$model=new User('search');
+		$model->unsetAttributes();  // clear any default values
 
+		$dataProvider=new CActiveDataProvider('User', array(
+                        'pagination'=>array(
+                                'pageSize'=>'50',
+                        ),              
+        ));
+
+		$this->render('online',array(
+			'model'=>$model, 'dataProvider'=>$dataProvider,
+		));	
+	}
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed

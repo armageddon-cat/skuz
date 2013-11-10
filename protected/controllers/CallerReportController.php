@@ -28,7 +28,7 @@ class CallerReportController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'TimeTable','new', 'CallerTimeTable'),
+				'actions'=>array('index','view', 'TimeTable','new', 'CallerTimeTable', 'callerTimeTableArchive'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -142,10 +142,7 @@ class CallerReportController extends Controller
 	{   
 		$this->layout='//layouts/column1';
 		
-		$model=new CallerReport('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['CallerReport']))
-			$model->attributes=$_GET['CallerReport'];
+
 		//$dataProvider=new CActiveDataProvider('CallerReport');
 		/*$criteria = new CDbCriteria();
         $criteria->condition = "call_status = 0";
@@ -158,6 +155,22 @@ class CallerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status != 0 and call_status != 5";
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria));
+
+				$model=new CallerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerReport']))
+			$model->attributes=$_GET['CallerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('time',$model->time,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('phone_number',$model->phone_number,true);
+			$dataProvider->criteria->compare('company_address',$model->company_address,true);
+			$dataProvider->criteria->compare('email',$model->email,true);
+			$dataProvider->criteria->compare('contact_person',$model->contact_person,true);
+			$dataProvider->criteria->compare('business_type',$model->business_type,true);
+			$dataProvider->criteria->compare('service_type',$model->service_type,true);
+			$dataProvider->criteria->compare('contact_type',$model->contact_type,true);
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 			'model'=>$model,
@@ -173,9 +186,28 @@ class CallerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "caller_id = ".Yii::app()->user->id;
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria));
-		$this->render('Myreport',array(
+
+		$model=new CallerReport('search');
+            if(isset($_GET['CallerReport']))
+                $model->attributes=$_GET['CallerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('time',$model->time,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('phone_number',$model->phone_number,true);
+			$dataProvider->criteria->compare('company_address',$model->company_address,true);
+			$dataProvider->criteria->compare('email',$model->email,true);
+			$dataProvider->criteria->compare('contact_person',$model->contact_person,true);
+			$dataProvider->criteria->compare('business_type',$model->business_type,true);
+			$dataProvider->criteria->compare('service_type',$model->service_type,true);
+			$dataProvider->criteria->compare('contact_type',$model->contact_type,true);
+
+            $this->render('Myreport', array('dataProvider' => $dataProvider, 'model'=>$model));
+
+
+		/*$this->render('Myreport',array(
 			'dataProvider'=>$dataProvider,
-		));
+		));*/
 	}
 	
 	
@@ -203,11 +235,37 @@ class CallerReportController extends Controller
 	}
 
 		public function actionCallerTimeTable()
-	{
-		$callerTimeTable = Yii::app()->db->createCommand("SELECT id, next_call FROM `o_caller_report` WHERE DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and caller_id = ".Yii::app()->user->id." ORDER BY next_call ASC")->queryAll();
-		$this->render('callerTimeTable',array('callerTimeTable'=>$callerTimeTable));
+	{$this->layout='//layouts/column1';
+		/*$callerTimeTable = Yii::app()->db->createCommand("SELECT id, next_call, company, call_status FROM `o_caller_report` WHERE DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and caller_id = ".Yii::app()->user->id." ORDER BY next_call ASC")->queryAll();
+		*/
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and caller_id = ".Yii::app()->user->id."";
+        $criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status';
+       // $criteria->select = array('id', 'next_call', 'company', 'call_status');
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('callerTimeTable',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
-
+			public function actionCallerTimeTableArchive()
+	{ $this->layout='//layouts/column1';
+		/*$callerTimeTable = Yii::app()->db->createCommand("SELECT id, next_call, company, call_status FROM `o_caller_report` WHERE DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and caller_id = ".Yii::app()->user->id." ORDER BY next_call ASC")->queryAll();
+		*/
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) >= next_call and caller_id = ".Yii::app()->user->id."";
+        $criteria->order = 'next_call DESC';
+        $criteria->select = 'id, next_call, company, call_status';
+       // $criteria->select = array('id', 'next_call', 'company', 'call_status');
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('callerTimeTableArchive',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
 	/**
 	 * Manages all models.
 	 */
@@ -217,7 +275,9 @@ class CallerReportController extends Controller
             'class' => 'application.components.ExportableGridBehavior',
             'filename' => 'PostsWithUsers.csv',
             'csvDelimiter' => ';', //i.e. Excel friendly csv delimiter
-            ));
+            )
+
+        );
 	} 
 
 	public function actionAdmin()

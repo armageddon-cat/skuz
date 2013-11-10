@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Исправление ошибок в отчете № <?php echo $model->id; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_formUpdate', array('model'=>$model)); ?>

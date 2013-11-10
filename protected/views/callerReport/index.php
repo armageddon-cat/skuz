@@ -32,12 +32,23 @@ $('.search-form form').submit(function(){
 	'model'=>$model,
 )); ?>
 </div>
-<?php $this->widget('zii.widgets.CListView', array(
+<?php echo CHtml::link('Назад к общему списку отчетов','index'); ?>
+<?php /*$this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 	'id'=>'randId',
 	'sortableAttributes'=>array(
         //'caller_id'=>'Диспетчер',
+        'manager_id'=>'Сортировка по менеджеру',
         'time'=>'Сортировка по дате',
     ),
+)); */?>
+<?php $this->widget('DSizerListView', array(
+    'dataProvider'=>$dataProvider,
+    'itemView'=>'_view',
+    'template'=>"{sizer}\n{summary}\n{items}\n{pager}",
+    'sizerVariants'=>array(10, 20, 50, 100),
+    'sizerAttribute'=>'size',
+    'sizerCssClass'=>'sorter',
+    'sizerHeader'=>'Показывать на страницу: ',
 )); ?>

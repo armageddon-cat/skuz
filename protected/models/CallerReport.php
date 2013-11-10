@@ -64,6 +64,7 @@ class CallerReport extends CActiveRecord
 			'meeting'=>array(self::BELONGS_TO, 'Meeting', 'meeting_result'),
 			'StatusOfCall'=>array(self::BELONGS_TO, 'CallStatus', 'call_status'),
 			'CommProposal'=>array(self::BELONGS_TO, 'CommProposal', 'comm_proposal'),
+			'Contract'=>array(self::BELONGS_TO, 'Contract', 'contract'),
 		);
 	}
 
@@ -88,9 +89,10 @@ class CallerReport extends CActiveRecord
 			'caller_id' => 'Диспетчер',
 			'call_status' => 'Статус звонка',
 			'manager_id' => 'Менеджер',
-			'meeting_result' => 'Результат',
+			'meeting_result' => 'Результат встречи',
 			'site_address' => 'Адрес сайта',
 			'comm_proposal' => 'Коммерческое предложение',
+						'contract' => 'Подписан ли договор?',
 		);
 	}
 

@@ -19,11 +19,15 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('company')); ?>:</b>
 	<?php echo CHtml::encode($data->company); ?>
 	<br />
-	<?php /*
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('phone_number')); ?>:</b>
 	<?php echo CHtml::encode($data->phone_number); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('site_address')); ?>:</b>
+	<?php echo CHtml::encode($data->site_address); ?>
+	<br />
+<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('company_address')); ?>:</b>
 	<?php echo CHtml::encode($data->company_address); ?>
 	<br />
@@ -31,11 +35,11 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
 	<?php echo CHtml::encode($data->email); ?>
 	<br />
-
+*/ ?>
 	<b><?php echo CHtml::encode($data->getAttributeLabel('contact_person')); ?>:</b>
 	<?php echo CHtml::encode($data->contact_person); ?>
 	<br />
-*/ ?>
+
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('business_type')); ?>:</b>
 	<?php echo CHtml::encode($data->business_type); ?>
@@ -66,6 +70,23 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('manager_id')); ?>:</b>
 	<?php echo CHtml::encode($data->manager->realname ." ". $data->manager->surname); ?>
 	<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('service_type')); ?>:</b>
+	<?php echo CHtml::encode($data->product->product); ?>
+	<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('comm_proposal')); ?>:</b>
+	<?php $comm_proposal=CHtml::encode($data->CommProposal->res); 
+		
+			switch ($comm_proposal) {
+				case "Не Отправлено":
+					echo "<span class=\"red\">$comm_proposal</span>";
+					break;
+				case "Отправлено":
+					echo "<span class=\"green\">$comm_proposal</span>";
+					break;
+			}
+	?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('meeting_result')); ?>:</b>
 	<?php $result=CHtml::encode($data->meeting->result);
 			switch ($result) {
@@ -80,6 +101,19 @@
 					break;
 			}
 
+	?>
+		<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('contract')); ?>:</b>
+	<?php $contract_status=CHtml::encode($data->Contract->contract_status); 
+		
+			switch ($contract_status) {
+				case "Не Отправлено":
+					echo "<span class=\"red\">$contract_status</span>";
+					break;
+				case "Отправлено":
+					echo "<span class=\"green\">$contract_status</span>";
+					break;
+			}
 	?>
 
 </div><?php } ?>

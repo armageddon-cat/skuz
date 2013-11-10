@@ -54,7 +54,7 @@ body
 
 #mainmenu ul
 {
-	padding:6px 20px 5px 20px;
+	padding:6px 5px 5px 5px;
 	margin:0px;
 }
 
@@ -75,7 +75,7 @@ body
 	font-size:12px;
 	font-weight:bold;
 	text-decoration:none;
-	padding:5px 8px;
+	padding:5px 4px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
@@ -242,7 +242,7 @@ div.search-form
 }
 
 .my_table {
-	 width: 400px;
+	 width: 900px;
 }
 
 table.my_table td {
@@ -268,4 +268,14 @@ table.my_table td {
 
 table.my_table_callers td {
 	 border: 1px solid #f78dc4 !important;
+}
+
+.calls {
+	background-image: url("/images/dialog.png");
+	height: 30px;
+	width: 30px;
+	background-size: cover;
+	padding-right: 1px;
+	text-align: center;
+	margin-left: 370px;
 }

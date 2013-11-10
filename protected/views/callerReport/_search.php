@@ -25,7 +25,8 @@
 		<?php echo $form->label($model,'next_call'); ?>
 		<?php echo $form->textField($model,'next_call'); ?>
 	</div>
-	<?php /*	<br>
+<?php /*	
+	<br>
 	<div class="row">
 		<?php echo $form->label($model,'caller_id'); ?>
 		<?php echo $form->textField($model,'caller_id',array('size'=>30,'maxlength'=>255)); ?>
@@ -39,7 +40,7 @@
 		<?php echo $form->dropDownList(User::model(), 'realname', User::all()); ?>
 	</div>
 
-	
+	*/?>
 
 	<div class="row">
 		<?php echo $form->label($model,'company'); ?>
@@ -48,7 +49,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'phone_number'); ?>
-		<?php echo $form->textField($model,'phone_number',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->textField($model,'phone_number',array('size'=>50,'maxlength'=>50)); ?>
 	</div>
 
 	<div class="row">
@@ -77,23 +78,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'next_call'); ?>
-		<?php echo $form->textField($model,'next_call'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'contact_type'); ?>
 		<?php echo $form->textField($model,'contact_type',array('size'=>11,'maxlength'=>11)); ?>
 	</div>
-
+<?php /*
 	<div class="row">
 		<?php echo $form->label($model,'comment'); ?>
 		<?php echo $form->textArea($model,'comment',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'caller_id'); ?>
-		<?php echo $form->textField($model,'caller_id',array('size'=>11,'maxlength'=>11)); ?>
 	</div>
 */?>
 	<div class="row buttons">
