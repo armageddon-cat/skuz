@@ -261,6 +261,10 @@ table.my_table td {
 	color:#D9D900;
 	font-weight: bold;
 }
+.blue {
+	color:blue;
+	font-weight: bold;
+}
 
 .my_table_callers {
 	 width: 350px;
@@ -277,5 +281,5 @@ table.my_table_callers td {
 	background-size: cover;
 	padding-right: 1px;
 	text-align: center;
-	margin-left: 370px;
+	margin-left: 200px;
 }

@@ -1,15 +1,6 @@
-<h1>Расписание по контактам</h1>
-<?php /*<table class="my_table">
-	<?php
-	
-foreach($timeTable as $worker){
-	echo '<tr>';
-	echo '<td>'.CHtml::link("Полная информация о контакте № ".$worker['id'], array('view', 'id'=>$worker['id'])).'</td><td>'.$worker['next_call'].'</td>';
-	echo '</tr>';
-}
-
-	?>
-</table> */?>
+<h1>Ваши встречи</h1>
+<p>Тут видно число и время Встречи с клиентом. 
+	Сюда попадают все отчеты для которых вы назначили статус <b>Назначена встреча</b></p>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'caller-report-grid',
     'dataProvider'=>$dataProvider,

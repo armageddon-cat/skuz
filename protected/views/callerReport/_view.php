@@ -65,7 +65,15 @@
 	<?php echo CHtml::encode($data->caller->realname ." ". $data->caller->surname); ?>
 	<br />
 	<b><?php echo CHtml::encode($data->getAttributeLabel('call_status')); ?>:</b>
-	<?php echo CHtml::encode($data->StatusOfCall->status); ?>
+	<?php $call_status=CHtml::encode($data->StatusOfCall->status); 
+		switch ($call_status) {
+				case "Назначена встреча":
+					echo "<span class=\"blue\">$call_status</span>";
+					break;
+			}
+
+
+	?>
 	<br />
 	<b><?php echo CHtml::encode($data->getAttributeLabel('manager_id')); ?>:</b>
 	<?php echo CHtml::encode($data->manager->realname ." ". $data->manager->surname); ?>

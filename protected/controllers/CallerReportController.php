@@ -28,7 +28,7 @@ class CallerReportController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'TimeTable','new', 'CallerTimeTable', 'callerTimeTableArchive'),
+				'actions'=>array('index','view', 'TimeTable','new', 'CallerTimeTable', 'callerTimeTableArchive', 'Meetings', 'CallerMeetings'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -227,11 +227,53 @@ class CallerReportController extends Controller
 
 
 }
+	public function actionMeetings()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and call_status=2";
+        $criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, manager_id';
+
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('Meetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+	public function actionCallerMeetings()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and call_status=2 and caller_id = ".Yii::app()->user->id."";
+        $criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status';
+
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('CallerMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
 	
 	public function actionTimeTable()
 	{
-		$timeTable = Yii::app()->db->createCommand('SELECT id, next_call FROM `o_caller_report` WHERE DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call ORDER BY next_call ASC')->queryAll();
-		$this->render('timeTable',array('timeTable'=>$timeTable));
+		/*$timeTable = Yii::app()->db->createCommand('SELECT id, next_call FROM `o_caller_report` WHERE DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call ORDER BY next_call ASC')->queryAll();
+		$this->render('timeTable',array('timeTable'=>$timeTable));*/
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call";
+        $criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status';
+
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('timeTable',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
 		public function actionCallerTimeTable()

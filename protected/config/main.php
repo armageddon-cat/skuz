@@ -29,6 +29,9 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array(),
 		),
+				'importcsv'=>array(
+            'path'=>'upload/importCsv/', // path to folder for saving csv file and file with import params
+        ),
 	),
 
 	// application components
