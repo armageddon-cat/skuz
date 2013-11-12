@@ -401,3 +401,15 @@ label.required{font-weight: bold;}
 .errorSummary{ margin-left: 5%;}
 .errorSummary p{font-weight: bold; padding-bottom: 25px;}
 .errorSummary ul{margin-left:3%;font-weight: 100; line-height: 25px; margin-bottom: 35px;}
+
+.full-form-links p a{
+    background: none repeat scroll 0 0 #1C9CCD;
+    border: medium none;
+    border-radius: 2px;
+    bottom: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 15px;
+    right: 6%;
+}

@@ -25,5 +25,13 @@ $this->menu=array(
 		'date',
 		'company_name',
 		'comment',
+		'url',
+		'title',
+		'h1',
+		'h2',
+		'h3',
+		'h4',
+		'keywords',
+		'density',
 	),
 )); ?>

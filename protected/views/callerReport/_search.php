@@ -74,12 +74,39 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'service_type'); ?>
-		<?php echo $form->textField($model,'service_type',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->dropDownList($model, 'service_type', Product::all(), array('empty'=>'')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'contact_type'); ?>
-		<?php echo $form->textField($model,'contact_type',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->dropDownList($model, 'contact_type', ContactType::all(), array('empty'=>'')); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'caller_id'); ?>
+		<?php //echo $form->dropDownList($model, 'caller_id', User::allNames(), array('empty'=>'')); ?>
+		<?php echo $form->dropDownList($model,'caller_id',
+			array( 
+			'6'=>'Ольга Олизаренко',
+			'7'=>'Анастасия Терлик',
+			'8'=>'Валерия Шафранская',
+			'9'=>'Екатерина Макаренко'), array('empty'=>'')); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'manager_id'); ?>
+		<?php echo $form->dropDownList($model,'manager_id',
+			array( 
+			10=>'Ольга Рошмакова',
+			11=>'Менеджер2',
+			12=>'Менеджер3',
+			13=>'Менеджер4',
+			14=>'Менеджер5'), array('empty'=>'')); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'comm_proposal'); ?>
+		<?php echo $form->dropDownList($model, 'comm_proposal', CommProposal::all(), array('empty'=>'')); ?>
 	</div>
 <?php /*
 	<div class="row">

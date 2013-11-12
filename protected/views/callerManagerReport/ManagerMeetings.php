@@ -1,6 +1,6 @@
 <h1>Встречи</h1>
 <p>Тут видно число и время Встречи с клиентом. 
-    Сюда попадают все отчеты  статус <b>Назначена встреча</b></p>
+    Сюда попадают все отчеты co статусом <b>Назначена встреча</b></p>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'caller-report-grid',
     'dataProvider'=>$dataProvider,
@@ -22,13 +22,10 @@
                           return $data->caller->realname ." ". $data->caller->surname;
                         },
         ),
-        'manager_id'=>array(
-            'name'=>'manager_id',
-            'value'=>'$data->manager->realname',
-        ),
         'meeting_result'=>array(
             'name'=>'meeting_result',
             'value'=>'$data->meeting->result',
         ),
+      
     ),
 )); ?>

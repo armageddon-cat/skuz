@@ -37,6 +37,54 @@
 		<?php echo $form->error($model,'comment'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'url'); ?>
+		<?php echo $form->textField($model,'url',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'url'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'title'); ?>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'title'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'h1'); ?>
+		<?php echo $form->textField($model,'h1',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'h1'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'h2'); ?>
+		<?php echo $form->textField($model,'h2',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'h2'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'h3'); ?>
+		<?php echo $form->textField($model,'h3',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'h3'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'h4'); ?>
+		<?php echo $form->textField($model,'h4',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'h4'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'keywords'); ?>
+		<?php echo $form->textField($model,'keywords',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'keywords'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'density'); ?>
+		<?php echo $form->textField($model,'density',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'density'); ?>
+	</div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 	</div>

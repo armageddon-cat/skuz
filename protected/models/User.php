@@ -111,7 +111,21 @@ class User extends CActiveRecord
 		return CHtml::listData(self::model()->findAll(), 'id', 'login');
 		
 	}
+	public static function allNames(){
+		return CHtml::listData(self::model()->findAll(), 'id', 'surname');
+		
+	}
+
+	public static function allCalles(){
+				//return CHtml::listData(self::model()->findByPk(6), 'id', 'login');	
+
+		return CHtml::listData(self::model()->findAllBySql('select {{user}}.id, realname from {{user}} where id > 6'), 'id', 'realname');	
+	}
 	
+	public static function allManagers(){
+		return CHtml::listData(self::model()->findAllByPk(), 'id', 'login');	
+	}
+
 	public static function online(){
 		return self::model()->findAllBySql('select distinct {{user}}.id, login, realname, surname from {{user}} join sessions on {{user}}.id=sessions.user_id where sessions.user_id!=0');
 	}

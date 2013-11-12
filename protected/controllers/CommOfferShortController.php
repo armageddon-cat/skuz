@@ -1,12 +1,12 @@
 <?php
 
-class CallerManagerReportController extends Controller
+class CommOfferShortController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/formLayoutcolumn1';
 
 	/**
 	 * @return array action filters
@@ -28,11 +28,11 @@ class CallerManagerReportController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'ManagerMeetings'),
+				'actions'=>array('index','create','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'all_reports'),
+				'actions'=>array('update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,14 +62,14 @@ class CallerManagerReportController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new CallerManagerReport;
+		$model=new CommOfferShort;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['CallerManagerReport']))
+		if(isset($_POST['CommOfferShort']))
 		{
-			$model->attributes=$_POST['CallerManagerReport'];
+			$model->attributes=$_POST['CommOfferShort'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -79,37 +79,21 @@ class CallerManagerReportController extends Controller
 		));
 	}
 
-	public function actionManagerMeetings()
-	{
-		$this->layout='//layouts/column1';
-		
-		$criteria = new CDbCriteria();
-        $criteria->condition = "call_status=2";
-        $criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
-
-		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
-                            'pageSize' => 50,
-                        ),
-		));
-		$this->render('ManagerMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
-	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
 	public function actionUpdate($id)
-	{	$this->layout='//layouts/column1';
+	{
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['CallerManagerReport']))
+		if(isset($_POST['CommOfferShort']))
 		{
-			$model->attributes=$_POST['CallerManagerReport'];
+			$model->attributes=$_POST['CommOfferShort'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -137,36 +121,22 @@ class CallerManagerReportController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{	$this->layout='//layouts/column1';
-		
-		//$allReports = Yii::app()->db->createCommand('SELECT * FROM `o_caller_report` WHERE manager_id=10')->queryAll();
-		$criteria = new CDbCriteria();
-        $criteria->condition = "manager_id = ".Yii::app()->user->id." and call_status != 0 and call_status != 5";
-		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria));
+	{
+		$dataProvider=new CActiveDataProvider('CommOfferShort');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
-	
-/* 	public function actionAll_reports($id)
-	{	$this->layout='//layouts/column1';
-		
-		
-		$allReports = Yii::app()->db->createCommand('SELECT * FROM `o_caller_report` WHERE manager_id=10')->queryAll();
-		$this->render('all_reports',array('allReports'=>$allReports));
-		
-
-	} */
 
 	/**
 	 * Manages all models.
 	 */
 	public function actionAdmin()
 	{
-		$model=new CallerManagerReport('search');
+		$model=new CommOfferShort('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['CallerManagerReport']))
-			$model->attributes=$_GET['CallerManagerReport'];
+		if(isset($_GET['CommOfferShort']))
+			$model->attributes=$_GET['CommOfferShort'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -177,12 +147,12 @@ class CallerManagerReportController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return CallerManagerReport the loaded model
+	 * @return CommOfferShort the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=CallerManagerReport::model()->findByPk($id);
+		$model=CommOfferShort::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -190,11 +160,11 @@ class CallerManagerReportController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param CallerManagerReport $model the model to be validated
+	 * @param CommOfferShort $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='caller-manager-report-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='comm-offer-short-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

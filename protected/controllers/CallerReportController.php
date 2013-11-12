@@ -32,7 +32,7 @@ class CallerReportController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update', 'MyReport', 'View2'),
+				'actions'=>array('admin','create','update', 'MyReport', 'View2', 'ManagerMeetings'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -154,6 +154,7 @@ class CallerReportController extends Controller
 		}*/
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status != 0 and call_status != 5";
+        $criteria->order = 'time DESC';
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria));
 
 				$model=new CallerReport('search');
@@ -171,6 +172,15 @@ class CallerReportController extends Controller
 			$dataProvider->criteria->compare('business_type',$model->business_type,true);
 			$dataProvider->criteria->compare('service_type',$model->service_type,true);
 			$dataProvider->criteria->compare('contact_type',$model->contact_type,true);
+			$dataProvider->criteria->compare('caller_id',$model->caller_id,true);
+			$dataProvider->criteria->compare('site_address',$model->site_address,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('manager_id',$model->manager_id,true);
+			$dataProvider->criteria->compare('meeting_result',$model->meeting_result,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
+			$dataProvider->criteria->compare('contract',$model->contract,true);
+			
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 			'model'=>$model,
@@ -232,9 +242,9 @@ class CallerReportController extends Controller
 		$this->layout='//layouts/column1';
 		
 		$criteria = new CDbCriteria();
-        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and call_status=2";
+        $criteria->condition = "call_status=2";
         $criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, manager_id';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, manager_id, meeting_result';
 
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
@@ -242,6 +252,10 @@ class CallerReportController extends Controller
 		));
 		$this->render('Meetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
+
+	
+
+
 	public function actionCallerMeetings()
 	{
 		$this->layout='//layouts/column1';

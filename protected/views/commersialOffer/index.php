@@ -1,7 +1,7 @@
 <?php
 /* @var $this CommersialOfferController */
 /* @var $dataProvider CActiveDataProvider */
-
+/*
 $this->breadcrumbs=array(
 	'Commersial Offers',
 );
@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create CommersialOffer', 'url'=>array('create')),
 	array('label'=>'Manage CommersialOffer', 'url'=>array('admin')),
-);
+);*/
 ?>
 
 <h1>Просмотр Онлайн заявок</h1>

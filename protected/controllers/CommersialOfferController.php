@@ -161,7 +161,9 @@ class CommersialOfferController extends Controller
 	 */
 	public function actionIndex()
 	{	$this->layout='//layouts/column1';
-		$dataProvider=new CActiveDataProvider('CommersialOffer');
+		$criteria = new CDbCriteria();
+        $criteria->order = 'fill_date DESC';
+		$dataProvider=new CActiveDataProvider('CommersialOffer', array('criteria'=>$criteria));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

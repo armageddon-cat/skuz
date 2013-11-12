@@ -283,3 +283,12 @@ table.my_table_callers td {
 	text-align: center;
 	margin-left: 200px;
 }
+
+.odd {
+    background: none repeat scroll 0 0 #E5F1F4;
+}
+
+.even {
+    background: none repeat scroll 0 0 #F8F8F8;
+}
+

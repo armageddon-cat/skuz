@@ -39,7 +39,8 @@ class CallerReport extends CActiveRecord
 			array('time, company', 'required'),
 			array('company, next_call, comm_proposal, manager_id', 'length', 'max'=>50),
 			array('phone_number, service_type, contact_type, caller_id, call_status', 'length', 'max'=>50),
-			array('company_address, site_address, business_type, comment', 'length', 'max'=>255),
+			array('company_address, site_address, business_type', 'length', 'max'=>255),
+			array('comment', 'safe'),
 			array('email', 'length', 'max'=>40),
 			array('contact_person', 'length', 'max'=>30),
 			
@@ -114,23 +115,26 @@ class CallerReport extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id,true);
-        $criteria->compare('time',$this->time,true);
-        $criteria->compare('company',$this->company,true);
-        $criteria->compare('site_address',$this->site_address,true);
-        $criteria->compare('phone_number',$this->phone_number,true);
-        $criteria->compare('company_address',$this->company_address,true);
-        $criteria->compare('email',$this->email,true);
-        $criteria->compare('contact_person',$this->contact_person,true);
-        $criteria->compare('business_type',$this->business_type,true);
-        $criteria->compare('service_type',$this->service_type,true);
-        $criteria->compare('next_call',$this->next_call,true);
-        $criteria->compare('contact_type',$this->contact_type,true);
-        $criteria->compare('comment',$this->comment,true);
-        //$criteria->compare(User::model()->realname,$this->caller_id,true);
-        $criteria->compare('call_status',$this->call_status);
-        $criteria->compare('manager_id',$this->manager_id);
-        $criteria->compare('meeting_result',$this->meeting_result);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('time',$this->time,true);
+		$criteria->compare('company',$this->company,true);
+		$criteria->compare('site_address',$this->site_address,true);
+		$criteria->compare('phone_number',$this->phone_number,true);
+		$criteria->compare('company_address',$this->company_address,true);
+		$criteria->compare('email',$this->email,true);
+		$criteria->compare('contact_person',$this->contact_person,true);
+		$criteria->compare('business_type',$this->business_type,true);
+		$criteria->compare('service_type',$this->service_type,true);
+		$criteria->compare('next_call',$this->next_call,true);
+		$criteria->compare('contact_type',$this->contact_type,true);
+		$criteria->compare('comment',$this->comment,true);
+		$criteria->compare('caller_id',$this->caller_id, true);
+		$criteria->compare('call_status',$this->call_status);
+		$criteria->compare('manager_id',$this->manager_id);
+		$criteria->compare('meeting_result',$this->meeting_result);
+		$criteria->compare('comm_proposal',$this->comm_proposal);
+		$criteria->compare('contract',$this->contract);
+
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -1,7 +1,7 @@
 <?php
 /* @var $this CommersialOfferController */
 /* @var $model CommersialOffer */
-
+/*
 $this->breadcrumbs=array(
 	'Commersial Offers'=>array('index'),
 	$model->id,
@@ -13,10 +13,16 @@ $this->menu=array(
 	array('label'=>'Update CommersialOffer', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete CommersialOffer', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage CommersialOffer', 'url'=>array('admin')),
-);
+);*/
 ?>
 
-<h1>Просмотр коммерческого предложения № <?php echo $model->id; ?></h1>
+	<div class="row buttons">
+		<a href="http://dr-intellectus.com/"><p>Главная</p></a>
+		<p class="required">   //   Просмотр заявки</p>
+	</div>
+
+<h1>Все прошло успешно. Спасибо. </h1>
+<h4>Просмотр заявки</h4>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -73,3 +79,6 @@ $this->menu=array(
 		'additional_info',
 	),
 )); ?>
+<div class="row buttons back-to-site">
+		<a href="http://dr-intellectus.com/"><p>Вернутся на Сайт</p></a>
+</div>

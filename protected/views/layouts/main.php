@@ -85,19 +85,22 @@ if(!Yii::app()->user->isGuest) {
 				array('label'=>'Все отчеты', 'url'=>array('/callerReport/myreport'), 'visible'=>Yii::app()->user->role==1),
 				array('label'=>'Список отчетов', 'url'=>array('callerManagerReport/index'), 'visible'=>Yii::app()->user->role==2),
 				array('label'=>'Список отчетов', 'url'=>array('/callerReport/index'), 'visible'=>Yii::app()->user->role==4),
+				array('label'=>'Все Встречи', 'url'=>array('/callerReport/Meetings'), 'visible'=>Yii::app()->user->role==4),
 				array('label'=>'Онлайн заявки', 'url'=>array('/commersialOffer/index'), 'visible'=>Yii::app()->user->role==4),
 
 				array('label'=>'Пользователи Онлайн', 'url'=>array('/user/online'), 'visible'=>Yii::app()->user->role==4),
 
 				array('label'=>'Добавление клиента', 'url'=>array('/seoCompanies/create'), 'visible'=>Yii::app()->user->role==3),
 				array('label'=>'Импорт ключевых слов', 'url'=>array('/keyword/keywordImport'), 'visible'=>Yii::app()->user->role==3),
-				array('label'=>'Просмотр ключевых слов', 'url'=>array('/keyword/admin'), 'visible'=>Yii::app()->user->role==3),
+				array('label'=>'Просмотр ключевых слов', 'url'=>array('/keyword/ChooseCompany'), 'visible'=>Yii::app()->user->role==3),
+				array('label'=>'Просмотр компаний', 'url'=>array('/seoCompanies/admin'), 'visible'=>Yii::app()->user->role==3),
 		
 				
 				array('label'=>'<span class="'.$res.'">Расписание</span>', 'url'=>array('/callerReport/callerTimeTable'), 'visible'=>Yii::app()->user->role==1),
 				array('label'=>'Встречи', 'url'=>array('/callerReport/callerMeetings'), 'visible'=>Yii::app()->user->role==1),
 				array('label'=>'Все Встречи', 'url'=>array('/callerReport/Meetings'), 'visible'=>Yii::app()->user->role==6),
-				array('label'=>'Все Встречи', 'url'=>array('/callerReport/Meetings'), 'visible'=>Yii::app()->user->role==2),
+
+				array('label'=>'Все Встречи', 'url'=>array('/callerManagerReport/ManagerMeetings'), 'visible'=>Yii::app()->user->role==2),
 				array('label'=>'Статистика', 'url'=>array('/callerResult/CallerTodayReport'), 'visible'=>Yii::app()->user->role==1),
 				array('label'=>'Недозвоны', 'url'=>array('/callLater/admin'), 'visible'=>Yii::app()->user->role==1),
 				array('label'=>'Отчеты диспетчеров', 'url'=>array('/callerReport/admin'), 'visible'=>Yii::app()->user->role==5),
