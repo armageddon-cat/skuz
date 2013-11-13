@@ -86,7 +86,7 @@ if(!Yii::app()->user->isGuest) {
 				array('label'=>'Список отчетов', 'url'=>array('callerManagerReport/index'), 'visible'=>Yii::app()->user->role==2),
 				array('label'=>'Список отчетов', 'url'=>array('/callerReport/index'), 'visible'=>Yii::app()->user->role==4),
 				array('label'=>'Все Встречи', 'url'=>array('/callerReport/Meetings'), 'visible'=>Yii::app()->user->role==4),
-				array('label'=>'Онлайн заявки', 'url'=>array('/commersialOffer/index'), 'visible'=>Yii::app()->user->role==4),
+				array('label'=>'Онлайн заявки', 'url'=>array('/commersialOffer/ChooseOfferType'), 'visible'=>Yii::app()->user->role==4),
 
 				array('label'=>'Пользователи Онлайн', 'url'=>array('/user/online'), 'visible'=>Yii::app()->user->role==4),
 

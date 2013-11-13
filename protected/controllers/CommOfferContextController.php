@@ -121,8 +121,10 @@ class CommOfferContextController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('CommOfferContext');
+	{	$this->layout='//layouts/column1';
+		$criteria = new CDbCriteria();
+        $criteria->order = 'date DESC';
+		$dataProvider=new CActiveDataProvider('CommOfferContext', array('criteria'=>$criteria));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

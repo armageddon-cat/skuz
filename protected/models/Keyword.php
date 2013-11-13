@@ -7,8 +7,6 @@
  * @property string $company_id
  * @property string $keyword
  * @property string $id
- * @property string $search_engine
- * @property string $status
  */
 class Keyword extends CActiveRecord
 {
@@ -29,14 +27,11 @@ class Keyword extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('company_id, keyword', 'required'),
-			array('search_engine', 'safe'),
 			array('company_id', 'length', 'max'=>50),
 			array('keyword', 'length', 'max'=>255),
-			array('search_engine', 'length', 'max'=>7),
-			array('status', 'length', 'max'=>4),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('company_id, keyword, id, search_engine, status', 'safe', 'on'=>'search'),
+			array('company_id, keyword, id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,6 +44,7 @@ class Keyword extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'company'=>array(self::BELONGS_TO, 'SeoCompanies', 'company_id'),
+			'keypos'=>array(self::BELONGS_TO, 'KeywordPosition', 'id'),
 		);
 	}
 
@@ -61,8 +57,9 @@ class Keyword extends CActiveRecord
 			'company_id' => 'Компания',
 			'keyword' => 'Ключевое слово',
 			'id' => 'Номер',
-			'search_engine' => 'Поисковый движок',
-			'status' => 'Статус',
+			'pos' => 'Позиция',
+			'engine'=>'Движок',
+			'date'=>'Дата',
 		);
 	}
 
@@ -87,8 +84,6 @@ class Keyword extends CActiveRecord
 		$criteria->compare('company_id',$this->company_id,true);
 		$criteria->compare('keyword',$this->keyword,true);
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('search_engine',$this->search_engine,true);
-		$criteria->compare('status',$this->status,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

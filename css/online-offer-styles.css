@@ -95,6 +95,7 @@ a#logo{display:block; background: url(/img/logo.jpg) no-repeat; background-size:
 .town{width:49%;float:left;margin-top:25px;}
 .e{position: absolute; left: 38%; width: 8%;}
 .content{float:right;width:50%; color: #000;}
+#content{padding-bottom: 20px; margin-top: 150px}
 .content h1{text-transform:uppercase;font-size:16px;font-weight:bold; border-bottom:3px solid; text-align:center;}
 .content h2,{font-size: 16px; font-weight: bold; margin-top: 10px;}
 .content p, #content p {font-size:12px;margin-top:15px;line-height:15px;}
@@ -284,6 +285,7 @@ a#logo{ width: 277px; height: 72px; top: 9px;}
 .content h2{font-size: 16px; font-weight: bold; margin-top: 10px;}
 .content p, #content p, label.required{font-size:14px;margin-top:25px;line-height:20px;}
 .content li,.content li a,.content ul{font-size:14px; color:#000; line-height:20px;}
+#content{padding-bottom: 20px; margin-top: 190px}
 #content2 h1{ width: 130px;}
 #content3 h1{width: 173px;}
 #content4 h1{width: 216px;}
@@ -316,6 +318,8 @@ a#logo{ width: 277px; height: 72px; top: 9px;}
 #map{ margin: 20px 0 0 80px;}
 #contacts{width: 50%;}
 }
+
+
 @media screen and (min-width: 1850px) {
 .wrapper, .block {width:1750px; position: relative; left: 50%; margin-left: -875px; }
 .block{margin-top:50px;padding-bottom:80px;}
@@ -354,6 +358,7 @@ form#enter{margin-top: 7px}
 .content h2{font-size: 18px; font-weight: bold; margin-top: 10px;}
 .content p, #content p, label.required{font-size:16px;margin-top:25px;line-height:25px;}
 .content li,.content li a,.content ul{font-size:16px; color:#000; line-height:20px;}
+#content{padding-bottom: 20px; margin-top: 220px}
 #content2 h1{ width: 138px;}
 #content3 h1{width: 187px;}
 #content4 h1{width: 235px;}
@@ -397,7 +402,7 @@ label.required{font-weight: bold;}
 .row.buttons a p{display:inline-block;color:#000;text-decoration:underline;}
 .row.buttons p.required{display:inline-block; white-space: pre;}
 .row.buttons input[type="submit"]{border:none;position:absolute;bottom:0px;font-size:16px;padding:5px 15px;background:#1c9ccd;color:#fff;cursor:pointer;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;-ms-border-radius:2px;-o-border-radius:2px;right:6%;}
-#content{padding-bottom: 20px;}
+
 .errorSummary{ margin-left: 5%;}
 .errorSummary p{font-weight: bold; padding-bottom: 25px;}
 .errorSummary ul{margin-left:3%;font-weight: 100; line-height: 25px; margin-bottom: 35px;}
@@ -413,3 +418,5 @@ label.required{font-weight: bold;}
     padding: 5px 15px;
     right: 6%;
 }
+
+#wrapper_online{margin-bottom:40px;}

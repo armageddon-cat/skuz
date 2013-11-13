@@ -18,6 +18,9 @@ $this->menu=array(
 	'columns'=>array(
 		'company_id'=>array('name'=>'company_id','value'=>'$data->company->company_name',),
 		'keyword',
+		'id'=>array('name'=>'pos','value'=>'$data->keypos->keyword_position',),
+		'fuckingShit'=>array('name'=>'engine','value'=>'$data->keypos->engine',),
+		'OneMoreFuckingShit'=>array('name'=>'date','value'=>'$data->keypos->date',), /*sorry bro. I dont know how it works*/
 		/*'id',
 		'search_engine',
 		'status',*/

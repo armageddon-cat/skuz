@@ -1,7 +1,7 @@
 <?php
 /* @var $this CommOfferShortController */
 /* @var $dataProvider CActiveDataProvider */
-
+/*
 $this->breadcrumbs=array(
 	'Comm Offer Shorts',
 );
@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create CommOfferShort', 'url'=>array('create')),
 	array('label'=>'Manage CommOfferShort', 'url'=>array('admin')),
-);
+);*/
 ?>
 
-<h1>Comm Offer Shorts</h1>
+<h1>Короткие онлайн заявки</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

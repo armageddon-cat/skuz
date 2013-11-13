@@ -104,7 +104,9 @@ class ImportCsv extends CFormModel
             $csvString = $csvString.")";
 
             // insert $csvString to database
-            $csvString = iconv('windows-1251', 'utf-8', $csvString);
+            // $csvStringEnc = iconv_get_encoding($csvString);
+            //$csvString = iconv('ASCII', 'utf-8', $csvString);
+            //iconv_set_encoding($csvString, "UTF-8");
             $sql="INSERT INTO ".$table."(".$tableString.") VALUES ".$csvString."";
             $command=Yii::app()->db->createCommand($sql);
 

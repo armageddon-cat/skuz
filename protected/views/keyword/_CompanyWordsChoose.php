@@ -24,6 +24,28 @@
 		<?php echo $form->dropDownList($model,'company_id', SeoCompanies::all()); ?>
 		<?php echo $form->error($model,'company_id'); ?>
 	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'date'); ?>
+	
+		<?php 
+		$this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+		    'model'=>$model,
+		    'attribute'=>'date',
+		    'language' => 'ru',
+		    'options'=>array(
+		        'hourGrid' => 4,
+		        'hourMin' => 0,
+		        'hourMax' => 24,
+		        'dateFormat' => 'yy-mm-dd',
+		       /* 'timeFormat' => 'hh:mm',*/
+		        'changeMonth' => true,
+		        'changeYear' => false,
+		        ),
+		    ));  
+		?>
+		<?php echo $form->error($model,'date'); ?>
+	</div>
 <?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'keyword'); ?>

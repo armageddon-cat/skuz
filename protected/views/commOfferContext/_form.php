@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<div id="wrapper_online" class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'comm-offer-context-form',

@@ -143,8 +143,33 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "manager_id = ".Yii::app()->user->id." and call_status != 0 and call_status != 5";
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria));
+			$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('time',$model->time,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('phone_number',$model->phone_number,true);
+			$dataProvider->criteria->compare('company_address',$model->company_address,true);
+			$dataProvider->criteria->compare('email',$model->email,true);
+			$dataProvider->criteria->compare('contact_person',$model->contact_person,true);
+			$dataProvider->criteria->compare('business_type',$model->business_type,true);
+			$dataProvider->criteria->compare('service_type',$model->service_type,true);
+			$dataProvider->criteria->compare('contact_type',$model->contact_type,true);
+			$dataProvider->criteria->compare('caller_id',$model->caller_id,true);
+			$dataProvider->criteria->compare('site_address',$model->site_address,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('manager_id',$model->manager_id,true);
+			$dataProvider->criteria->compare('meeting_result',$model->meeting_result,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
+			$dataProvider->criteria->compare('contract',$model->contract,true);
+			
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+			'model'=>$model,
 		));
 	}
 	

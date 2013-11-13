@@ -28,7 +28,7 @@ class KeywordController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','keywordImport','ChooseCompany','CompanyKeywords'),
+				'actions'=>array('index','view','keywordImport','ChooseCompany','CompanyKeywords', 'KeywordPosition', 'ImportPositions'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -123,14 +123,24 @@ class KeywordController extends Controller
 		));
 	}
 
-	public function actionCompanyKeywords($id)
+	public function actionCompanyKeywords($id, $date)
 	{	
 		$criteria = new CDbCriteria();
 		//$id = $_POST['Keyword']['company_id'];
-        $criteria->condition = "company_id = ".$id."";
-		$dataProvider=new CActiveDataProvider('Keyword', array('criteria'=>$criteria));
+        $criteria->condition = 'keyword.company_id = "'.$id.'" and o_keyword_position.date = "'.$date.'"';
+        //$criteria->join = "join o_keyword_position";
+		$dataProvider=new CActiveDataProvider('Keyword', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),));
 
 		$this->render('CompanyKeywords',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+
+	public function actionKeywordPosition()
+	{
+		$this->render('KeywordPosition',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
@@ -175,6 +185,32 @@ class KeywordController extends Controller
 		));
 	}
 
+		public function actionImportPositions()
+	{	
+
+		// $file=file_get_contents('report.htm');
+
+		// require_once 'simple_html_dom.php';
+
+
+		// $html= str_get_html($file); 
+		// $stack = $html->find('table tr');
+
+
+		// foreach($stack as $element) {
+		// 	$cur_keyword = $element->find('td', 0)->plaintext;
+		// 	$cur_pos = $element->find('td', 1)->plaintext;
+		// 	Yii::app()->db->createCommand("select id from keyword where keyword = ".$cur_keyword."")->queryAll();
+		// 	Yii::app()->db->createCommand("INSERT INTO keyword_position(`date`, `keyword_id`, `keyword_position`) VALUES (".date('Y-m-d').", ".$sql.", ".$cur_pos.")")->execute();
+
+  //   	}
+
+
+
+		$this->render('ImportPositions',array(
+			'model'=>$model,
+		));
+	}
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<div id="wrapper_online" class="form">
 <form id="commersial-offer-form" action="/commersialOffer/create" method="post">
 
 	<div class="row buttons">

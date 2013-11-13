@@ -28,7 +28,7 @@ class CommersialOfferController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','create','view','ViewSkyz', 'TestExport'),
+				'actions'=>array('index','create','view','ViewSkyz', 'TestExport', 'ChooseOfferType'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -180,6 +180,14 @@ class CommersialOfferController extends Controller
 			$model->attributes=$_GET['CommersialOffer'];
 
 		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+
+	public function actionChooseOfferType()
+	{	$this->layout='//layouts/column1';
+
+		$this->render('chooseOfferType',array(
 			'model'=>$model,
 		));
 	}

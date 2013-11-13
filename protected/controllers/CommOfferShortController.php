@@ -121,8 +121,11 @@ class CommOfferShortController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('CommOfferShort');
+	{	$this->layout='//layouts/column1';
+		$criteria = new CDbCriteria();
+        $criteria->order = 'date DESC';
+
+		$dataProvider=new CActiveDataProvider('CommOfferShort', array('criteria'=>$criteria));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
