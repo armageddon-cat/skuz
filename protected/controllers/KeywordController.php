@@ -115,7 +115,8 @@ class KeywordController extends Controller
 		if(isset($_POST['Keyword']))
 		{
 			$CompanyId=$_POST['Keyword']['company_id'];
-			$this->redirect(array('CompanyKeywords','id'=>$CompanyId));
+			$date=$_POST['Keyword']['date'];
+			$this->redirect(array('CompanyKeywords','id'=>$CompanyId,'date'=>$date));
 		}
 
 		$this->render('ChooseCompany',array(
@@ -123,19 +124,31 @@ class KeywordController extends Controller
 		));
 	}
 
-	public function actionCompanyKeywords($id, $date)
+	public function actionCompanyKeywords($id=NULL, $date)
 	{	
 		$criteria = new CDbCriteria();
+		if ($id==NULL) {
+			$result = Yii::app()->db->createCommand('select company from o_user WHERE id="'.Yii::app()->user->id.'"')->queryAll();
+ 			$id = $result[0]['company'];
+		}
 		//$id = $_POST['Keyword']['company_id'];
-        $criteria->condition = 'keyword.company_id = "'.$id.'" and o_keyword_position.date = "'.$date.'"';
-        //$criteria->join = "join o_keyword_position";
+        $criteria->condition = '`company_id` = "'.$id.'" group by keyword';
+        //$criteria->group = '`keyword`';
+        $criteria->join = 'left JOIN `o_keyword_position` ON `o_keyword_position`.`date` = "'.$date.'"';
+
 		$dataProvider=new CActiveDataProvider('Keyword', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),));
-
-		$this->render('CompanyKeywords',array(
+		if (!Yii::app()->user->role==7) {
+			$this->render('CompanyKeywords',array(
 			'dataProvider'=>$dataProvider,
 		));
+		} else {
+			$this->render('CompanyKeywordsClient',array(
+			'dataProvider'=>$dataProvider,
+			));
+		}
+
 	}
 
 	public function actionKeywordPosition()

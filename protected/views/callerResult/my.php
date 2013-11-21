@@ -1,4 +1,40 @@
-<h1>Диспетчера за сегодня</h1>
+<?php
+Yii::app()->clientScript->registerScriptFile('/js/datepicker.js');
+?>
+<h1>Диспетчера за <?php 
+	if (isset($_POST['CallerResult']['date'])) {
+		echo $_POST['CallerResult']['date'];
+	} else { ?>
+сегодня
+	<?php } ?>
+</h1>
+<p><b>Выбор даты</b></p>
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'caller-result-form',
+	'enableAjaxValidation'=>false,
+	'method'=>'post',
+)); ?>
+		<?php 
+$this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+    'model'=>$notmodel,
+    'attribute'=>'date',
+    'language' => 'ru',
+    'options'=>array(
+        'dateFormat' => 'yy-mm-dd',
+        'changeMonth' => true,
+        'changeYear' => true,
+        'timeFormat' => '',
+        ),
+    ));  
+?>
+
+<div class="row buttons">
+		<?php echo CHtml::submitButton('Поехали'); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
+<a href="/callerResult/my">Сброс</a>
+
 <table border="1" class="my_table">
 <tr><td><b>Имя/Тип</b></td><td><b>Количество</b></td></tr>
 	<?php
@@ -24,7 +60,7 @@
 			$cl = "odd";
 		} else { $cl = "even"; }
 		$res = $model[$i][0]['count(`status_res_id`)'] + $model[$i][1]['count(`status_res_id`)'] + $model[$i][2]['count(`status_res_id`)'] + $model[$i][3]['count(`status_res_id`)'] + $model[$i][4]['count(`status_res_id`)'] + $model[$i][5]['count(`status_res_id`)'] + $model[$i][6]['count(`status_res_id`)'] + $model[$i][7]['count(`status_res_id`)'];
-		echo "<tr class=".$cl."><td><b><h4>Диспетчер $k</h4></b></td><td><b>".$res."</b></td></tr>";
+		echo "<tr class=".$cl."><td><b>Диспетчер $k</b></td><td><b>".$res."</b></td></tr>";
 		echo "<tr class=".$cl."><td>0 - Недозвон</td><td>".$model[$i][0]['count(`status_res_id`)']."</td></tr>";
 		echo "<tr class=".$cl."><td>1 - Отправлено коммер. предложение</td><td>".$model[$i][1]['count(`status_res_id`)']."</td></tr>";
 		echo "<tr class=".$cl."><td>2 - Назначена встреча</td><td>".$model[$i][2]['count(`status_res_id`)']."</td></tr>";

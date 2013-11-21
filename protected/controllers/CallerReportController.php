@@ -28,11 +28,11 @@ class CallerReportController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'TimeTable','new', 'CallerTimeTable', 'callerTimeTableArchive', 'Meetings', 'CallerMeetings'),
+				'actions'=>array('index','view', 'TimeTable','new', 'CallerTimeTable', 'callerTimeTableArchive', 'Meetings', 'CallerMeetings', 'RpMeetings', 'RpMeetingsProcessing', 'CallerCommProposals', 'TestExport'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update', 'MyReport', 'View2', 'ManagerMeetings'),
+				'actions'=>array('admin','create','update', 'MyReport', 'View2', 'ManagerMeetings', 'CallerMeetingsArchive', 'RpMeetingsArchive'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -50,10 +50,12 @@ class CallerReportController extends Controller
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
-	{
+	{	$this->layout='application.views.layouts.column2';			
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+
+
 	}
 	
 	public function actionView2($id)
@@ -80,6 +82,14 @@ class CallerReportController extends Controller
 			$model->time=date('Y-m-d H:i:s');
 			$model->caller_id=Yii::app()->user->id;
 			$model->call_status=$_GET['st'];
+
+			$res = NULL;
+			for ($i=0; $i<6; $i++) {
+			    $d=rand(1,30)%2; 
+			    $res .= $d ? chr(rand(65,90)) : chr(rand(48,57)); 
+			}
+			$model->order_code = $res;
+
 			if($model->save()){
 				if($_POST['to_database']){
 				$insert_id=$model->getPrimaryKey();
@@ -220,6 +230,54 @@ class CallerReportController extends Controller
 		));*/
 	}
 	
+
+		public function actionRpMeetings()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=2 and meeting_result is null";
+       // $criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
+
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionRpMeetingsProcessing()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=2 and meeting_result = 0";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
+
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpMeetingsProcessing',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+		public function actionRpMeetingsArchive()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=2 and meeting_result != 0";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
+
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpMeetingsArchive',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
 	
 	
 	public function actionNew()
@@ -243,7 +301,7 @@ class CallerReportController extends Controller
 		
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=2";
-        $criteria->order = 'next_call ASC';
+        //$criteria->order = 'next_call ASC';
         $criteria->select = 'id, next_call, company, call_status, caller_id, manager_id, meeting_result';
 
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
@@ -262,7 +320,7 @@ class CallerReportController extends Controller
 		
 		$criteria = new CDbCriteria();
         $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and call_status=2 and caller_id = ".Yii::app()->user->id."";
-        $criteria->order = 'next_call ASC';
+        //$criteria->order = 'next_call ASC';
         $criteria->select = 'id, next_call, company, call_status';
 
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
@@ -270,6 +328,38 @@ class CallerReportController extends Controller
                         ),
 		));
 		$this->render('CallerMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionCallerMeetingsArchive()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) >= next_call and call_status=2 and caller_id = ".Yii::app()->user->id."";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status';
+
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('CallerMeetingsArchive',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionCallerCommProposals()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=1 and caller_id = ".Yii::app()->user->id."";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('CallerCommProposals',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 	
 	public function actionTimeTable()
@@ -280,7 +370,7 @@ class CallerReportController extends Controller
 		
 		$criteria = new CDbCriteria();
         $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call";
-        $criteria->order = 'next_call ASC';
+        //$criteria->order = 'next_call ASC';
         $criteria->select = 'id, next_call, company, call_status';
 
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
@@ -297,7 +387,7 @@ class CallerReportController extends Controller
 		
 		$criteria = new CDbCriteria();
         $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and caller_id = ".Yii::app()->user->id."";
-        $criteria->order = 'next_call ASC';
+       // $criteria->order = 'next_call ASC';
         $criteria->select = 'id, next_call, company, call_status';
        // $criteria->select = array('id', 'next_call', 'company', 'call_status');
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
@@ -313,7 +403,7 @@ class CallerReportController extends Controller
 		
 		$criteria = new CDbCriteria();
         $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) >= next_call and caller_id = ".Yii::app()->user->id."";
-        $criteria->order = 'next_call DESC';
+        //$criteria->order = 'next_call DESC';
         $criteria->select = 'id, next_call, company, call_status';
        // $criteria->select = array('id', 'next_call', 'company', 'call_status');
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
@@ -325,13 +415,28 @@ class CallerReportController extends Controller
 	/**
 	 * Manages all models.
 	 */
+		public function actionTestExport($id=NULL)
+	{ 	
+		if(isset($id))
+	    	$model = CallerReport::model()->findAllByPk($id);
+	    else
+	    	$model = CallerReport::model()->findAll();
+ 
+	    // Export it
+	    $this->toExcel($model);
+	}
+
+
 	public function behaviors() {
     return array(
         'exportableGrid' => array(
             'class' => 'application.components.ExportableGridBehavior',
             'filename' => 'PostsWithUsers.csv',
             'csvDelimiter' => ';', //i.e. Excel friendly csv delimiter
-            )
+            ),
+       	 'eexcelview'=>array(
+	                'class'=>'ext.eexcelview.EExcelBehavior',
+	            ),
 
         );
 	} 

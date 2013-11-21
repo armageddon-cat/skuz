@@ -22,6 +22,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 	'id',
+	'order_code',
 		'time',
 		'company',
 		'phone_number',
@@ -57,5 +58,24 @@ $this->menu=array(
 		'contract'=>array(
 			'name'=>'contract',
 			'value'=>$model->Contract->contract_status,),
+		'manager_comment',
 	),
 )); ?>
+<script>
+	window.onload = function() {
+		$( "button" ).click(function() {
+			$( "#show_hide_comment" ).toggle("slow");
+		});
+	};
+</script>
+<br><br><button>Показать/скрыть комменты</button>
+<div id="show_hide_comment">
+<?php
+Yii::import('application.controllers.OrdersHistoryController');
+
+$controller = new OrdersHistoryController;
+
+$controller->actionIndex($model->id);
+$controller->actionCreate($model->id);
+?>
+</div>

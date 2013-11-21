@@ -28,12 +28,16 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','password', 'update', 'delete'),
+				'actions'=>array('index','password', 'update', 'delete'),
 				'roles'=>array('5'),
 			),
-					array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('online'),
 				'users'=>array('*'),
+			),
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('view','create'),
+				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -132,6 +136,26 @@ class UserController extends Controller
 			$model->attributes=$_GET['User'];
 
 		$this->render('index',array(
+			'model'=>$model,
+		));
+	}
+
+	public function actionCreate()
+	{
+		$model=new User;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['User']))
+		{
+			$model->attributes=$_POST['User'];
+			$model->role=7;
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('create',array(
 			'model'=>$model,
 		));
 	}

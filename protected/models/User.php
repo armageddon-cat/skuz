@@ -30,8 +30,9 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('login, password, realname, surname, email', 'required'),
+			array('login, password, realname, surname, email, company', 'required'),
 			array('email', 'email'),
+			array('company', 'safe'),
 			array('role', 'numerical', 'integerOnly'=>true),
 			array('login, realname, surname', 'length', 'max'=>20),
 			array('password', 'length', 'max'=>255),
@@ -51,6 +52,7 @@ class User extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'rolename'=>array(self::BELONGS_TO, 'Roles', 'role'),
+			'companyName'=>array(self::BELONGS_TO, 'SeoCompanies', 'company'),
 		);
 	}
 
@@ -68,7 +70,8 @@ class User extends CActiveRecord
 			'surname'=>'Фамилия',
 			'email' => 'E-mail',
 			'ban'=>'Доступ',
-			'last_move'=>'Последняя активность'
+			'last_move'=>'Последняя активность',
+			'company'=>'Компания'
 		);
 	}
 

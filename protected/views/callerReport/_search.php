@@ -18,12 +18,42 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'time'); ?>
-		<?php echo $form->textField($model,'time'); ?>
+		<?php 
+$this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+    'model'=>$model,
+    'attribute'=>'time',
+    'language' => 'ru',
+    'options'=>array(
+        'hourGrid' => 4,
+        'hourMin' => 0,
+        'hourMax' => 24,
+        'dateFormat' => 'yy-mm-dd',
+        'timeFormat' => 'hh:mm',
+        'changeMonth' => true,
+        'changeYear' => false,
+        ),
+    ));  
+?>
 	</div>
 	
 	<div class="row">
 		<?php echo $form->label($model,'next_call'); ?>
-		<?php echo $form->textField($model,'next_call'); ?>
+		<?php 
+$this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+    'model'=>$model,
+    'attribute'=>'next_call',
+    'language' => 'ru',
+    'options'=>array(
+        'hourGrid' => 4,
+        'hourMin' => 0,
+        'hourMax' => 24,
+        'dateFormat' => 'yy-mm-dd',
+        'timeFormat' => 'hh:mm',
+        'changeMonth' => true,
+        'changeYear' => false,
+        ),
+    ));  
+?>
 	</div>
 <?php /*	
 	<br>

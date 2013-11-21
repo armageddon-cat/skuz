@@ -148,15 +148,26 @@ class CallerResultController extends Controller
 	}
 	
 	public function actionMy() {
-	/* $model[6][0] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= 6 and `date` = \'2013-10-23\' and `status_res_id` = 0')->queryRow(); */
+		$notmodel=new CallerResult;
+		if(isset($_POST['CallerResult']['date'])) {
+			$date = $_POST['CallerResult']['date'];
+			$date = trim($date);
+			for($i=6;$i<10;$i++){
+					for($j=0;$j<10;$j++){
+						$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.$i.' and SUBSTR(date, 1, 10)="'.$date.'" and `status_res_id` = '.$j.'')->queryRow();
+					}
+				}
+				$this->render('my',array('model'=>$model, 'notmodel'=>$notmodel));
+		} else {
 				for($i=6;$i<10;$i++){
 					for($j=0;$j<10;$j++){
 						$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.$i.' and SUBSTR(date, 1, 10)="'.date('Y-m-d').'" and `status_res_id` = '.$j.'')->queryRow();
 					}
 				}
-				$this->render('my',array('model'=>$model));
+				$this->render('my',array('model'=>$model, 'notmodel'=>$notmodel));
+		}
 	}
-		public function actionYesterdayFull() {
+	public function actionYesterdayFull() {
 				for($i=6;$i<10;$i++){
 					for($j=0;$j<10;$j++){
 						$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.$i.' and `date` BETWEEN (NOW()-INTERVAL 48 HOUR) AND (NOW() - INTERVAL 24 HOUR) and `status_res_id` = '.$j.'')->queryRow();
@@ -165,7 +176,7 @@ class CallerResultController extends Controller
 				$this->render('YesterdayFull',array('model'=>$model));
 	}
 
-		public function actionWeekFull() {
+	public function actionWeekFull() {
 				for($i=6;$i<10;$i++){
 					for($j=0;$j<10;$j++){
 						$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.$i.' and date >= DATE_SUB(CURRENT_DATE, INTERVAL 7 DAY) and `status_res_id` = '.$j.'')->queryRow();
@@ -174,7 +185,7 @@ class CallerResultController extends Controller
 				$this->render('WeekFull',array('model'=>$model));
 	}
 
-		public function actionMonthFull() {
+	public function actionMonthFull() {
 				for($i=6;$i<10;$i++){
 					for($j=0;$j<10;$j++){
 						$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.$i.' and date >= DATE_SUB(CURRENT_DATE, INTERVAL 30 DAY) and `status_res_id` = '.$j.'')->queryRow();
@@ -183,7 +194,7 @@ class CallerResultController extends Controller
 				$this->render('MonthFull',array('model'=>$model));
 	}
 
-		public function actionQuarterFull() {
+	public function actionQuarterFull() {
 				for($i=6;$i<10;$i++){
 					for($j=0;$j<10;$j++){
 						$model[$i][$j] = Yii::app()->db->createCommand('SELECT count(`status_res_id`) FROM `o_caller_result` WHERE `caller_res_id`= '.$i.' and date >= DATE_SUB(CURRENT_DATE, INTERVAL 90 DAY) and `status_res_id` = '.$j.'')->queryRow();

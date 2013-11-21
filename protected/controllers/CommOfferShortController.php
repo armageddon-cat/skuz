@@ -67,10 +67,45 @@ class CommOfferShortController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
+		// $type = isset($_GET['type']) ? $_GET['type'] : 'post';
+
 		if(isset($_POST['CommOfferShort']))
 		{
 			$model->attributes=$_POST['CommOfferShort'];
+			$model->product_type = implode(",", $_POST["CommOfferShort"]['product_type']);
+
+
+// $photos = CUploadedFile::getInstancesByName('file');
+ 
+//             // proceed if the images have been set
+//             if (isset($photos) && count($photos) > 0) {
+ 
+//                 // go through each uploaded image
+//                 foreach ($photos as $image => $pic) {
+//                     echo $pic->name.'<br />';
+//                     if ($pic->saveAs(Yii::getPathOfAlias('webroot').'/upload/temp/'.$pic->name)) {
+//                         // add it to the main model now
+//                         $img_add = new Photo();
+//                         $img_add->filename = $pic->name; //it might be $img_add->name for you, filename is just what I chose to call it in my model
+//                         $img_add->topic_id = $model->id; // this links your picture model to the main model (like your user, or profile model)
+ 
+//                         $img_add->save(); // DONE
+//                     }
+//                     else{
+//                         echo 'Cannot upload!';
+//                     }
+//                 }
+//             }
+
+
+
+
+
+
 			if($model->save())
+				 	mail('info@dr-intellectus.com', 'Заполненая онлайн-заявка Dr.Intellectus', 
+         			"Пришла новая заявка\n Просмотр заявок по ссылке\n http://test.dr-intellectus.ru/commersialOffer/index", "Content-type: text/plain; charset=utf-8");
+		
 				$this->redirect(array('view','id'=>$model->id));
 		}
 

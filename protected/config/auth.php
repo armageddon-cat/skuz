@@ -62,4 +62,13 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
+    '7' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'Client',
+        'children' => array(
+            'guest',         // позволим админу всё, что позволено модератору
+        ),
+        'bizRule' => null,
+        'data' => null
+    ),
 );

@@ -9,20 +9,24 @@
 	<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
     <meta name="viewport" content="width=1000, initial-scale=1">
 	<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/online-offer-styles.css" rel="stylesheet">
-    <!-- <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/online-offer-screen.css" rel="stylesheet"> -->
+    <!-- <link href="<?php //echo Yii::app()->request->baseUrl; ?>/css/online-offer-screen.css" rel="stylesheet"> -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/lightbox.css" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/js/scripts.js"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>js/js/lightbox-2.6.min.js"></script>
+    <!-- <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/js/scripts.js"></script>-->
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/js/lightbox-2.6.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/js/scripts_other.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/js/jquery.fancyform.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/js/checkbox.js"></script>
     <!--[if lt IE 9]>
         <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
     <![endif]-->
     
 </head>
 <body>
+    <div id="stripe_right"></div>
     <div id="header"> 
         <div id="top">
-        <div class="wrapper" >
+        <div class="wrapper">
             <div id="select">
                 <p>Сменить дизайн</p>
                     <a href="#" id="selector1" class="current">
@@ -38,10 +42,10 @@
                <a href="#" id="back_call">
                     <p>Обратный звонок</p>
                 </a>
-              <a href="http://test.dr-intellectus.ru/commOfferShort/create" id="request_top">
+                <a href="http://test.dr-intellectus.ru/commOfferShort/create" id="request_top">
                     <p>Online заявка</p>
                 </a>
-             <? /*      <a id="cabinet" href="#">Личный кабинет</a> */ ?>
+                <a href="#" id="cabinet"><p>Личный кабинет</p></a> 
         </div>
         </div>
         <div id="headerbox" class="wrapper">
@@ -52,9 +56,20 @@
                 <input type="submit" class="button" value="" />
             </form>
         </div>
-            <a id="logo" href="http://dr-intellectus.com/" ></a>    
+        <div id="enter_cabinet">
+            <p><b>Вход в личный кабинет</b></p>
+            <p></p>
+            <form id="enter_to_cab" method="post" action="http://test.dr-intellectus.ru/site/login">
+                <p>Логин</p>
+                <input type="text" name="LoginForm[username]" class="number" />
+                <p>Пароль</p>
+                <input type="password" name="LoginForm[password]" class="number" />
+                <input type="submit" class="button" name="yt0" value="Войти" />
+            </form>
+        </div>
+            <a id="logo" href="http://dr-intellectus.com/"></a>    
             <ul id="nav">
-                <li id="navbl1"><a href="http://dr-intellectus.com/">Главная</a></li>
+                <li id="navbl1" class="curr"><a href="http://dr-intellectus.com/">Главная</a></li>
                 <li id="navbl2"><a href="http://dr-intellectus.com/#block2" >О компании</a></li>
                 <li><a>Услуги</a>
                     <ul id="uslugi">
@@ -71,7 +86,7 @@
                 <li id="navbl11"><a href="http://dr-intellectus.com/#block11" >Портфолио</a></li>
                 <li id="navbl12"><a href="http://dr-intellectus.com/#block12" >Новости</a></li>
                 <li id="navbl13"><a href="http://dr-intellectus.com/#block13" >Контакты</a></li>
-                <li><a href="http://dr-intellectus.com/vacancy.php">Вакансии</a></li>
+                <li><a href="/vacancy.php">Вакансии</a></li>
             </ul>
             <form>
                 <div class="search">
@@ -83,7 +98,7 @@
         <a href="#" onclick="return false" id="navbl1" class="up"></a>
     </div>
 <div class="wrapper" >
-<!-- <a href="http://dr-intellectus.com/" id="logo_online"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_online.png"></a>
+<!-- <a href="http://dr-intellectus.com/" id="logo_online"><img src="<?php //echo Yii::app()->request->baseUrl; ?>/images/logo_online.png"></a>
  -->
 	<?php echo $content; ?>
 

@@ -13,6 +13,6 @@ $this->menu=array(
 );*/
 ?>
 
-<h1>Выбор ключевых слов</h1>
+<h1>Просмотр ключевых слов</h1>
 
 <?php $this->renderPartial('_CompanyWordsChoose', array('model'=>$model)); ?>

@@ -30,6 +30,7 @@ class CallerResult extends CActiveRecord
 		return array(
 			array('status_res_id', 'required'),
 			array('caller_res_id, status_res_id', 'numerical', 'integerOnly'=>true),
+			array('date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, caller_res_id, date, status_res_id', 'safe', 'on'=>'search'),

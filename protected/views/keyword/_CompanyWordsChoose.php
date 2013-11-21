@@ -3,7 +3,9 @@
 /* @var $model Keyword */
 /* @var $form CActiveForm */
 ?>
-
+<?php
+Yii::app()->clientScript->registerScriptFile('/js/datepicker.js');
+?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -15,35 +17,36 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Выбор компании.</p>
+
 
 	<?php echo $form->errorSummary($model); ?>
-
+<?php if(Yii::app()->user->role==7) {} else { ?>
+		<p class="note">Выбор компании.</p>
 	<div class="row">
 		<?php echo $form->labelEx($model,'company_id'); ?>
 		<?php echo $form->dropDownList($model,'company_id', SeoCompanies::all()); ?>
 		<?php echo $form->error($model,'company_id'); ?>
 	</div>
-
+<?php } ?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'date'); ?>
-	
-		<?php 
+		<?php echo $form->textField($model,'date',array('size'=>60,'maxlength'=>60,'placeholder'=>'Введите дату в формате гггг-мм-дд. Например 2013-11-12')); ?>
+		<?php /*
 		$this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
 		    'model'=>$model,
-		    'attribute'=>'date',
+		    'attribute'=>$model->date->date,
 		    'language' => 'ru',
 		    'options'=>array(
 		        'hourGrid' => 4,
 		        'hourMin' => 0,
 		        'hourMax' => 24,
 		        'dateFormat' => 'yy-mm-dd',
-		       /* 'timeFormat' => 'hh:mm',*/
+		      'timeFormat' => 'hh:mm',
 		        'changeMonth' => true,
 		        'changeYear' => false,
 		        ),
 		    ));  
-		?>
+		*/?>
 		<?php echo $form->error($model,'date'); ?>
 	</div>
 <?php /*

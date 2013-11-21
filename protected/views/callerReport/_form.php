@@ -59,7 +59,7 @@ Yii::app()->clientScript->registerScriptFile('/js/datepicker.js');
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>40,'maxlength'=>40)); ?>
+		<?php echo $form->textField($model,'email',array('size'=>40,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 <?php /*
@@ -76,7 +76,13 @@ Yii::app()->clientScript->registerScriptFile('/js/datepicker.js');
 	</div>
 	
 	<div class="row">
-		<?php echo $form->labelEx($model,'next_call'); ?>
+		<?php  
+			if ($_GET['st']==2) {
+				echo $form->labelEx($model,'meeting_date'); 
+			} else {
+				echo $form->labelEx($model,'next_call'); 
+			}
+		?>
 		<?php //echo $form->textField($model,'next_call', array('id'=>'next_call')); ?>
 		<?php	/*$form->widget('zii.widgets.jui.CJuiDatePicker',array(
     'name'=>'CallerReport[next_call]',
@@ -140,12 +146,18 @@ $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
 		<?php echo $form->labelEx($model,'manager_id'); ?>
 		<?php echo $form->dropDownList($model,'manager_id',
 			array( 
-			10=>'Менеджер1',
+			10=>'Ольга Рошмакова',
 			11=>'Менеджер2',
 			12=>'Менеджер3',
 			13=>'Менеджер4',
 			14=>'Менеджер5')); ?>
 		<?php echo $form->error($model,'manager_id'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'importancy'); ?>
+		<?php echo $form->dropDownList($model, 'importancy', Importancy::all()); ?>
+		<?php echo $form->error($model,'importancy'); ?>
 	</div>
 	
 <?php 

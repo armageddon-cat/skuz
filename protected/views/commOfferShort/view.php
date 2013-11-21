@@ -32,6 +32,7 @@ $this->menu=array(
 		'phone',
 		'email',
 		'product_type',
+		'comment',
 	),
 )); ?>
 <div class="row buttons back-to-site">

@@ -70,6 +70,16 @@ class ProjectManagerReportController extends Controller
 		if(isset($_POST['ProjectManagerReport']))
 		{
 			$model->attributes=$_POST['ProjectManagerReport'];
+			$model->time=date('Y-m-d H:i:s');
+			$model->caller_id=Yii::app()->user->id;
+
+			$res = NULL;
+			for ($i=0; $i<6; $i++) {
+			    $d=rand(1,30)%2; 
+			    $res .= $d ? chr(rand(65,90)) : chr(rand(48,57)); 
+			}
+			$model->order_code = $res;
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

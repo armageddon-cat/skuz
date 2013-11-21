@@ -114,6 +114,7 @@ function anim2(){
 	});
 
 
+	
 
 	navRefresh();
 
@@ -130,6 +131,11 @@ function(){
 function(){
 	$(".color",$(this)).fadeOut();
 });
+
+     var scene = document.getElementById('liftbox');
+	 var parallax = new Parallax(scene);
+
+    
 });
  
 

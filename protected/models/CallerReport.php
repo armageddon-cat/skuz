@@ -40,8 +40,8 @@ class CallerReport extends CActiveRecord
 			array('company, next_call, comm_proposal, manager_id', 'length', 'max'=>50),
 			array('phone_number, service_type, contact_type, caller_id, call_status', 'length', 'max'=>50),
 			array('company_address, site_address, business_type', 'length', 'max'=>255),
-			array('comment', 'safe'),
-			array('email', 'length', 'max'=>40),
+			array('comment, importancy, order_code', 'safe'),
+			array('email', 'length', 'max'=>255),
 			array('contact_person', 'length', 'max'=>30),
 			
 			// The following rule is used by search().
@@ -66,6 +66,8 @@ class CallerReport extends CActiveRecord
 			'StatusOfCall'=>array(self::BELONGS_TO, 'CallStatus', 'call_status'),
 			'CommProposal'=>array(self::BELONGS_TO, 'CommProposal', 'comm_proposal'),
 			'Contract'=>array(self::BELONGS_TO, 'Contract', 'contract'),
+			'Importancy'=>array(self::BELONGS_TO, 'Importancy', 'importancy'),
+
 		);
 	}
 
@@ -93,7 +95,10 @@ class CallerReport extends CActiveRecord
 			'meeting_result' => 'Результат встречи',
 			'site_address' => 'Адрес сайта',
 			'comm_proposal' => 'Коммерческое предложение',
-						'contract' => 'Подписан ли договор?',
+			'contract' => 'Подписан ли договор?',
+			'importancy' => 'Приоритет',
+			'meeting_date' => 'Дата встречи',
+			'order_code'=>'Код заказа',
 		);
 	}
 

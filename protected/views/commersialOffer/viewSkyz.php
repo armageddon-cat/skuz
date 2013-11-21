@@ -2,10 +2,10 @@
 /* @var $this CommersialOfferController */
 /* @var $model CommersialOffer */
 
-$this->breadcrumbs=array(
-	'Commersial Offers'=>array('index'),
-	$model->id,
-);
+// $this->breadcrumbs=array(
+// 	'Commersial Offers'=>array('index'),
+// 	$model->id,
+// );
 
 $this->menu=array(
 	array('label'=>'List CommersialOffer', 'url'=>array('index')),

@@ -13,6 +13,9 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions' => array(
+        'enctype' => 'multipart/form-data'
+    )
 )); ?>
 
 <!--	<p class="note">Fields with <span class="required">*</span> are required.</p>-->
@@ -69,8 +72,43 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'next_call'); ?>
-		<?php echo $form->textField($model,'next_call'); ?>
+		<?php 
+$this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+    'model'=>$model,
+    'attribute'=>'next_call',
+    'language' => 'ru',
+    'options'=>array(
+        'hourGrid' => 4,
+        'hourMin' => 0,
+        'hourMax' => 24,
+        'dateFormat' => 'yy-mm-dd',
+        'timeFormat' => 'hh:mm',
+        'changeMonth' => true,
+        'changeYear' => false,
+        ),
+    ));  
+?>
 		<?php echo $form->error($model,'next_call'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'next_meeting_date'); ?>
+		<?php 
+$this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+    'model'=>$model,
+    'attribute'=>'next_meeting_date',
+    'language' => 'ru',
+    'options'=>array(
+        'hourGrid' => 4,
+        'hourMin' => 0,
+        'hourMax' => 24,
+        'dateFormat' => 'yy-mm-dd',
+        'timeFormat' => 'hh:mm',
+        'changeMonth' => true,
+        'changeYear' => false,
+        ),
+    ));  
+?>
+		<?php echo $form->error($model,'next_meeting_date'); ?>
 	</div>
 
 	<div class="row">
@@ -115,9 +153,23 @@
 		<?php echo $form->error($model,'contract'); ?>
 	</div>
 	
+	<div class="row">
+		<?php echo $form->labelEx($model,'manager_comment'); ?>
+		<?php echo $form->textArea($model, 'manager_comment',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'manager_comment'); ?>
+	</div>
+
+	<?php if (Yii::app()->user->role==3){ ?>
+		<div class="row">
+			<?php echo $form->labelEx($model,'seo_audit_done'); ?>
+			<?php echo $form->dropDownList($model, 'seo_audit_done', SeoAuditDone::all()); ?>
+			<?php echo $form->error($model,'seo_audit_done'); ?>
+		</div>
+		<?php echo CHtml::activeFileField($model, 'seo_file'); ?>
+	<?php } ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

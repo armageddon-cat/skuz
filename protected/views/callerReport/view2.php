@@ -23,6 +23,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+		'order_code',
 		'time',
 		'company',
 		'phone_number',
@@ -52,5 +53,8 @@ $this->menu=array(
 		'comm_proposal'=>array(
 			'name'=>'comm_proposal',
 			'value'=>$model->CommProposal->res,),
+		'importancy'=>array(
+			'name'=>'importancy',
+			'value'=>$model->Importancy->importancy,),
 	),
 )); ?>

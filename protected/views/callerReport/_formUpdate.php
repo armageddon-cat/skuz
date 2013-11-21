@@ -18,15 +18,28 @@ Yii::app()->clientScript->registerScriptFile('/js/datepicker.js');
 )); ?>
 
 	<p class="note">Поля отмеченные <span class="required">*</span> обязательны.</p>
-
 	<?php echo $form->errorSummary($model); ?>
-<?php  /*
+<?php  if($model->call_status==6) { ?>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'time'); ?>
-		<?php echo $form->textField($model,'time',array('size'=>50,'maxlength'=>50)); ?>
+		<?php $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+    'model'=>$model,
+    'attribute'=>'time',
+    'language' => 'ru',
+    'options'=>array(
+        'hourGrid' => 4,
+        'hourMin' => 0,
+        'hourMax' => 24,
+        'dateFormat' => 'yy-mm-dd',
+        'timeFormat' => 'hh:mm',
+        'changeMonth' => true,
+        'changeYear' => false,
+        ),
+    ));  ?>
 		<?php echo $form->error($model,'time'); ?>
 	</div>
-	*/ ?>
+<?php } ?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'company'); ?>
 		<?php echo $form->textField($model,'company',array('size'=>50,'maxlength'=>50)); ?>
@@ -140,12 +153,18 @@ $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
 		<?php echo $form->labelEx($model,'manager_id'); ?>
 		<?php echo $form->dropDownList($model,'manager_id',
 			array( 
-			10=>'Менеджер1',
+			10=>'Ольга Рошмакова',
 			11=>'Менеджер2',
 			12=>'Менеджер3',
 			13=>'Менеджер4',
 			14=>'Менеджер5')); ?>
 		<?php echo $form->error($model,'manager_id'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'importancy'); ?>
+		<?php echo $form->dropDownList($model, 'importancy', Importancy::all()); ?>
+		<?php echo $form->error($model,'importancy'); ?>
 	</div>
 	
 <?php 

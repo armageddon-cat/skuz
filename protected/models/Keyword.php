@@ -45,6 +45,7 @@ class Keyword extends CActiveRecord
 		return array(
 			'company'=>array(self::BELONGS_TO, 'SeoCompanies', 'company_id'),
 			'keypos'=>array(self::BELONGS_TO, 'KeywordPosition', 'id'),
+			'date'=>array(self::BELONGS_TO, 'KeywordPosition', 'id'),
 		);
 	}
 

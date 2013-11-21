@@ -14,5 +14,5 @@ $this->menu=array(
 ?>
 
 <h1>Создание новой заявки</h1>
-
+<div id="online_pic"></div>
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

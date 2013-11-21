@@ -43,6 +43,7 @@ class CallerManagerReport extends CActiveRecord
 			array('phone_number, service_type, contact_type, caller_id', 'length', 'max'=>50),
 			array('time, site_address, company_address, email, contact_person, next_call, comment, call_status', 'length', 'max'=>255),
 			array('email', 'length', 'max'=>40),
+			array('importancy, manager_comment, next_meeting_date, seo_audit_done, seo_file', 'safe'),
 			array('contact_person', 'length', 'max'=>30),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -66,6 +67,8 @@ class CallerManagerReport extends CActiveRecord
 			'StatusOfCall'=>array(self::BELONGS_TO, 'CallStatus', 'call_status'),
 			'CommProposal'=>array(self::BELONGS_TO, 'CommProposal', 'comm_proposal'),
 			'Contract'=>array(self::BELONGS_TO, 'Contract', 'contract'),
+			'Importancy'=>array(self::BELONGS_TO, 'Importancy', 'importancy'),
+			'SeoAudit'=>array(self::BELONGS_TO, 'SeoAuditDone', 'seo_audit_done'),
 		);
 	}
 
@@ -76,7 +79,7 @@ class CallerManagerReport extends CActiveRecord
 	{
 		return array(
 			'id' => 'Номер заказа',
-			'time' => 'Время',
+			'time' => 'Дата получения',
 			'company' => 'Название компании',
 			'phone_number' => 'Телефон',
 			'company_address' => 'Адрес',
@@ -84,7 +87,7 @@ class CallerManagerReport extends CActiveRecord
 			'contact_person' => 'Контактное лицо',
 			'business_type' => 'Тип бизнеса',
 			'service_type' => 'Вид продукта',
-			'next_call' => 'Дата следующего звонка',
+			'next_call' => 'Дата встречи',
 			'contact_type' => 'Тип контакта',
 			'comment' => 'Комментарий',
 			'caller_id' => 'Диспетчер',
@@ -92,8 +95,13 @@ class CallerManagerReport extends CActiveRecord
 			'manager_id' => 'Менеджер',
 			'site_address' => 'Адрес сайта',
 			'meeting_result' => 'Результат встречи',
-			'comm_proposal' => 'Коммерческое предложение',
+			'comm_proposal' => 'Комм. пред.',
 			'contract' => 'Подписан ли договор?',
+			'importancy' => 'Приоритет',
+			'manager_comment' => 'Детали последнего контакта',
+			'next_meeting_date' => 'Дата сл. встречи(назначается менеджером)',
+			'order_code'=>'Код заказа',
+			'seo_audit_done'=>'Сделан ли сео аудит'
 		);
 	}
 

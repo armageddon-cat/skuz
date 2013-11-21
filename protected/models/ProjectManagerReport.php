@@ -38,11 +38,11 @@ class ProjectManagerReport extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('time, company, phone_number, company_address, email, contact_person, business_type, service_type, next_call, contact_type, comment, caller_id, call_status, manager_id', 'required'),
+			array('time, company', 'required'),
 			array('call_status, manager_id', 'numerical', 'integerOnly'=>true),
 			array('company, business_type', 'length', 'max'=>50),
-			array('phone_number, service_type, contact_type, caller_id', 'length', 'max'=>11),
-			array('company_address', 'length', 'max'=>255),
+			array('phone_number, service_type, contact_type, caller_id', 'length', 'max'=>50),
+			array('company_address, site_address, importancy, order_code, phone_number, company_address, email, contact_person, business_type, service_type, next_call, contact_type, comment, caller_id, call_status, manager_id', 'length', 'max'=>255),
 			array('email', 'length', 'max'=>40),
 			array('contact_person', 'length', 'max'=>30),
 			// The following rule is used by search().
@@ -68,21 +68,28 @@ class ProjectManagerReport extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'time' => 'Time',
-			'company' => 'Company',
-			'phone_number' => 'Phone Number',
-			'company_address' => 'Company Address',
-			'email' => 'Email',
-			'contact_person' => 'Contact Person',
-			'business_type' => 'Business Type',
-			'service_type' => 'Service Type',
-			'next_call' => 'Next Call',
-			'contact_type' => 'Contact Type',
-			'comment' => 'Comment',
-			'caller_id' => 'Caller',
-			'call_status' => 'Call Status',
-			'manager_id' => 'Manager',
+			'id' => 'Номер заказа',
+			'time' => 'Заказ получен',
+			'company' => 'Название компании',
+			'phone_number' => 'Телефон',
+			'company_address' => 'Адрес',
+			'email' => 'E-mail',
+			'contact_person' => 'Контактное лицо',
+			'business_type' => 'Тип бизнеса',
+			'service_type' => 'Вид продукта',
+			'next_call' => 'Дата следующего контакта',
+			'contact_type' => 'Тип контакта',
+			'comment' => 'Комментарий',
+			'caller_id' => 'Диспетчер',
+			'call_status' => 'Статус звонка',
+			'manager_id' => 'Менеджер',
+			'meeting_result' => 'Результат встречи',
+			'site_address' => 'Адрес сайта',
+			'comm_proposal' => 'Коммерческое предложение',
+			'contract' => 'Подписан ли договор?',
+			'importancy' => 'Приоритет',
+			'meeting_date' => 'Дата встречи',
+			'order_code'=>'Код заказа',
 		);
 	}
 

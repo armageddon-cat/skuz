@@ -28,11 +28,11 @@ class CallerManagerReportController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'ManagerMeetings'),
+				'actions'=>array('index','view', 'ManagerMeetings', 'LowImportancy', 'MediumImportancy', 'HighImportancy', 'CommProposals', 'ManagerMeetingsProcessing', 'RpCommProposals'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'all_reports'),
+				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -44,6 +44,39 @@ class CallerManagerReportController extends Controller
 			),
 		);
 	}
+
+
+	public function actionDownload($id)
+    {	$DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/'; 
+          
+    	//if(file_exists($path))
+  		//{
+	    	return Yii::app()->getRequest()->sendFile(
+	        'SeoAudit'.$id.'.xlsx', // название файла, который получит юзер
+	        file_get_contents($DIR.'SeoAudit'.$id.'.xlsx'),
+	       'mime/type', // необязательно, определяется автоматически
+	        true // остановить аппликейшен во время отправки default: true
+			);
+			// если включено логирование, при отправке файла лучше его отключить
+    	//} else {
+    		//Yii::app()->user->setFlash('Спасибо...');
+    		//$this->refresh();
+    		//$this->redirect(array('HighImportancySeo'));
+    		//$this->render('HighImportancySeo',array('dataProvider'=>$dataProvider, 'model'=>$model,'id'=>$model->id));
+    		//Yii::app()->user->setFlash('error', "Логин не существует!");
+			//echo Yii::app()->user->getFlash('error');
+			// $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+   //                  'id' => 'mydialog',
+   //                  'options' => array(
+   //                      'title' => 'Ошибка',
+   //                      'autoOpen' => false,
+   //                      'modal' => true,
+   //                      'resizable'=> false
+   //                  ),
+   //              ));
+			// $this->endWidget('zii.widgets.jui.CJuiDialog');
+    	//}
+    }
 
 	/**
 	 * Displays a particular model.
@@ -84,15 +117,260 @@ class CallerManagerReportController extends Controller
 		$this->layout='//layouts/column1';
 		
 		$criteria = new CDbCriteria();
-        $criteria->condition = "call_status=2";
-        $criteria->order = 'next_call ASC';
+        $criteria->condition = "call_status=2 and manager_id = ".Yii::app()->user->id." and meeting_result is null";
+        //$criteria->order = 'next_call ASC';
         $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
 
-		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
 		$this->render('ManagerMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionManagerMeetingsProcessing()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=2 and manager_id = ".Yii::app()->user->id." and meeting_result = 0";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('ManagerMeetingsProcessing',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionManagerMeetingsArchive()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=2 and manager_id = ".Yii::app()->user->id." and meeting_result != 0";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('ManagerMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionCommProposals()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=1 and manager_id = ".Yii::app()->user->id."";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('CommProposals',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+
+		public function actionCommProposalsSent()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=1 and manager_id = ".Yii::app()->user->id." and comm_proposal=1";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('CommProposalsSent',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+		public function actionCommProposalsNotSent()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=1 and manager_id = ".Yii::app()->user->id." and comm_proposal=0";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('CommProposalsNotSent',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+
+	public function actionRpCommProposals()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=1";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpCommProposals',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionRpCommProposalsSent()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=1 and comm_proposal=1";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpCommProposalsSent',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionRpCommProposalsNotSent()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=1 and comm_proposal=0";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpCommProposalsNotSent',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionLowImportancy()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "importancy=1 and manager_id = ".Yii::app()->user->id." and call_status != 0 and call_status != 5 and call_status != 6";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('LowImportancy',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionMediumImportancy()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "importancy=2 and manager_id = ".Yii::app()->user->id." and call_status != 0 and call_status != 5 and call_status != 6";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('MediumImportancy',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionHighImportancy()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "importancy=3 and manager_id = ".Yii::app()->user->id." and call_status != 0 and call_status != 5 and call_status != 6";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal, seo_audit_done';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('HighImportancy',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionLowImportancyRp()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "importancy=1 and call_status != 0 and call_status != 5 and call_status != 6";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('LowImportancyRp',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionMediumImportancyRp()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "importancy=2 and call_status != 0 and call_status != 5 and call_status != 6";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('MediumImportancyRp',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionHighImportancyRp()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "importancy=3 and call_status != 0 and call_status != 5 and call_status != 6";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('HighImportancyRp',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+
+
+
+		public function actionHighImportancySeo()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "importancy=3 and call_status != 0 and call_status != 5 and call_status != 6  and service_type != 1 and service_type != 5  and service_type != 6";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, comm_proposal, service_type, seo_audit_done';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('HighImportancySeo',array('dataProvider'=>$dataProvider, 'model'=>$model,'id'=>$model->id));
 	}
 
 	/**
@@ -110,7 +388,10 @@ class CallerManagerReportController extends Controller
 		if(isset($_POST['CallerManagerReport']))
 		{
 			$model->attributes=$_POST['CallerManagerReport'];
+			$model->seo_file=CUploadedFile::getInstance($model,'seo_file');
 			if($model->save())
+				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/';
+				$model->seo_file->saveAs($DIR.'SeoAudit'.$model->id.'.xlsx');
 				$this->redirect(array('view','id'=>$model->id));
 		}
 

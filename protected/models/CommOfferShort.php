@@ -31,9 +31,16 @@ class CommOfferShort extends CActiveRecord
 		return array(
 			array('name, phone, email, product_type', 'required'),
 			array('name, phone, email, product_type', 'length', 'max'=>255),
+			array('comment, site_url', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, date, name, phone, email, product_type', 'safe', 'on'=>'search'),
+// 			array('file', 'file', 
+// 'types'=>'doc,docx,pdf,txt,xls,xlsl,csv',
+// 'maxSize'=>1024 * 1024 * 10, // 10MB
+// 'tooLarge'=>'The file was larger than 10MB. Please upload a smaller file.',
+// 'allowEmpty'=>1,
+// )
 		);
 	}
 
@@ -60,6 +67,8 @@ class CommOfferShort extends CActiveRecord
 			'phone' => 'Телефон',
 			'email' => 'Email',
 			'product_type' => 'Вид продукта',
+			'comment' => 'Комментарий',
+			'site_url' => 'Адрес Вашего сайта'
 		);
 	}
 

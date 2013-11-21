@@ -14,15 +14,20 @@ $this->menu=array(
 	array('label'=>'Исправление ошибок', 'url'=>array('update', 'id'=>$model->id)),
 	/*array('label'=>'Delete CallerReport', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage CallerReport', 'url'=>array('admin')),*/
-); }
+); } elseif (Yii::app()->user->role==4) {
+	$this->menu=array(
+	array('label'=>'Исправление ошибок', 'url'=>array('update', 'id'=>$model->id)),
+);
+}
 ?>
 
 <h1>Просмотр отчета<?php //echo $model->id; ?></h1>
-
+<p><a href="http://test.dr-intellectus.ru/callerReport/TestExport/<?php echo $model->id ?>">Загрузка этой онлайн заявки в Excel</a></p>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+		'order_code',
 		'time',
 		'company',
 		'phone_number',
@@ -60,3 +65,22 @@ $this->menu=array(
 			'value'=>$model->Contract->contract_status,),
 	),
 )); ?>
+<script>
+	window.onload = function() {
+		$( "button" ).click(function() {
+			$( "#show_hide_comment" ).toggle("slow");
+		});
+	};
+</script>
+<br><br><button>Показать/скрыть комменты</button>
+<div id="show_hide_comment">
+<?php
+Yii::import('application.controllers.OrdersHistoryController');
+
+$controller = new OrdersHistoryController;
+
+$controller->actionIndex($model->id);
+$controller->actionCreate($model->id);
+?>
+</div>
+
