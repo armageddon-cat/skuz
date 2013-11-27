@@ -81,6 +81,11 @@ class CallStatus extends CActiveRecord
 		));
 	}
 
+		public static function all(){
+		return CHtml::listData(self::model()->findAll(), 'id', 'status');
+		
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

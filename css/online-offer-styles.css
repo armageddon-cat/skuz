@@ -74,13 +74,13 @@ border: none;
 width: 157px;
 height: 20px;
 position: relative;
-background: #fff;
+background: #1F8EDA;
 display: block;
 float: right;
 top: 3px;
 right: 4px;
 cursor: pointer;
-color:#757575;
+color:#fff;
 }
 #enter_to_cab{margin-top: 15px}
 
@@ -164,7 +164,7 @@ a#logo{ width: 277px; height: 72px; top: 9px;}
 span.required{color:red;}
 .content p, #content p, label{font-size:13px;margin-top:25px;line-height:35px;}
 .content li,.content li a,.content ul{font-size:14px; color:#000; line-height:20px;}
-#content{padding-bottom: 20px; margin-top: 190px; float:right;}
+#content{padding-bottom: 20px; margin-top: 190px; float:right;height: 400px;}
 #CommOfferShort_site_url{width: 255px;}
 #CommOfferShort_comment{width: 295px;height: 78px;}
 
@@ -281,6 +281,8 @@ label{font-weight: bold;font-size: 15px;margin-left: 8px;}
 }
 .row input[type="text"]{font-style: italic;} 
 .row input[type="text"]{border:1px solid #6db5e7;background:none;height:24px;width:255px;padding-left:20px; -webkit-box-shadow: inset 1px 2px 5px 0px rgba(0,0,0,0.1); margin-bottom: 20px;}
+.row input[type="password"]{font-style: italic;} 
+.row input[type="password"]{border:1px solid #6db5e7;background:none;height:24px;width:255px;padding-left:20px; -webkit-box-shadow: inset 1px 2px 5px 0px rgba(0,0,0,0.1); margin-bottom: 20px;}
 .row img{width:15px;float:left;height:15px;position:relative;top:10px;}
 
 #wrapper_online{margin-bottom:40px;width:53%;position:relative;left:48%;}

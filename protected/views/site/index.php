@@ -8,7 +8,7 @@ $this->pageTitle=Yii::app()->name;
 }
  ?>
  <br>
-<h2>Добро пожаловать в Систему Контроля и Учета Заказов компании Доктор Интеллектус©<i><?php //echo CHtml::encode(Yii::app()->name); ?></i></h2>
+
 <!--
 <p>Congratulations! You have successfully created your Yii application.</p>
 

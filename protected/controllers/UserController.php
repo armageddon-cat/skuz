@@ -36,7 +36,7 @@ class UserController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('view','create'),
+				'actions'=>array('view','create','UserPasswordChange'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -73,10 +73,32 @@ class UserController extends Controller
 	public function actionPassword($id)
 	{
 		$model=$this->loadModel($id);
-		$model->password=$_POST['password'];
-		if($model->save())
-		$this->redirect(array('view','id'=>$model->id));
+
+		if(isset($_POST['password']))
+		{
+			$model->password=$_POST['password'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
 		$this->render('password');
+	}
+
+	public function actionUserPasswordChange($id)
+	{
+		$model=$this->loadModel($id);
+		if ($_POST['password']!=$_POST['secondpassword']) {
+			$model->addError('samepasserror');
+		} else {
+			if(isset($_POST['password']))
+			{
+				$model->password=$_POST['password'];
+				if($model->save()){
+					$this->redirect(array('site/index'));
+				}
+			}
+	 	}
+		$this->render('UserPasswordChange',array('model'=>$model)); 
 	}
 	
 

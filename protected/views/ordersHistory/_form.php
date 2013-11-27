@@ -14,7 +14,6 @@
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
-<p>Добавление нового комментария к данному заказу.</p>
 	<?php echo $form->errorSummary($model); ?>
 <? /*
 	<div class="row">

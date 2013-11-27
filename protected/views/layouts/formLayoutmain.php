@@ -42,7 +42,7 @@
                <a href="#" id="back_call">
                     <p>Обратный звонок</p>
                 </a>
-                <a href="http://test.dr-intellectus.ru/commOfferShort/create" id="request_top">
+                <a href="http://dr-intellectus.com/online.php" id="request_top">
                     <p>Online заявка</p>
                 </a>
                 <a href="#" id="cabinet"><p>Личный кабинет</p></a> 
@@ -59,11 +59,11 @@
         <div id="enter_cabinet">
             <p><b>Вход в личный кабинет</b></p>
             <p></p>
-            <form id="enter_to_cab" method="post" action="http://test.dr-intellectus.ru/site/login">
+            <form id="enter_to_cab" method="post" action="http://test.dr-intellectus.ru/site/ClientLogin">
                 <p>Логин</p>
-                <input type="text" name="LoginForm[username]" class="number" />
+                <input type="text" name="LoginForm[username]" class="number"/>
                 <p>Пароль</p>
-                <input type="password" name="LoginForm[password]" class="number" />
+                <input type="password" name="LoginForm[password]" class="number"/>
                 <input type="submit" class="button" name="yt0" value="Войти" />
             </form>
         </div>
@@ -86,7 +86,7 @@
                 <li id="navbl11"><a href="http://dr-intellectus.com/#block11" >Портфолио</a></li>
                 <li id="navbl12"><a href="http://dr-intellectus.com/#block12" >Новости</a></li>
                 <li id="navbl13"><a href="http://dr-intellectus.com/#block13" >Контакты</a></li>
-                <li><a href="/vacancy.php">Вакансии</a></li>
+                <li><a href="http://dr-intellectus.com/vacancy.php">Вакансии</a></li>
             </ul>
             <form>
                 <div class="search">

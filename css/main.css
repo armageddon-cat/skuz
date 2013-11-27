@@ -316,11 +316,11 @@ table.my_table_callers td {
 #slideout_inner {
 	position: fixed;
 	/*top: 40px;*/
-	top: -100px;
+	top: -140px;
 	background: #4C99C5;
 	width: 200px;
 	/* padding: 25px; */
-	height: 100px;
+	height: 140px;
 	-webkit-transition-duration: 0.3s;
 	-moz-transition-duration: 0.3s;
 	-o-transition-duration: 0.3s;
@@ -333,11 +333,11 @@ table.my_table_callers td {
 }
 #slideout_inner textarea {
 	width: 190px;
-	height: 100px;
+	height: 140px;
 	margin-bottom: 6px;
 }
 #slideout:hover {
-	top: 100px;
+	top: 140px;
 }
 #slideout_inner:hover {
 	
@@ -345,6 +345,8 @@ table.my_table_callers td {
 #slideout:hover #slideout_inner {
 	top: 0;
 }
+#slideout_inner a {color: #fff;}
+#slideout_inner a:hover {color: #000;}
 .history_comment_head {
 	margin: 0;
 	padding: 0;

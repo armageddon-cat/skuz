@@ -32,7 +32,7 @@ class CallerManagerReportController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download'),
+				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download','RpMeetings','RpMeetingsProcessing','RpMeetingsArchive'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -89,7 +89,7 @@ class CallerManagerReportController extends Controller
 		));
 	}
 
-	/**
+	/**		
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
@@ -99,11 +99,14 @@ class CallerManagerReportController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+			
+			
 		if(isset($_POST['CallerManagerReport']))
-		{
+		{	
 			$model->attributes=$_POST['CallerManagerReport'];
+
 			if($model->save())
+
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -119,7 +122,7 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=2 and manager_id = ".Yii::app()->user->id." and meeting_result is null";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
@@ -135,7 +138,7 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=2 and manager_id = ".Yii::app()->user->id." and meeting_result = 0";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
@@ -151,7 +154,7 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=2 and manager_id = ".Yii::app()->user->id." and meeting_result != 0";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
@@ -167,7 +170,7 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=1 and manager_id = ".Yii::app()->user->id."";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
@@ -184,7 +187,7 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=1 and manager_id = ".Yii::app()->user->id." and comm_proposal=1";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
@@ -200,7 +203,7 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=1 and manager_id = ".Yii::app()->user->id." and comm_proposal=0";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
@@ -217,12 +220,23 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=1";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+				$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+				if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
+
 		$this->render('RpCommProposals',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -233,12 +247,22 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=1 and comm_proposal=1";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+				$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+						if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
 		$this->render('RpCommProposalsSent',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -249,12 +273,22 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=1 and comm_proposal=0";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, comm_proposal, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+				$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+						if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
 		$this->render('RpCommProposalsNotSent',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -265,12 +299,22 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "importancy=1 and manager_id = ".Yii::app()->user->id." and call_status != 0 and call_status != 5 and call_status != 6";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+		$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
 		$this->render('LowImportancy',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -281,12 +325,22 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "importancy=2 and manager_id = ".Yii::app()->user->id." and call_status != 0 and call_status != 5 and call_status != 6";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+		$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
 		$this->render('MediumImportancy',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -297,12 +351,22 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "importancy=3 and manager_id = ".Yii::app()->user->id." and call_status != 0 and call_status != 5 and call_status != 6";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal, seo_audit_done';
+        $criteria->select = 'id, next_call, next_meeting_date, company, call_status, caller_id, meeting_result, importancy, comm_proposal, seo_audit_done';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+		$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
 		$this->render('HighImportancy',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -310,15 +374,27 @@ class CallerManagerReportController extends Controller
 	{
 		$this->layout='//layouts/column1';
 		
+
 		$criteria = new CDbCriteria();
         $criteria->condition = "importancy=1 and call_status != 0 and call_status != 5 and call_status != 6";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+        $criteria->select = 'id, next_call, next_meeting_date, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+		$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
+
 		$this->render('LowImportancyRp',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -329,12 +405,22 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "importancy=2 and call_status != 0 and call_status != 5 and call_status != 6";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+        $criteria->select = 'id, next_call, next_meeting_date, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+		$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
 		$this->render('MediumImportancyRp',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -345,12 +431,22 @@ class CallerManagerReportController extends Controller
 		$criteria = new CDbCriteria();
         $criteria->condition = "importancy=3 and call_status != 0 and call_status != 5 and call_status != 6";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
+        $criteria->select = 'id, next_call, next_meeting_date, company, call_status, caller_id, meeting_result, importancy, comm_proposal';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+		$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
 		$this->render('HighImportancyRp',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -362,14 +458,27 @@ class CallerManagerReportController extends Controller
 		$this->layout='//layouts/column1';
 		
 		$criteria = new CDbCriteria();
-        $criteria->condition = "importancy=3 and call_status != 0 and call_status != 5 and call_status != 6  and service_type != 1 and service_type != 5  and service_type != 6";
+        $criteria->condition = "call_status != 0 and call_status != 5 and call_status != 6  and service_type != 1 and service_type != 5  and service_type != 6 and service_type != 4";
         //$criteria->order = 'next_call ASC';
-        $criteria->select = 'id, next_call, company, call_status, comm_proposal, service_type, seo_audit_done';
+        $criteria->select = 'id, next_call, next_meeting_date, company, call_status, comm_proposal, service_type, seo_audit_done';
 
 		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
                         ),
 		));
+		$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
+			$dataProvider->criteria->compare('service_type',$model->service_type,true);
+			$dataProvider->criteria->compare('seo_audit_done',$model->seo_audit_done,true);
+
 		$this->render('HighImportancySeo',array('dataProvider'=>$dataProvider, 'model'=>$model,'id'=>$model->id));
 	}
 
@@ -391,7 +500,10 @@ class CallerManagerReportController extends Controller
 			$model->seo_file=CUploadedFile::getInstance($model,'seo_file');
 			if($model->save())
 				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/';
-				$model->seo_file->saveAs($DIR.'SeoAudit'.$model->id.'.xlsx');
+				if (Yii::app()->user->role==3) {
+					$model->seo_file->saveAs($DIR.'SeoAudit'.$model->id.'.xlsx');
+				}
+
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -452,6 +564,54 @@ class CallerManagerReportController extends Controller
 			'dataProvider'=>$dataProvider,
 			'model'=>$model,
 		));
+	}
+
+			public function actionRpMeetings()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=2 and meeting_result is null";
+       // $criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, next_meeting_date';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+	public function actionRpMeetingsProcessing()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=2 and meeting_result = 0";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, next_meeting_date';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpMeetingsProcessing',array('dataProvider'=>$dataProvider, 'model'=>$model));
+	}
+
+		public function actionRpMeetingsArchive()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "call_status=2 and meeting_result != 0";
+        //$criteria->order = 'next_call ASC';
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, next_meeting_date';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('RpMeetingsArchive',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 	
 /* 	public function actionAll_reports($id)

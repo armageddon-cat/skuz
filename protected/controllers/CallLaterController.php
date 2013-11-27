@@ -76,7 +76,9 @@ public function actionAdmin()
         $criteria->condition = "caller_id = ".Yii::app()->user->id." and call_status in (0,5)";
 		$dataProvider=new CActiveDataProvider('CallLater', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
-                        ),
+                        ),'sort' => array(
+    'defaultOrder' => 'time DESC',
+  ),
 ));
 		$this->render('admin',array(
 			'dataProvider'=>$dataProvider,

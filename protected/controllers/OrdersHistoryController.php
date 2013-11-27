@@ -78,7 +78,7 @@ class OrdersHistoryController extends Controller
 			$model->created_by=Yii::app()->user->id;
 			$model->modified_by=Yii::app()->user->id;
 			$model->report_id=$rep_id;
-			Yii::app()->db->createCommand("UPDATE `ahc03_adminpanel`.`o_caller_report` SET `next_call` = '".$model->next_contact_date."' WHERE `o_caller_report`.`id` = ".$rep_id."")->execute();
+			Yii::app()->db->createCommand("UPDATE `ahc03_adminpanel`.`o_caller_report` SET `next_meeting_date` = '".$model->next_contact_date."' WHERE `o_caller_report`.`id` = ".$rep_id."")->execute();
 
 			if($model->save())
 			 	//$this->redirect(array('view','id'=>$model->id));
@@ -109,8 +109,13 @@ class OrdersHistoryController extends Controller
 		if(isset($_POST['OrdersHistory']))
 		{
 			$model->attributes=$_POST['OrdersHistory'];
+			$model->modify_time=date('Y-m-d H:i:s');
+			$model->modified_by=Yii::app()->user->id;
+			Yii::app()->db->createCommand("UPDATE `ahc03_adminpanel`.`o_caller_report` SET `next_call` = '".$model->next_contact_date."' WHERE `o_caller_report`.`id` = ".$model->report_id."")->execute();
+
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('callerManagerReport/view','id'=>$model->report_id));
+				//Yii::app()->request->redirect($_SERVER['HTTP_REFERER']);
 		}
 
 		$this->render('update',array(

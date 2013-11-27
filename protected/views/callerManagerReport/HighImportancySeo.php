@@ -1,35 +1,74 @@
 <h1>Отчеты - Высокая важность</h1>
 <p>Сюда попадают отчеты для которых диспетчер выставляет - <b>Высокую важность</b></p>
-           <?php   // $DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/'; 
-            // echo CHtml::link(CHtml::encode($this->id), array($DIR.'newfile.xlsx')); 
-            // echo CHtml::link("Загрузить", Yii::app()->createAbsoluteUrl('/upload/temp/'.'newfile.xlsx'));
-            //echo CHtml::link("Загрузить", Yii::app()->request->baseUrl.'/uploads/temp/'.'newfile.xlsx');
-            /* Yii::app()->request->sendFile(
-                                            'fileName.txt',
-                                            file_get_contents(Yii::getPathOfAlias('webroot.uploads.temp').DIRECTORY_SEPARATOR.'newfile.xlsx'),
-                                            'mime/type', // необязательно, определяется автоматически
-                                            true // остановить аппликейшен во время отправки default: true
-            );*/
-            //echo CHtml::link("Загрузить",Yii::getPathOfAlias('webroot.uploads.temp').DIRECTORY_SEPARATOR.'newfile.xlsx');
-           // echo CHtml::link("Загрузить" ,array('download', 'id'=>$data->id));
-           ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'caller-report-grid',
+        'filter'=>$model,
     'dataProvider'=>$dataProvider,
     'columns'=>array(
+                array(
+            'header' => '№',
+            'value' => '$row+1',
+            ),
         'id'=>array(
             'name'=>'id',
             'type' => 'raw',
             'value'=>'CHtml::link(\'№ \'.CHtml::encode($data->id), array(\'view\', \'id\'=>$data->id))',
         ),
-        'next_call',
+        'next_call' => array(
+            'name' => 'next_call',
+            'filter' => $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+                            'model'=>$model,
+                            'attribute'=>'next_call',
+                            'language' => 'ru',
+                            'options'=>array(
+                                'hourGrid' => 4,
+                                'hourMin' => 0,
+                                'hourMax' => 24,
+                                'dateFormat' => 'yy-mm-dd',
+                                'timeFormat' => 'hh:mm',
+                                'changeMonth' => true,
+                                'changeYear' => false,
+                                ),
+                            ),true), 
+            'value' => function($data){
+                    if ($data->next_call==0) {
+                        return $data->next_call;
+                    } else {
+                    return Yii::app()->dateFormatter->format("dd-MM-yyyy, HH:mm:ss", $data->next_call);}
+            },     
+        ),
+        'next_meeting_date' => array(
+            'name' => 'next_meeting_date',
+            'filter' => $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+                            'model'=>$model,
+                            'attribute'=>'next_meeting_date',
+                            'language' => 'ru',
+                            'options'=>array(
+                                'hourGrid' => 4,
+                                'hourMin' => 0,
+                                'hourMax' => 24,
+                                'dateFormat' => 'yy-mm-dd',
+                                'timeFormat' => 'hh:mm',
+                                'changeMonth' => true,
+                                'changeYear' => false,
+                                ),
+                            ),true), 
+            'value' => function($data){
+                    if ($data->next_meeting_date==0) {
+                        return $data->next_meeting_date;
+                    } else {
+                    return Yii::app()->dateFormatter->format("dd-MM-yyyy, HH:mm:ss", $data->next_meeting_date);}
+            },     
+        ),
         'company',
         'call_status'=>array(
             'name'=>'call_status',
+            'filter'=>CHtml::listData(CallStatus::model()->findAll(),'id','status'),
             'value'=>'$data->StatusOfCall->status',
         ),
         'comm_proposal'=> array(
             'name'=>'comm_proposal',
+            'filter'=>CHtml::listData(CommProposal::model()->findAll(),'id','res'),
             'type' => 'raw',
             'value'=>function($data){
                 if ($data->CommProposal->res=='Отправлено') {
@@ -39,10 +78,12 @@
         ), 
         'service_type'=>array(
             'name'=>'service_type',
+            'filter'=>CHtml::listData(Product::model()->findAll(),'id','product'),
             'value'=>'$data->product->product',
         ),
         'seo_audit_done'=>array(
             'name'=>'seo_audit_done',
+            'filter'=>CHtml::listData(SeoAuditDone::model()->findAll(),'id','result'),
             'type' => 'raw',
             'value'=>function($data){
                 if ($data->SeoAudit->result=='Да') {

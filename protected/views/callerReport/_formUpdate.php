@@ -166,6 +166,11 @@ $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
 		<?php echo $form->dropDownList($model, 'importancy', Importancy::all()); ?>
 		<?php echo $form->error($model,'importancy'); ?>
 	</div>
+		<div class="row">
+		<?php echo $form->labelEx($model,'meeting_result'); ?>
+		<?php echo $form->dropDownList($model, 'meeting_result', Meeting::all(), array('empty'=>'')); ?>
+		<?php echo $form->error($model,'meeting_result'); ?>
+	</div>
 	
 <?php 
 /* if($model->isNewRecord){

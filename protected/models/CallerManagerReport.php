@@ -43,7 +43,7 @@ class CallerManagerReport extends CActiveRecord
 			array('phone_number, service_type, contact_type, caller_id', 'length', 'max'=>50),
 			array('time, site_address, company_address, email, contact_person, next_call, comment, call_status', 'length', 'max'=>255),
 			array('email', 'length', 'max'=>40),
-			array('importancy, manager_comment, next_meeting_date, seo_audit_done, seo_file', 'safe'),
+			array('importancy, manager_comment, next_meeting_date, seo_audit_done, seo_file, additional_products', 'safe'),
 			array('contact_person', 'length', 'max'=>30),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -87,7 +87,7 @@ class CallerManagerReport extends CActiveRecord
 			'contact_person' => 'Контактное лицо',
 			'business_type' => 'Тип бизнеса',
 			'service_type' => 'Вид продукта',
-			'next_call' => 'Дата встречи',
+			'next_call' => 'Дата первого контакта(дисп.)',
 			'contact_type' => 'Тип контакта',
 			'comment' => 'Комментарий',
 			'caller_id' => 'Диспетчер',
@@ -101,7 +101,8 @@ class CallerManagerReport extends CActiveRecord
 			'manager_comment' => 'Детали последнего контакта',
 			'next_meeting_date' => 'Дата сл. встречи(назначается менеджером)',
 			'order_code'=>'Код заказа',
-			'seo_audit_done'=>'Сделан ли сео аудит'
+			'seo_audit_done'=>'Сделан ли сео аудит',
+			'additional_products'=>'Дополнительные продукты(необязательно)',
 		);
 	}
 
@@ -127,6 +128,7 @@ class CallerManagerReport extends CActiveRecord
 		$criteria->compare('time',$this->time,true);
 		$criteria->compare('company',$this->company,true);
 		$criteria->compare('phone_number',$this->phone_number,true);
+		$criteria->compare('site_address',$this->site_address,true);
 		$criteria->compare('company_address',$this->company_address,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('contact_person',$this->contact_person,true);
@@ -136,7 +138,7 @@ class CallerManagerReport extends CActiveRecord
 		$criteria->compare('contact_type',$this->contact_type,true);
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('caller_id',$this->caller_id,true);
-		$criteria->compare('call_status',$this->call_status);
+		$criteria->compare('call_status',$this->call_status,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

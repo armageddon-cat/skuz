@@ -25,7 +25,8 @@ custom.js"></script>
 </head>
 
 <body>
-<?if (Yii::app()->user->role!=7) {?>
+	<!--noindex-->
+<?if (Yii::app()->user->role!=7) { if(!Yii::app()->user->isGuest) { ?>
 <div id="slideout">
   <p>Рейтинг<br />диспетчеров</p>
   <div id="slideout_inner">
@@ -37,13 +38,22 @@ custom.js"></script>
  		$res1 = $result[0]['COUNT(id)'];
  		$res2 = $name[0]['realname']." ".$name[0]['surname'];
  		$callers[$res2] = $res1;
+ 		$urls[$res2] = $i;
+
  	}
- 	arsort($callers); 
+ 	arsort($callers);  
  	$i = 0;
  	?>
 <?php foreach ($callers as $key => $value) { $i++;?>
  		<tr>
- 			<td><?php echo $key; ?></td>
+ 			<td>
+ 				<?php 
+ 					foreach ($urls as $urlskey => $urlsvalue) {
+ 						if ($key==$urlskey) {
+ 							echo CHtml::link($key, array('callerReport/CallerMeetingsRating', 'id'=>$urlsvalue));
+ 						}
+ 					}
+ 				?></td>
  			<td><?php echo $value; ?></td>
  			<td><?php if ($i == 1) { ?>
  				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/green.jpg" alt="" />
@@ -58,7 +68,7 @@ custom.js"></script>
  	</table>
   </div>
 </div>
-<?}?>
+<?}}?>
 <div class="container" id="page">
 
 
@@ -127,9 +137,9 @@ if(!Yii::app()->user->isGuest) {
 					       	)),
 
 				array('label'=>'Встречи', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
-		            array('label'=>'Назначенные встречи', 'url'=>array('/callerReport/RpMeetings')),
-		            array('label'=>'Встречи в процессе', 'url'=>array('/callerReport/RpMeetingsProcessing')),
-		            array('label'=>'Архив Встреч', 'url'=>array('/callerReport/RpMeetingsArchive')),
+		            array('label'=>'Назначенные встречи', 'url'=>array('/CallerManagerReport/RpMeetings')),
+		            array('label'=>'Встречи в процессе', 'url'=>array('/CallerManagerReport/RpMeetingsProcessing')),
+		            array('label'=>'Архив Встреч', 'url'=>array('/CallerManagerReport/RpMeetingsArchive')),
 		       	)),
 
 		       	array('label'=>'Все Ком.Пред.', 'url'=>array('/callerManagerReport/RpCommProposals'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
@@ -137,7 +147,7 @@ if(!Yii::app()->user->isGuest) {
 					            array('label'=>'Не Отправленные Ком.Пред.', 'url'=>array('/callerManagerReport/RpCommProposalsNotSent')),
 					       	)),
 
-				array('label'=>'Онлайн заявки', 'url'=>array('/commersialOffer/ChooseOfferType'), 'visible'=>Yii::app()->user->role==4),
+				array('label'=>'Онлайн заявки', 'url'=>array('/commOfferShort/index'), 'visible'=>Yii::app()->user->role==4),
 
 				array('label'=>'Персонал', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
 		            array('label'=>'Пользователи Онлайн', 'url'=>array('/user/online')),
@@ -167,7 +177,11 @@ if(!Yii::app()->user->isGuest) {
 		            array('label'=>'Архив встреч', 'url'=>array('/callerReport/callerMeetingsArchive')),
 		       	)),
 				array('label'=>'Ком.Пред.', 'url'=>array('/callerReport/CallerCommProposals'), 'visible'=>Yii::app()->user->role==1),
-				
+								array('label'=>'Отчеты по приоритетам', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==1, 'items'=>array(
+					            array('label'=>'Обычный приоритет', 'url'=>array('/callerManagerReport/LowImportancyRp')),
+					            array('label'=>'Высокий приоритет', 'url'=>array('/callerManagerReport/MediumImportancyRp')),
+					            array('label'=>'СверхВысокий приоритет', 'url'=>array('/callerManagerReport/HighImportancyRp')),
+					       	)),
 				array('label'=>'Все Встречи', 'url'=>array('/callerReport/Meetings'), 'visible'=>Yii::app()->user->role==6),
 
 				array('label'=>'Встречи', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==2, 'items'=>array(
@@ -187,6 +201,7 @@ if(!Yii::app()->user->isGuest) {
 					            array('label'=>'Отправленные Ком.Пред.', 'url'=>array('/callerManagerReport/CommProposalsSent')),
 					            array('label'=>'Не Отправленные Ком.Пред.', 'url'=>array('/callerManagerReport/CommProposalsNotSent')),
 					       	)),
+				array('label'=>'Онлайн заявки', 'url'=>array('/commOfferShort/index'), 'visible'=>Yii::app()->user->role==2),
 				array('label'=>'Создать отчет', 'url'=>array('/projectManagerReport/create'), 'visible'=>Yii::app()->user->role==2),
 
 				array('label'=>'Статистика', 'url'=>array('/callerResult/CallerTodayReport'), 'visible'=>Yii::app()->user->role==1),
@@ -224,12 +239,12 @@ if(!Yii::app()->user->isGuest) {
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by Dr.Intellectus.<br/>
+		Copyright &copy; <?php echo date('Y'); ?><br/>
 		Все права защищены.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 
 </div><!-- page -->
-
+<!--/noindex-->
 </body>
 </html>

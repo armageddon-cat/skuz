@@ -65,11 +65,13 @@
 	<?php echo CHtml::encode($data->caller->realname ." ". $data->caller->surname); ?>
 	<br />
 	<b><?php echo CHtml::encode($data->getAttributeLabel('call_status')); ?>:</b>
-	<?php $call_status=CHtml::encode($data->StatusOfCall->status); 
-		switch ($call_status) {
-				case "Назначена встреча":
+	<?php //echo CHtml::encode($data->StatusOfCall->status); 
+
+	$call_status=CHtml::encode($data->StatusOfCall->status); 
+		if ($call_status=="Назначена встреча") {
 					echo "<span class=\"blue\">$call_status</span>";
-					break;
+			} else {
+				echo "$call_status";
 			}
 
 

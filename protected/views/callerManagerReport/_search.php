@@ -51,15 +51,20 @@
 		<?php echo $form->label($model,'phone_number'); ?>
 		<?php echo $form->textField($model,'phone_number',array('size'=>50,'maxlength'=>50)); ?>
 	</div>
-
+<?php /*
 	<div class="row">
 		<?php echo $form->label($model,'company_address'); ?>
 		<?php echo $form->textField($model,'company_address',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
-
+	*/?>
 	<div class="row">
 		<?php echo $form->label($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('size'=>40,'maxlength'=>40)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'site_address'); ?>
+		<?php echo $form->textField($model,'site_address',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row">
@@ -102,6 +107,11 @@
 			12=>'Менеджер3',
 			13=>'Менеджер4',
 			14=>'Менеджер5'), array('empty'=>'')); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'call_status'); ?>
+		<?php echo $form->dropDownList($model,'call_status', CallStatus::all(), array('empty'=>''));?>
 	</div>
 
 	<div class="row">

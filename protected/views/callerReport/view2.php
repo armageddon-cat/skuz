@@ -36,7 +36,34 @@ $this->menu=array(
 			'name'=>'service_type',
 			'value'=>$model->product->product,
 		),
-		'next_call',
+		'additional_products'=>array(
+			'name'=>'additional_products',
+			'value'=>function($model){
+						$services = explode(",", $model->additional_products);
+						foreach ($services as $product) {
+							$res .= Product::model()->findByPk($product)->product.", ";
+						}
+						return $res;
+					}
+		),
+        'next_call' => array(
+            'name' => 'next_call',
+            'value' => function($data){
+                    if ($data->next_call==0) {
+                        return $data->next_call;
+                    } else {
+                    return Yii::app()->dateFormatter->format("dd-MM-yyyy, HH:mm:ss", $data->next_call);}
+            },     
+        ),
+        'next_meeting_date' => array(
+            'name' => 'next_meeting_date',
+            'value' => function($data){
+                    if ($data->next_meeting_date==0) {
+                        return $data->next_meeting_date;
+                    } else {
+                    return Yii::app()->dateFormatter->format("dd-MM-yyyy, HH:mm:ss", $data->next_meeting_date);}
+            },     
+        ),
 		/*'contact_type'=>array('name'=>'contact_type','value'=>$model->contact->contact_type),*/
 		'comment',
 		'caller_id'=>array(

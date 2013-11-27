@@ -69,7 +69,7 @@
 		<?php echo $form->textField($model,'service_type',array('size'=>11,'maxlength'=>11)); ?>
 		<?php echo $form->error($model,'service_type'); ?>
 	</div>
-
+<? /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'next_call'); ?>
 		<?php 
@@ -89,7 +89,7 @@ $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
     ));  
 ?>
 		<?php echo $form->error($model,'next_call'); ?>
-	</div>
+	</div> */?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'next_meeting_date'); ?>
 		<?php 
@@ -157,6 +157,12 @@ $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
 		<?php echo $form->labelEx($model,'manager_comment'); ?>
 		<?php echo $form->textArea($model, 'manager_comment',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'manager_comment'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'importancy'); ?>
+		<?php echo $form->dropDownList($model, 'importancy', Importancy::all()); ?>
+		<?php echo $form->error($model,'importancy'); ?>
 	</div>
 
 	<?php if (Yii::app()->user->role==3){ ?>

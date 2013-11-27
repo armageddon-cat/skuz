@@ -13,6 +13,6 @@ $this->menu=array(
 );*/
 ?>
 <br>
-<h1>Добавление коммента</h1>
+<h1>Добавление комментария</h1>
 
 <?php $this->renderPartial('application.views.ordersHistory._form', array('model'=>$model)); ?>

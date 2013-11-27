@@ -16,7 +16,7 @@
 		<?php echo CHtml::encode($data->modify_time); ?>
 		<?php echo CHtml::encode($data->modifier->realname." ".$data->modifier->surname); ?>
 	<?php } ?>
-
+	<?php echo CHtml::link('Изменить', array('ordersHistory/update','id'=>$data->id/*, 'rep_id'=>Yii::app()->getRequest()->getQueryString()*/)); ?>
 
 </div>
 	<br />

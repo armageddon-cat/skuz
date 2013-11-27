@@ -74,6 +74,12 @@ Yii::app()->clientScript->registerScriptFile('/js/datepicker.js');
 		<?php echo $form->dropDownList($model, 'service_type', Product::all(), array('empty'=>'')); ?>
 		<?php echo $form->error($model,'service_type'); ?>
 	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'additional_products'); ?><br>
+		<?php echo $form->checkBoxList($model, 'additional_products', Product::all(), array('empty'=>'')); ?>
+		<?php echo $form->error($model,'additional_products'); ?>
+	</div>
 	
 	<div class="row">
 		<?php  

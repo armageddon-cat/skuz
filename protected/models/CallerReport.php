@@ -40,7 +40,7 @@ class CallerReport extends CActiveRecord
 			array('company, next_call, comm_proposal, manager_id', 'length', 'max'=>50),
 			array('phone_number, service_type, contact_type, caller_id, call_status', 'length', 'max'=>50),
 			array('company_address, site_address, business_type', 'length', 'max'=>255),
-			array('comment, importancy, order_code', 'safe'),
+			array('comment, importancy, order_code, additional_products, next_meeting_date, meeting_result', 'safe'),
 			array('email', 'length', 'max'=>255),
 			array('contact_person', 'length', 'max'=>30),
 			
@@ -86,7 +86,7 @@ class CallerReport extends CActiveRecord
 			'contact_person' => 'Контактное лицо',
 			'business_type' => 'Тип бизнеса',
 			'service_type' => 'Вид продукта',
-			'next_call' => 'Дата следующего контакта',
+			'next_call' => 'Дата первого контакта(дисп.)',
 			'contact_type' => 'Тип контакта',
 			'comment' => 'Комментарий',
 			'caller_id' => 'Диспетчер',
@@ -99,6 +99,8 @@ class CallerReport extends CActiveRecord
 			'importancy' => 'Приоритет',
 			'meeting_date' => 'Дата встречи',
 			'order_code'=>'Код заказа',
+			'additional_products'=>'Дополнительные продукты(необязательно)',
+			'next_meeting_date' => 'Дата сл. встречи(назначается менеджером)',
 		);
 	}
 
@@ -134,7 +136,7 @@ class CallerReport extends CActiveRecord
 		$criteria->compare('contact_type',$this->contact_type,true);
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('caller_id',$this->caller_id, true);
-		$criteria->compare('call_status',$this->call_status);
+		$criteria->compare('call_status',$this->call_status, true);
 		$criteria->compare('manager_id',$this->manager_id);
 		$criteria->compare('meeting_result',$this->meeting_result);
 		$criteria->compare('comm_proposal',$this->comm_proposal);

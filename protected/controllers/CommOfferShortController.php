@@ -32,7 +32,7 @@ class CommOfferShortController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update'),
+				'actions'=>array('update','ViewSkyz'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -51,6 +51,12 @@ class CommOfferShortController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
+	public function actionViewSkyz($id)
+	{ $this->layout='//layouts/column1';
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
