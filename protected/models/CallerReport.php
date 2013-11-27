@@ -101,6 +101,7 @@ class CallerReport extends CActiveRecord
 			'order_code'=>'Код заказа',
 			'additional_products'=>'Дополнительные продукты(необязательно)',
 			'next_meeting_date' => 'Дата сл. встречи(назначается менеджером)',
+			'caller_timetable' => 'Дата созвона',
 		);
 	}
 
