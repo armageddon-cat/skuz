@@ -32,7 +32,7 @@ class CallerReportController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update', 'MyReport', 'View2', 'ManagerMeetings', 'CallerMeetingsArchive', 'RpMeetingsArchive', 'CallerMeetingsRating'),
+				'actions'=>array('admin','create','update', 'MyReport', 'View2', 'ManagerMeetings', 'CallerMeetingsArchive', 'RpMeetingsArchive', 'CallerMeetingsRating', 'Callendar'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -113,6 +113,12 @@ class CallerReportController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
+			public function actionCallendar()
+	{	$model=new CallerReport;
+		$this->render('callendar',array(
+			'model'=>$model,
+		));
+	}
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
@@ -125,7 +131,7 @@ class CallerReportController extends Controller
 			$old_call_status = $model->call_status;
 			$model->attributes=$_POST['CallerReport'];
 			$new_call_status = $model->call_status;
-			if ($old_call_status != $new_call_status && Yii::app()->user->role==1) {
+			if (isset($_POST['CallerReport']['changed'])&&$_POST['CallerReport']['changed']==1) {
 				Yii::app()->db->createCommand("INSERT INTO `o_caller_result`(`caller_res_id`, `date`, `status_res_id`) VALUES (".Yii::app()->user->id.",'".date('Y-m-d')."',".$new_call_status.")")->execute();
 			}
 			if($model->save())
@@ -314,6 +320,18 @@ class CallerReportController extends Controller
                             'pageSize' => 50,
                         ),
 		));
+
+		$model=new CallerReport('search');
+		$model->unsetAttributes();  // clear any default values
+				if(isset($_GET['CallerReport']))
+			$model->attributes=$_GET['CallerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+
+
 		$this->render('Meetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -331,8 +349,20 @@ class CallerReportController extends Controller
 
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
-                        ),
+                            
+                        ),'sort' => array(
+    'defaultOrder' => 'next_call DESC',
+  ),
 		));
+				$model=new CallerReport('search');
+		$model->unsetAttributes();  // clear any default values
+				if(isset($_GET['CallerReport']))
+			$model->attributes=$_GET['CallerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
 		$this->render('CallerMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -365,6 +395,16 @@ class CallerReportController extends Controller
                             'pageSize' => 50,
                         ),
 		));
+
+				$model=new CallerReport('search');
+		$model->unsetAttributes();  // clear any default values
+				if(isset($_GET['CallerReport']))
+			$model->attributes=$_GET['CallerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
 		$this->render('CallerMeetingsArchive',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -381,6 +421,17 @@ class CallerReportController extends Controller
                             'pageSize' => 50,
                         ),
 		));
+
+				$model=new CallerReport('search');
+		$model->unsetAttributes();  // clear any default values
+				if(isset($_GET['CallerReport']))
+			$model->attributes=$_GET['CallerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('comm_proposal',$model->comm_proposal,true);
 		$this->render('CallerCommProposals',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 	

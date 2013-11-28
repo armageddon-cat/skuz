@@ -40,7 +40,7 @@ class CallerReport extends CActiveRecord
 			array('company, next_call, comm_proposal, manager_id', 'length', 'max'=>50),
 			array('phone_number, service_type, contact_type, caller_id, call_status', 'length', 'max'=>50),
 			array('company_address, site_address, business_type', 'length', 'max'=>255),
-			array('comment, importancy, order_code, additional_products, next_meeting_date, meeting_result', 'safe'),
+			array('comment, importancy, order_code, additional_products, next_meeting_date, meeting_result, changed', 'safe'),
 			array('email', 'length', 'max'=>255),
 			array('contact_person', 'length', 'max'=>30),
 			
@@ -142,6 +142,7 @@ class CallerReport extends CActiveRecord
 		$criteria->compare('meeting_result',$this->meeting_result);
 		$criteria->compare('comm_proposal',$this->comm_proposal);
 		$criteria->compare('contract',$this->contract);
+				//$criteria->compare('meeting_date',$this->meeting_date,true);
 
 
 		return new CActiveDataProvider($this, array(

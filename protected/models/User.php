@@ -119,10 +119,9 @@ class User extends CActiveRecord
 		
 	}
 
-	public static function allCalles(){
-				//return CHtml::listData(self::model()->findByPk(6), 'id', 'login');	
+	public static function allCalles(){	
 
-		return CHtml::listData(self::model()->findAllBySql('select {{user}}.id, realname from {{user}} where id > 6'), 'id', 'realname');	
+		return CHtml::listData(self::model()->findAllBySql('select id, surname from {{user}} where role = 1'), 'id', 'surname');	
 	}
 	
 	public static function allManagers(){

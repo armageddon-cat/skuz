@@ -32,11 +32,11 @@ class CommOfferShortController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update','ViewSkyz'),
+				'actions'=>array('update','admin','ViewSkyz','Download'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -57,10 +57,24 @@ class CommOfferShortController extends Controller
 	}
 	public function actionViewSkyz($id)
 	{ $this->layout='//layouts/column1';
-		$this->render('view',array(
+		$this->render('viewSkyz',array(
 			'model'=>$this->loadModel($id),
 		));
 	}
+
+
+	public function actionDownload($id)
+    {	
+    	$DIR = YiiBase::getPathOfAlias('webroot').'/upload/onlinerequest/'; 
+        $filename = CommOfferShort::FileExists($id);
+    	return Yii::app()->getRequest()->sendFile(
+		    $filename, // название файла, который получит юзер
+		    file_get_contents($DIR.$filename),
+		   'mime/type', // необязательно, определяется автоматически
+		    true // остановить аппликейшен во время отправки default: true
+		);
+		// если включено логирование, при отправке файла лучше его отключить
+    }
 
 	/**
 	 * Creates a new model.
@@ -78,6 +92,7 @@ class CommOfferShortController extends Controller
 		if(isset($_POST['CommOfferShort']))
 		{
 			$model->attributes=$_POST['CommOfferShort'];
+			$model->file=CUploadedFile::getInstance($model,'file');
 			$model->product_type = implode(",", $_POST["CommOfferShort"]['product_type']);
 
 
@@ -111,7 +126,9 @@ class CommOfferShortController extends Controller
 			if($model->save())
 				 	mail('info@dr-intellectus.com', 'Заполненая онлайн-заявка Dr.Intellectus', 
          			"Пришла новая заявка\n Просмотр заявок по ссылке\n http://test.dr-intellectus.ru/commersialOffer/index", "Content-type: text/plain; charset=utf-8");
-		
+				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/onlinerequest/';
+				if (is_object($model->file))
+					$model->file->saveAs($DIR.$model->file);
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -176,7 +193,7 @@ class CommOfferShortController extends Controller
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{
+	{$this->layout='//layouts/column1';
 		$model=new CommOfferShort('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['CommOfferShort']))

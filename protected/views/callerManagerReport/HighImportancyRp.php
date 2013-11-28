@@ -12,7 +12,14 @@
         'id'=>array(
             'name'=>'id',
             'type' => 'raw',
-            'value'=>'CHtml::link(\'№ \'.CHtml::encode($data->id), array(\'view\', \'id\'=>$data->id))',
+                        'value'=>function($data){
+                    $DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/'; 
+                    if(CallerManagerReport::FileExists($data->id)==0) { 
+                        return CHtml::link('№ '.CHtml::encode($data->id), array('view', 'id'=>$data->id));
+                    } else {
+                        return CHtml::link('№ '.CHtml::encode($data->id), array('view', 'id'=>$data->id))." ".CHtml::link("SEO", array('download', 'id'=>$data->id));
+                    }
+            }, 
         ),
         'next_call' => array(
             'name' => 'next_call',

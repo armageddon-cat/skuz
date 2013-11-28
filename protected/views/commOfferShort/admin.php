@@ -1,7 +1,7 @@
 <?php
 /* @var $this CommOfferShortController */
 /* @var $model CommOfferShort */
-
+/*
 $this->breadcrumbs=array(
 	'Comm Offer Shorts'=>array('index'),
 	'Manage',
@@ -23,15 +23,10 @@ $('.search-form form').submit(function(){
 	});
 	return false;
 });
-");
+");*/
 ?>
-
-<h1>Manage Comm Offer Shorts</h1>
-
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+<?php
+/*
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -39,20 +34,29 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
-
+*/
+?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'comm-offer-short-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	//'filter'=>$model,
 	'columns'=>array(
-		'id',
+		'id'=>array(
+            'name'=>'id',
+            'type' => 'raw',
+            'value'=>function($data){
+                    $DIR = YiiBase::getPathOfAlias('webroot').'/upload/onlinerequest/'; 
+                    if(CommOfferShort::FileExists($data->id)==NULL) { 
+                    	return CHtml::link('№ '.CHtml::encode($data->id), array('viewSkyz', 'id'=>$data->id));
+                    } else {
+                    	return CHtml::link('№ '.CHtml::encode($data->id), array('viewSkyz', 'id'=>$data->id))." ".CHtml::link("Скачать", array('download', 'id'=>$data->id));
+                    }
+            }, 
+        ),
 		'date',
 		'name',
 		'phone',
 		'email',
 		'product_type',
-		array(
-			'class'=>'CButtonColumn',
-		),
 	),
 )); ?>

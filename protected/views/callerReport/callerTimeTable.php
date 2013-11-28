@@ -12,7 +12,7 @@
             'value'=>'CHtml::link(\'Подробно о №\'.CHtml::encode($data->id), array(\'view\', \'id\'=>$data->id))',
         ),
         'next_call' => array(
-            'name' => 'caller_timetable',
+            'name' => 'next_call',
             'value' => function($data){
                     if ($data->next_call==0) {
                         return $data->next_call;

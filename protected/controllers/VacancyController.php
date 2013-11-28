@@ -71,10 +71,10 @@ class VacancyController extends Controller
 		{	
 			$model->attributes=$_POST['Vacancy'];
 			$model->file=CUploadedFile::getInstance($model,'file');
-			if (!is_object($model->file)) die("error");
 			if($model->save())
 				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/';
-				$model->file->saveAs($DIR.'Vacancy'.$model->id.'.txt');
+				if (is_object($model->file))
+					$model->file->saveAs($DIR.'Vacancy'.$model->id.'.txt');
 				$this->redirect(array('view','id'=>$model->id));
 		}
 

@@ -172,7 +172,9 @@ if(!Yii::app()->user->isGuest) {
 
 				array('label'=>'Просмотр ключевых слов', 'url'=>array('/keyword/ChooseCompany'), 'visible'=>Yii::app()->user->role==7),
 				
-				array('label'=>'<span class="'.$res.'">Расписание</span>', 'url'=>array('/callerReport/callerTimeTable'), 'visible'=>Yii::app()->user->role==1),
+				array('label'=>'<span class="'.$res.'">Расписание</span>', 'url'=>array('/callerReport/callerTimeTable'), 'visible'=>Yii::app()->user->role==1,'items'=>array(
+					array('label'=>'Календарь', 'url'=>array('/callerReport/callendar')),
+					)),
 				array('label'=>'Встречи', 'url'=>array('/callerReport/callerMeetings'), 'visible'=>Yii::app()->user->role==1, 'items'=>array(
 		            array('label'=>'Архив встреч', 'url'=>array('/callerReport/callerMeetingsArchive')),
 		       	)),
@@ -206,6 +208,7 @@ if(!Yii::app()->user->isGuest) {
 
 				array('label'=>'Статистика', 'url'=>array('/callerResult/CallerTodayReport'), 'visible'=>Yii::app()->user->role==1),
 				array('label'=>'Недозвоны', 'url'=>array('/callLater/admin'), 'visible'=>Yii::app()->user->role==1),
+
 				array('label'=>'Отчеты диспетчеров', 'url'=>array('/callerReport/admin'), 'visible'=>Yii::app()->user->role==5),
 				array('label'=>'Отчеты менеджеров', 'url'=>array('/salesReport/admin'), 'visible'=>Yii::app()->user->role==5),
 				array('label'=>'Статистика', 'url'=>array('/statistics'), 'visible'=>Yii::app()->user->role==5),

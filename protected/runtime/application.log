@@ -5327,3 +5327,525 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
+2013/11/27 10:21:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 10:21:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 11:00:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 11:27:47 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "CallerReport.changed".' in /home/ahc03/dr-intellectus.ru/test/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/db/ar/CActiveRecord.php(145): CComponent->__get('changed')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('changed')
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/helpers/CHtml.php(1953): CHtml::resolveValue(Object(CallerReport), 'changed')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/widgets/CActiveForm.php(895): CHtml::activeRadioButtonList(Object(CallerReport), 'changed', Array, Array)
+#4 /home/ahc03/dr-intellectus.ru/test/protected/views/callerReport/_formUpdate.php(185): CActiveForm->radioButtonList(Object(CallerReport), 'changed', Array)
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(126): require('/home/ahc03/dr-...')
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/dr-...', Array, true)
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/dr-...', Array, true)
+#8 /home/ahc03/dr-intellectus.ru/test/protected/views/callerReport/update.php(21): CController->renderPartial('_formUpdate', Array)
+#9 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(126): require('/home/ahc03/dr-...')
+#10 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/dr-...', Array, true)
+#11 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/dr-...', Array, true)
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#13 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerReportController.php(137): CController->render('update', Array)
+#14 [internal function]: CallerReportController->actionUpdate('689')
+#15 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CallerReportController), Array)
+#16 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CallerReportController), Object(ReflectionMethod), Array)
+#17 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#19 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#20 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#21 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#23 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#24 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('update')
+#26 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerReport/up...')
+#27 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/callerReport/update/689
+HTTP_REFERER=http://test.dr-intellectus.ru/callerReport/689
+---
+2013/11/27 11:56:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 11:58:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 11:58:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 12:10:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У вас недостаточно прав для выполнения указанного действия.' in /home/ahc03/dr-intellectus.ru/test/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), '?? ?????? ?????...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('commOfferShort/...')
+#9 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/commOfferShort/admin
+---
+2013/11/27 12:36:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 13:06:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У вас недостаточно прав для выполнения указанного действия.' in /home/ahc03/dr-intellectus.ru/test/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), '?? ?????? ?????...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('download')
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('commOfferShort/...')
+#9 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/commOfferShort/download/4
+HTTP_REFERER=http://test.dr-intellectus.ru/commOfferShort/admin
+---
+2013/11/27 14:04:06 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "CPagination.sort".' in /home/ahc03/dr-intellectus.ru/test/framework/base/CComponent.php:173
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CDataProvider.php(106): CComponent->__set('sort', Array)
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CComponent.php(152): CDataProvider->setPagination(Array)
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CActiveDataProvider.php(96): CComponent->__set('pagination', Array)
+#3 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerReportController.php(338): CActiveDataProvider->__construct('CallerReport', Array)
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(49): CallerReportController->actionCallerMeetings()
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('callerMeetings')
+#14 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerReport/ca...')
+#15 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/callerReport/callerMeetings
+HTTP_REFERER=http://test.dr-intellectus.ru/
+---
+2013/11/27 14:30:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 14:30:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 14:55:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 14:55:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 14:56:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 14:56:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 14:56:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 14:56:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 14:56:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 15:01:19 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'file' in 'field list'. Выполнявшийся SQL-запрос: SELECT file FROM `o_caller_report` WHERE id = 6.
+in /home/ahc03/dr-intellectus.ru/test/protected/models/CallerManagerReport.php (150)
+in /home/ahc03/dr-intellectus.ru/test/protected/views/callerManagerReport/view.php (23)
+in /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php (89)
+2013/11/27 15:01:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'file' in 'field list'. The SQL statement executed was: SELECT file FROM `o_caller_report` WHERE id = 6' in /home/ahc03/dr-intellectus.ru/test/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/ahc03/dr-intellectus.ru/test/protected/models/CallerManagerReport.php(150): CDbCommand->queryAll()
+#2 /home/ahc03/dr-intellectus.ru/test/protected/views/callerManagerReport/view.php(23): CallerManagerReport->FileExists('6')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(126): require('/home/ahc03/dr-...')
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/dr-...', Array, true)
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/dr-...', Array, true)
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#7 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php(89): CController->render('view', Array)
+#8 [internal function]: CallerManagerReportController->actionView('6')
+#9 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CallerManagerReportController), Array)
+#10 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CallerManagerReportController), Object(ReflectionMethod), Array)
+#11 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#18 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('view')
+#20 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#21 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#22 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/callerManagerReport/6
+HTTP_REFERER=http://test.dr-intellectus.ru/callerManagerReport/LowImportancyRp
+---
+2013/11/27 15:10:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "viewSkyz".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php:483
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(270): CController->missingAction('viewSkyz')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('viewSkyz')
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/callerManagerReport/viewSkyz/366
+HTTP_REFERER=http://test.dr-intellectus.ru/callerManagerReport/RpCommProposalsNotSent
+---
+2013/11/27 15:10:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "viewSkyz".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php:483
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(270): CController->missingAction('viewSkyz')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('viewSkyz')
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/callerManagerReport/viewSkyz/349
+HTTP_REFERER=http://test.dr-intellectus.ru/callerManagerReport/RpCommProposalsNotSent
+---
+2013/11/27 15:25:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 15:25:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 15:25:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 15:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 15:26:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 15:55:58 [error] [exception.CException] exception 'CException' with message 'Контроллер CallerManagerReportController не может найти представление "Callendar".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php:878
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(782): CController->renderPartial('Callendar', Array, true)
+#1 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php(122): CController->render('Callendar', Array)
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionCallendar()
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#10 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('callendar')
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#13 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/callerManagerReport/callendar
+---
+2013/11/27 16:29:27 [error] [exception.CException] exception 'CException' with message 'В классе EJuiDateTimePicker должны быть заданы значения свойств "model" и "attribute", либо значение "name".' in /home/ahc03/dr-intellectus.ru/test/framework/zii/widgets/jui/CJuiInputWidget.php:59
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/protected/extensions/timepicker/EJuiDateTimePicker.php(84): CJuiInputWidget->resolveNameID()
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(173): EJuiDateTimePicker->run()
+#2 /home/ahc03/dr-intellectus.ru/test/protected/views/callerManagerReport/callendar.php(30): CBaseController->widget('application.ext...', Array)
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(126): require('/home/ahc03/dr-...')
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/dr-...', Array, true)
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/dr-...', Array, true)
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(782): CController->renderPartial('callendar', Array, true)
+#7 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php(122): CController->render('callendar', Array)
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionCallendar()
+#9 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#16 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('callendar')
+#18 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#19 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/callerManagerReport/callendar
+---
+2013/11/27 16:30:00 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "CallerManagerReport.date".' in /home/ahc03/dr-intellectus.ru/test/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/db/ar/CActiveRecord.php(145): CComponent->__get('date')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('date')
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(CallerManagerReport), 'date')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(CallerManagerReport), 'date', Array)
+#4 /home/ahc03/dr-intellectus.ru/test/protected/extensions/timepicker/EJuiDateTimePicker.php(96): CHtml::activeTextField(Object(CallerManagerReport), 'date', Array)
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(173): EJuiDateTimePicker->run()
+#6 /home/ahc03/dr-intellectus.ru/test/protected/views/callerManagerReport/callendar.php(30): CBaseController->widget('application.ext...', Array)
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(126): require('/home/ahc03/dr-...')
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/dr-...', Array, true)
+#9 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/dr-...', Array, true)
+#10 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(782): CController->renderPartial('callendar', Array, true)
+#11 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php(122): CController->render('callendar', Array)
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionCallendar()
+#13 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#14 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#20 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('callendar')
+#22 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#23 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/callerManagerReport/callendar
+---
+2013/11/27 16:31:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/27 16:46:56 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "CallerManagerReport.month".' in /home/ahc03/dr-intellectus.ru/test/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/db/ar/CActiveRecord.php(145): CComponent->__get('month')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('month')
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/helpers/CHtml.php(1802): CHtml::resolveValue(Object(CallerManagerReport), 'month')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/widgets/CActiveForm.php(847): CHtml::activeDropDownList(Object(CallerManagerReport), 'month', Array, Array)
+#4 /home/ahc03/dr-intellectus.ru/test/protected/views/callerManagerReport/callendar.php(26): CActiveForm->dropDownList(Object(CallerManagerReport), 'month', Array)
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(126): require('/home/ahc03/dr-...')
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/dr-...', Array, true)
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/dr-...', Array, true)
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(782): CController->renderPartial('callendar', Array, true)
+#9 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php(122): CController->render('callendar', Array)
+#10 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionCallendar()
+#11 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#18 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('callendar')
+#20 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#21 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#22 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/callerManagerReport/callendar
+HTTP_REFERER=http://test.dr-intellectus.ru/callerManagerReport/callendar
+---
+2013/11/27 17:06:51 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У вас недостаточно прав для выполнения указанного действия.' in /home/ahc03/dr-intellectus.ru/test/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), '?? ?????? ?????...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('callendar')
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerReport/ca...')
+#9 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/callerReport/callendar
+HTTP_REFERER=http://test.dr-intellectus.ru/
+---
+2013/11/27 18:04:28 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "CallerManagerReport.file".' in /home/ahc03/dr-intellectus.ru/test/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/db/ar/CActiveRecord.php(145): CComponent->__get('file')
+#1 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php(511): CActiveRecord->__get('file')
+#2 [internal function]: CallerManagerReportController->actionUpdate('653')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CallerManagerReportController), Array)
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CallerManagerReportController), Object(ReflectionMethod), Array)
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('update')
+#14 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#15 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/callerManagerReport/update/653
+HTTP_REFERER=http://test.dr-intellectus.ru/callerManagerReport/update/653
+---
+2013/11/27 18:33:30 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetchColumn(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and call_status != 0 and call_status != 5 and call_status != 6' at line 1. Выполнявшийся SQL-запрос: SELECT COUNT(*) FROM `o_caller_report` `t` WHERE importancy=3 and manager_id =  and call_status != 0 and call_status != 5 and call_status != 6.
+in /home/ahc03/dr-intellectus.ru/test/protected/views/callerManagerReport/HighImportancy.php (88)
+in /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php (377)
+in /home/ahc03/dr-intellectus.ru/test/index.php (13)
+2013/11/27 18:33:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and call_status != 0 and call_status != 5 and call_status != 6' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `o_caller_report` `t` WHERE importancy=3 and manager_id =  and call_status != 0 and call_status != 5 and call_status != 6' in /home/ahc03/dr-intellectus.ru/test/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/db/CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/ahc03/dr-intellectus.ru/test/framework/db/ar/CActiveRecord.php(1601): CDbCommand->queryScalar()
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/ahc03/dr-intellectus.ru/test/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/ahc03/dr-intellectus.ru/test/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#5 /home/ahc03/dr-intellectus.ru/test/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 /home/ahc03/dr-intellectus.ru/test/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#7 /home/ahc03/dr-intellectus.ru/test/framework/zii/widgets/grid/CGridView.php(339): CBaseListView->init()
+#8 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(147): CGridView->init()
+#9 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 /home/ahc03/dr-intellectus.ru/test/protected/views/callerManagerReport/HighImportancy.php(88): CBaseController->widget('zii.widgets.gri...', Array)
+#11 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(126): require('/home/ahc03/dr-...')
+#12 /home/ahc03/dr-intellectus.ru/test/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/dr-...', Array, true)
+#13 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/dr-...', Array, true)
+#14 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(782): CController->renderPartial('HighImportancy', Array, true)
+#15 /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php(377): CController->render('HighImportancy', Array)
+#16 /home/ahc03/dr-intellectus.ru/test/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionHighImportancy()
+#17 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#19 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#20 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#21 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 /home/ahc03/dr-intellectus.ru/test/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#23 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(291): CFilterChain->run()
+#24 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('HighImportancy')
+#26 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#27 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/callerManagerReport/HighImportancy
+HTTP_REFERER=http://test.dr-intellectus.ru/callerManagerReport/653
+---
+2013/11/28 09:01:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 09:02:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

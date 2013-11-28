@@ -17,7 +17,13 @@ $this->menu=array(
 ?>
 
 <h1>Просмотр отчета №<?php echo $model->id; ?></h1>
+<?php 
+ 	$DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/';
 
+    if(CallerManagerReport::FileExists($model->id)!=0) { 
+    	echo CHtml::link("Скачать Seo Аудит", array('download', 'id'=>$model->id));
+    }
+ ?>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(

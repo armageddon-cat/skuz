@@ -31,7 +31,7 @@ class CommOfferShort extends CActiveRecord
 		return array(
 			array('name, phone, email, product_type', 'required'),
 			array('name, phone, email, product_type', 'length', 'max'=>255),
-			array('comment, site_url', 'safe'),
+			array('comment, site_url, file', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, date, name, phone, email, product_type', 'safe', 'on'=>'search'),
@@ -68,7 +68,8 @@ class CommOfferShort extends CActiveRecord
 			'email' => 'Email',
 			'product_type' => 'Вид продукта',
 			'comment' => 'Комментарий',
-			'site_url' => 'Адрес Вашего сайта'
+			'site_url' => 'Адрес Вашего сайта',
+			'file'=>'Файл'
 		);
 	}
 
@@ -100,6 +101,13 @@ class CommOfferShort extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public function FileExists($id)
+	{
+		$result = Yii::app()->db->createCommand("SELECT file FROM `o_comm_offer_short` WHERE id = ".$id."")->queryAll();
+ 		$res1 = $result[0]['file'];
+ 		return $res1;
 	}
 
 	/**

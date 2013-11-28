@@ -178,6 +178,12 @@ $this->widget('application.extensions.timepicker.EJuiDateTimePicker',array(
 echo CHtml::checkBox('to_database'); 
 } */
 	?>
+	<div class="row">
+		<?php echo CHtml::label('Был ли новый созвон(потрачено время), добавить в ежедневную статистику?'); ?><br>
+		<?php echo $form->radioButtonList($model,'changed',
+			array( 
+			1=>'Да', 2=>'Нет')); ?>
+	</div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 	</div>

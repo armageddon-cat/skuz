@@ -32,7 +32,7 @@ class CallerManagerReportController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download','RpMeetings','RpMeetingsProcessing','RpMeetingsArchive'),
+				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download','RpMeetings','RpMeetingsProcessing','RpMeetingsArchive','Callendar'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -111,6 +111,13 @@ class CallerManagerReportController extends Controller
 		}
 
 		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
+
+		public function actionCallendar()
+	{	$model=new CallerManagerReport;
+		$this->render('callendar',array(
 			'model'=>$model,
 		));
 	}
@@ -501,7 +508,8 @@ class CallerManagerReportController extends Controller
 			if($model->save())
 				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/';
 				if (Yii::app()->user->role==3) {
-					$model->seo_file->saveAs($DIR.'SeoAudit'.$model->id.'.xlsx');
+					if (is_object($model->seo_file))
+						$model->seo_file->saveAs($DIR.'SeoAudit'.$model->id.'.xlsx');
 				}
 
 				$this->redirect(array('view','id'=>$model->id));
@@ -579,6 +587,18 @@ class CallerManagerReportController extends Controller
                             'pageSize' => 50,
                         ),
 		));
+
+						$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+				if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('caller_id',$model->caller_id,true);
+			$dataProvider->criteria->compare('meeting_result',$model->meeting_result,true);
 		$this->render('RpMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -595,6 +615,17 @@ class CallerManagerReportController extends Controller
                             'pageSize' => 50,
                         ),
 		));
+								$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+				if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('caller_id',$model->caller_id,true);
+			$dataProvider->criteria->compare('meeting_result',$model->meeting_result,true);
 		$this->render('RpMeetingsProcessing',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
@@ -611,6 +642,17 @@ class CallerManagerReportController extends Controller
                             'pageSize' => 50,
                         ),
 		));
+								$model=new CallerManagerReport('search');
+		$model->unsetAttributes();  // clear any default values
+				if(isset($_GET['CallerManagerReport']))
+			$model->attributes=$_GET['CallerManagerReport'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('next_call',$model->next_call,true);
+			$dataProvider->criteria->compare('next_meeting_date',$model->next_meeting_date,true);
+			$dataProvider->criteria->compare('company',$model->company,true);
+			$dataProvider->criteria->compare('call_status',$model->call_status,true);
+			$dataProvider->criteria->compare('caller_id',$model->caller_id,true);
+			$dataProvider->criteria->compare('meeting_result',$model->meeting_result,true);
 		$this->render('RpMeetingsArchive',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 	

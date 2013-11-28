@@ -38,13 +38,13 @@ class CallerManagerReport extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('company', 'required'),
-			array('call_status, meeting_result', 'numerical', 'integerOnly'=>true),
+			
 			array('company, business_type, comm_proposal, contract', 'length', 'max'=>255),
-			array('phone_number, service_type, contact_type, caller_id', 'length', 'max'=>50),
+			array('phone_number, service_type, contact_type, caller_id', 'length', 'max'=>255),
 			array('time, site_address, company_address, email, contact_person, next_call, comment, call_status', 'length', 'max'=>255),
-			array('email', 'length', 'max'=>40),
-			array('importancy, manager_comment, next_meeting_date, seo_audit_done, seo_file, additional_products', 'safe'),
-			array('contact_person', 'length', 'max'=>30),
+			array('email', 'length', 'max'=>255),
+			array('importancy, manager_comment, next_meeting_date, seo_audit_done, seo_file, additional_products, call_status, meeting_result', 'safe'),
+			array('contact_person', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, time, company, phone_number, company_address, email, contact_person, business_type, service_type, next_call, contact_type, comment, caller_id, call_status, meeting_result', 'safe', 'on'=>'search'),
@@ -143,6 +143,13 @@ class CallerManagerReport extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+		public function FileExists($id)
+	{
+		$result = Yii::app()->db->createCommand("SELECT seo_file FROM `o_caller_report` WHERE id = ".$id."")->queryAll();
+ 		$res1 = $result[0]['seo_file'];
+ 		return $res1;
 	}
 
 	/**
