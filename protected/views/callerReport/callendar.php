@@ -3,7 +3,6 @@
 /* @var $model CommOfferShort */
 
 ?>
-<h1>Календарь</h1>
 <p><b>Выбор даты</b></p>
 <?php echo CHtml::form(); ?>
 <?php echo CHtml::dropDownList('month', 'selectedmonth', array(
@@ -21,7 +20,7 @@
 '11'=>'ноябрь/11',
 '12'=>'декабрь/12'
 )); ?>
-<?php echo CHtml::textField('year') ?>
+<?php echo CHtml::textField('year','',array('placeholder'=>'Год. Например: 2013')); ?>
 <div class="row buttons">
 	<?php echo CHtml::submitButton('Поехали'); ?>
 </div>
@@ -34,7 +33,30 @@
 		$year = $_POST['year'];
 		$year = trim($year);
 		$date = $year."-".$month;
+	} else {
+		$month = date('m');
+		$year = '2013';
+		$date = $year."-".$month;
 	}
+?>
+<?php if (Yii::app()->user->role==1) {
+	$address = 'CallerReport/';
+} else {
+	$address = 'CallerManagerReport/';
+}
+?>
+<?php 
+$days_of_week_en=date("l");
+$days_of_week_ru=array(
+  'Monday'=>'Понедельник',
+  'Tuesday'=>'Вторник',
+  'Wednesday'=>'Среда',
+  'Thursday'=>'Четверг',
+  'Friday'=>'Пятница',
+  'Saturday'=>'Суббота',
+  'Sunday'=>'Воскресенье',
+);
+//$days_of_week=$days_of_week_ru[$days_of_week_en];
 ?>
 <h4>Календарь на <?php echo $date; ?></h4>
 <table  class="callendar" border="1">
@@ -43,10 +65,19 @@
 		<tr>
 			<?for ($j=1; $j <= 7; $j++) { ?>
 			<td ><?php
-				echo "<span class=\"red\">".$day."</span><br>";
-				$result = Yii::app()->db->createCommand("SELECT id FROM `o_caller_report` WHERE date(`next_call`)=date('".$date."-".$day."')")->queryAll();
+				echo "<span class=\"black\">".$day."</span> ";
+				$day_of_week_en = date("l", mktime(0, 0, 0, $month, $day, $year));
+				$day_of_week=$days_of_week_ru[$day_of_week_en];
+				echo "<span class=\"yellow\">".$day_of_week."</span><br>";
+				$result = Yii::app()->db->createCommand("SELECT id, next_call, next_meeting_date FROM `o_caller_report` WHERE date(`next_call`)=date('".$date."-".$day."') and call_status=2")->queryAll();
 				foreach ($result as $res) {
-					echo CHtml::link($res['id'], array('view', 'id'=>$res['id']))." ";
+					if ($res['next_meeting_date']==0) {
+						$res['next_call']=substr($res['next_call'], 11, 5); 
+						echo CHtml::link('Д'.$res['next_call'], array($address.'view', 'id'=>$res['id']))."<br>";
+					} else {
+						$res['next_meeting_date']=substr($res['next_meeting_date'], 11, 5); 
+						echo CHtml::link('M'.$res['next_meeting_date'], array($address.'view', 'id'=>$res['id']))."<br>";
+					}
 				}
 				$day++;
 			?></td>

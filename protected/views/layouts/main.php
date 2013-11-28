@@ -27,6 +27,19 @@ custom.js"></script>
 <body>
 	<!--noindex-->
 <?if (Yii::app()->user->role!=7) { if(!Yii::app()->user->isGuest) { ?>
+	<div id="slideout-callendar">
+		<p>Каллендарь</p>
+		<div id="slideout_inner-callendar">
+			<?php 
+			Yii::import('application.controllers.CallerReportController');
+			@$controller = new CallerReportController;
+
+			$controller->actionCallendar();
+			?>
+		</div>
+	</div>
+<?}}?>
+<?if (Yii::app()->user->role!=7) { if(!Yii::app()->user->isGuest) { ?>
 <div id="slideout">
   <p>Рейтинг<br />диспетчеров</p>
   <div id="slideout_inner">

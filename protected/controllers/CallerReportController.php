@@ -113,11 +113,9 @@ class CallerReportController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-			public function actionCallendar()
-	{	$model=new CallerReport;
-		$this->render('callendar',array(
-			'model'=>$model,
-		));
+	public function actionCallendar()
+	{	
+		$this->renderPartial('application.views.callerReport.callendar');
 	}
 	public function actionUpdate($id)
 	{
