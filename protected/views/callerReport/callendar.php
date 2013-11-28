@@ -56,30 +56,38 @@ $days_of_week_ru=array(
   'Saturday'=>'Суббота',
   'Sunday'=>'Воскресенье',
 );
-//$days_of_week=$days_of_week_ru[$days_of_week_en];
 ?>
 <h4>Календарь на <?php echo $date; ?></h4>
 <table  class="callendar" border="1">
 <?php 	$day = 1;
-		for ($i=1; $i <= 5; $i++) { ?>
+		for ($i=1; $i <= 6; $i++) { ?>
+		<?php if ($day > date('t', mktime(0, 0, 0, $month, $day, $year))) {
+			break;
+		} ?>
 		<tr>
 			<?for ($j=1; $j <= 7; $j++) { ?>
 			<td ><?php
-				echo "<span class=\"black\">".$day."</span> ";
-				$day_of_week_en = date("l", mktime(0, 0, 0, $month, $day, $year));
-				$day_of_week=$days_of_week_ru[$day_of_week_en];
-				echo "<span class=\"yellow\">".$day_of_week."</span><br>";
-				$result = Yii::app()->db->createCommand("SELECT id, next_call, next_meeting_date FROM `o_caller_report` WHERE date(`next_call`)=date('".$date."-".$day."') and call_status=2")->queryAll();
-				foreach ($result as $res) {
-					if ($res['next_meeting_date']==0) {
-						$res['next_call']=substr($res['next_call'], 11, 5); 
-						echo CHtml::link('Д'.$res['next_call'], array($address.'view', 'id'=>$res['id']))."<br>";
-					} else {
-						$res['next_meeting_date']=substr($res['next_meeting_date'], 11, 5); 
-						echo CHtml::link('M'.$res['next_meeting_date'], array($address.'view', 'id'=>$res['id']))."<br>";
+				$number_of_day_week = date('N', mktime(0, 0, 0, $month, $day, $year));
+				$number_of_days_month = date('t', mktime(0, 0, 0, $month, $day, $year));
+				if ($j==$number_of_day_week && $day <= $number_of_days_month) {
+					echo "<span class=\"black\">".$day."</span> ";
+					$day_of_week_en = date("l", mktime(0, 0, 0, $month, $day, $year));
+					$day_of_week=$days_of_week_ru[$day_of_week_en];
+					echo "<span class=\"yellow\">".$day_of_week."</span><br>";
+					$result = Yii::app()->db->createCommand("SELECT id, next_call, next_meeting_date FROM `o_caller_report` WHERE date(`next_call`)=date('".$date."-".$day."') and call_status=2")->queryAll();
+					foreach ($result as $res) {
+						if ($res['next_meeting_date']==0) {
+							$res['next_call']=substr($res['next_call'], 11, 5); 
+							echo CHtml::link('Д'.$res['next_call'], array($address.'view', 'id'=>$res['id']))."<br>";
+						} else {
+							$res['next_meeting_date']=substr($res['next_meeting_date'], 11, 5); 
+							echo CHtml::link('M'.$res['next_meeting_date'], array($address.'view', 'id'=>$res['id']))."<br>";
+						}
 					}
+					$day++;
+				} else {
+					echo "&nbsp;";
 				}
-				$day++;
 			?></td>
 			<?}?>
 		</tr>

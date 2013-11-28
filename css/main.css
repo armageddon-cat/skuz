@@ -267,6 +267,10 @@ table.my_table td {
 	color:blue;
 	font-weight: bold;
 }
+.black {
+	color:black;
+	font-weight: bold;
+}
 
 .my_table_callers {
 	 width: 350px;
@@ -354,3 +358,65 @@ table.my_table_callers td {
 	font: italic 8pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
 }
+.callendar {
+	width: auto;
+}
+
+.callendar td {
+	 border: 1px solid #000;
+	 vertical-align: top;
+}
+
+#slideout-callendar {
+			position: fixed;
+			/*top: 40px;*/
+			right: 0;
+			/*width: 35px;*/
+			padding: 10px;
+			text-align: center;
+			background: #4C99C5;
+			color: #fff;
+			-webkit-transition-duration: 0.3s;
+			-moz-transition-duration: 0.3s;
+			-o-transition-duration: 0.3s;
+			transition-duration: 0.3s;
+			-webkit-border-radius:5px 0 0 5px;
+			-moz-border-radius:5px 0 0 5px;
+			border-radius:5px 0 0 5px;
+			z-index: 100000;
+}
+#slideout-callendar p { margin: 0;}
+#slideout_inner-callendar {
+	position: fixed;
+	/*top: 40px;*/
+	right: -900px;
+	background: #4C99C5;
+	width: auto;
+	padding: 25px;
+	height: 100%;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	text-align: left;
+/*	-webkit-border-radius:5px 0 0 5px;
+	-moz-border-radius:5px 0 0 5px;
+	border-radius:5px 0 0 5px;*/
+	top:0;
+}
+#slideout_inner-callendar textarea {
+	width: 190px;
+	height: 140px;
+	margin-bottom: 6px;
+}
+#slideout-callendar:hover {
+	/*right: 400px;*/
+}
+#slideout_inner-callendar {
+	background: rgba(0,0,0, 0.5);
+} 
+#slideout-callendar:hover #slideout_inner-callendar {
+	right: 0;
+}
+#slideout_inner-callendar a {color: #fff;}
+#slideout_inner-callendar a:hover {color: #000;}
