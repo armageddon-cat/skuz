@@ -5988,3 +5988,955 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/callerResult/callendar
 ---
+2013/11/28 13:46:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "delete".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php:483
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(270): CController->missingAction('delete')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('delete')
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callLater/delet...')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/callLater/delete/2267?ajax=call-later-grid
+HTTP_REFERER=http://test.dr-intellectus.ru/callLater/admin
+---
+2013/11/28 13:46:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "delete".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php:483
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CController.php(270): CController->missingAction('delete')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(282): CController->run('delete')
+#2 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('callLater/delet...')
+#3 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/callLater/delete/2267?ajax=call-later-grid
+HTTP_REFERER=http://test.dr-intellectus.ru/callLater/admin
+---
+2013/11/28 14:56:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:56:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:56:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:56:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:56:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:56:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:56:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:56:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:56:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:56:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:56:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:57:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:57:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:57:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:57:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:57:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:57:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 14:59:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 14:59:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 14:59:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 15:06:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 15:06:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 15:06:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 15:07:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 15:07:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 15:07:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 15:25:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 15:25:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon-precomposed.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-precomposed.png
+---
+2013/11/28 15:25:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "apple-touch-icon.png".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2013/11/28 15:39:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 17:16:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/28 22:36:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 08:36:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 08:36:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 09:08:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 09:16:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 09:21:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 09:40:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 09:44:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 10:38:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 11:45:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 11:57:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 13:07:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/29 14:31:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/11/30 13:03:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/01 12:02:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/01 17:02:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/01 17:10:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/01 17:15:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/01 22:17:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 06:14:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:18:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:18:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:45:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:57:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:57:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:57:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:58:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:58:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:58:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:58:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:58:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:58:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:58:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:59:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:59:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:59:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 08:59:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 09:09:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 10:26:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 10:36:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 12:26:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 13:01:40 [warning] [application] Не удалось присвоить небезопасный атрибут "manager_id" класса "CallerManagerReport".
+in /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php (550)
+in /home/ahc03/dr-intellectus.ru/test/index.php (13)
+2013/12/02 13:02:52 [warning] [application] Не удалось присвоить небезопасный атрибут "manager_id" класса "CallerManagerReport".
+in /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php (550)
+in /home/ahc03/dr-intellectus.ru/test/index.php (13)
+2013/12/02 13:05:38 [warning] [application] Не удалось присвоить небезопасный атрибут "manager_id" класса "CallerManagerReport".
+in /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php (550)
+in /home/ahc03/dr-intellectus.ru/test/index.php (13)
+2013/12/02 13:07:30 [warning] [application] Не удалось присвоить небезопасный атрибут "manager_id" класса "CallerManagerReport".
+in /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php (550)
+in /home/ahc03/dr-intellectus.ru/test/index.php (13)
+2013/12/02 13:08:47 [warning] [application] Не удалось присвоить небезопасный атрибут "manager_id" класса "CallerManagerReport".
+in /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php (550)
+in /home/ahc03/dr-intellectus.ru/test/index.php (13)
+2013/12/02 18:22:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/02 18:38:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 07:43:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 08:45:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 08:45:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 09:11:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 09:23:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 09:23:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 09:37:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 09:40:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 09:52:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 09:52:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 13:20:47 [warning] [application] Не удалось присвоить небезопасный атрибут "manager_id" класса "CallerManagerReport".
+in /home/ahc03/dr-intellectus.ru/test/protected/controllers/CallerManagerReportController.php (550)
+in /home/ahc03/dr-intellectus.ru/test/index.php (13)
+2013/12/03 14:03:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:03:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:03:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:18:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:22:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:25:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:51:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:51:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:53:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:53:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:54:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:54:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/03 14:54:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/dr-intellectus.ru/test/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/dr-intellectus.ru/test/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/dr-intellectus.ru/test/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
