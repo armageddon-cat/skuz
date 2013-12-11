@@ -51,7 +51,7 @@ class Product extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'product' => 'Product',
+			'product' => 'Вид продукта',
 		);
 	}
 

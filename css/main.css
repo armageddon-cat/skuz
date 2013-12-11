@@ -390,7 +390,7 @@ table.my_table_callers td {
 	position: fixed;
 	/*top: 40px;*/
 	right: -900px;
-	background: #4C99C5;
+	background: #B7D6E7;
 	width: auto;
 	padding: 25px;
 	height: 100%;
@@ -413,10 +413,10 @@ table.my_table_callers td {
 	/*right: 400px;*/
 }
 #slideout_inner-callendar {
-	background: rgba(0,0,0, 0.5);
+	/*background: rgba(0,0,0, 0.5);*/
 } 
 #slideout-callendar:hover #slideout_inner-callendar {
 	right: 0;
 }
-#slideout_inner-callendar a {color: #fff;}
+#slideout_inner-callendar a {color: blue;}
 #slideout_inner-callendar a:hover {color: #000;}

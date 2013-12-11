@@ -370,7 +370,7 @@ class CallerReportController extends Controller
 		
 		$criteria = new CDbCriteria();
         $criteria->condition = "call_status=2 and caller_id = ".$id." and `time` >= 20131101";
-        $criteria->select = 'id, next_call, company, call_status, next_meeting_date';
+        $criteria->select = 'id, time, next_call, company, call_status, next_meeting_date';
 
 		$dataProvider=new CActiveDataProvider('CallerReport', array('criteria'=>$criteria, 'pagination' => array(
                             'pageSize' => 50,
@@ -459,7 +459,7 @@ class CallerReportController extends Controller
 		*/
 		
 		$criteria = new CDbCriteria();
-        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and caller_id = ".Yii::app()->user->id."";
+        $criteria->condition = "DATE_SUB(CURDATE(),INTERVAL 0 DAY) <= next_call and caller_id = ".Yii::app()->user->id." and call_status!=5";
        // $criteria->order = 'next_call ASC';
         $criteria->select = 'id, next_call, company, call_status, next_meeting_date';
        // $criteria->select = array('id', 'next_call', 'company', 'call_status');

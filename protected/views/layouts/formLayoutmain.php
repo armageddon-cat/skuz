@@ -59,7 +59,7 @@
         <div id="enter_cabinet">
             <p><b>Вход в личный кабинет</b></p>
             <p></p>
-            <form id="enter_to_cab" method="post" action="http://test.dr-intellectus.ru/site/ClientLogin">
+            <form id="enter_to_cab" method="post" action="http://crm.abcweb.com.ua/site/ClientLogin">
                 <p>Логин</p>
                 <input type="text" name="LoginForm[username]" class="number"/>
                 <p>Пароль</p>

@@ -51,7 +51,7 @@ class Contract extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'contract_status' => 'Contract Status',
+			'contract_status' => 'Подписан ли договор?',
 		);
 	}
 

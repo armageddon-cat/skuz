@@ -71,4 +71,13 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
+    '8' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'html',
+        'children' => array(
+            'manager',         // позволим админу всё, что позволено модератору
+        ),
+        'bizRule' => null,
+        'data' => null
+    ),
 );

@@ -56,3 +56,45 @@
       
     ),
 )); ?>
+<div style="display:none;">
+<?php $gridWidget=$this->widget('zii.widgets.grid.CGridView', array(
+    'id'=>'caller-report-grid',
+    'dataProvider'=>$exportdataProvider,
+    'filter'=>$model,
+    'columns'=>array(
+        'id',
+        'time',
+        'company',
+        'site_address',
+        'phone_number',
+        'company_address',
+        'email',
+        'contact_person',
+        'business_type',
+        'service_type',
+        //'additional_products',
+        'next_call',
+        'next_meeting_date',
+        //'contact_type',
+        'comment',
+        // 'caller_id',
+        // 'call_status',
+        // 'manager_id',
+        // 'meeting_result',
+        'comm_proposal',
+        'contract',
+        //'importancy',
+        'manager_comment',
+        //'order_code',
+        //'seo_audit_done',
+        //'seo_file',
+        //'changed',  
+    ),
+));
+?>
+</div>
+<p>
+<?php
+$this->renderExportGridButton($gridWidget,'Експорт отчета',array('class'=>'btn btn-info pull-right'));
+?>
+</p>

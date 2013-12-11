@@ -54,7 +54,9 @@ class CallerManagerReportController extends Controller
 	    	return Yii::app()->getRequest()->sendFile(
 	        'SeoAudit'.$id.'.xlsx', // название файла, который получит юзер
 	        file_get_contents($DIR.'SeoAudit'.$id.'.xlsx'),
-	       'mime/type', // необязательно, определяется автоматически
+	       //'mime/type', // необязательно, определяется автоматически
+	        //'mime/type'=>'application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+	        'application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 	        true // остановить аппликейшен во время отправки default: true
 			);
 			// если включено логирование, при отправке файла лучше его отключить
@@ -151,7 +153,23 @@ class CallerManagerReportController extends Controller
                             'pageSize' => 50,
                         ),
 		));
-		$this->render('ManagerMeetingsProcessing',array('dataProvider'=>$dataProvider, 'model'=>$model));
+
+		$exportcriteria = new CDbCriteria();
+        $exportcriteria->condition = "call_status=2 and manager_id = ".Yii::app()->user->id." and meeting_result = 0";
+        $exportcriteria->select = '*';
+		$exportdataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$exportcriteria));
+
+		if ($this->isExportRequest()) { //<==== [[ADD THIS BLOCK BEFORE RENDER]]
+            //set_time_limit(0); //Uncomment to export lage datasets
+            //Add to the csv a single line of text
+         //   $this->exportCSV(array('Вид продукта: 1 - Создание сайта; 2 - Продвижение сайта; 3 - Контекстная реклама; 4 - Тех поддержка сайта; 5 - Создание фирменного стиля; 6 - Создание лого'), null, false);
+             //Add to the csv a single model data with 3 empty rows after the data
+            //$this->exportCSV($model, array_keys($model->attributeLabels()), false, 3);
+            //Add to the csv a lot of models from a CDataProvider
+            $this->exportCSV($exportdataProvider, array('id', 'time', 'company', 'business_type', 'product.product', 'next_call', 'next_meeting_date', 'comment', 'CommProposal.res', 'Contract.contract_status', 'manager_comment'));
+        	
+        }
+		$this->render('ManagerMeetingsProcessing',array('dataProvider'=>$dataProvider,'exportdataProvider'=>$exportdataProvider, 'model'=>$model));
 	}
 
 	public function actionManagerMeetingsArchive()
@@ -504,7 +522,8 @@ class CallerManagerReportController extends Controller
 		if(isset($_POST['CallerManagerReport']))
 		{
 			$model->attributes=$_POST['CallerManagerReport'];
-			$model->seo_file=CUploadedFile::getInstance($model,'seo_file');
+			if (is_object($model->seo_file))
+				$model->seo_file=CUploadedFile::getInstance($model,'seo_file');
 			if($model->save())
 				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/';
 				if (Yii::app()->user->role==3) {
@@ -626,7 +645,25 @@ class CallerManagerReportController extends Controller
 			$dataProvider->criteria->compare('call_status',$model->call_status,true);
 			$dataProvider->criteria->compare('caller_id',$model->caller_id,true);
 			$dataProvider->criteria->compare('meeting_result',$model->meeting_result,true);
-		$this->render('RpMeetingsProcessing',array('dataProvider'=>$dataProvider, 'model'=>$model));
+
+			$exportcriteria = new CDbCriteria();
+        $exportcriteria->condition = "call_status=2 and meeting_result = 0";
+        //$exportcriteria->join = 'JOIN `o_product` ON `o_product`.`id` = `service_type`';
+        $exportcriteria->select = '*';
+		$exportdataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$exportcriteria));
+
+		if ($this->isExportRequest()) { //<==== [[ADD THIS BLOCK BEFORE RENDER]]
+            //set_time_limit(0); //Uncomment to export lage datasets
+            //Add to the csv a single line of text
+            //$this->exportCSV(array('Легенда:'), null, false);
+            //Add to the csv a single model data with 3 empty rows after the data
+            //$this->exportCSV($model, array_keys($model->attributeLabels()), false, 3);
+            //Add to the csv a lot of models from a CDataProvider
+            $this->exportCSV($exportdataProvider, array('id', 'time', 'company', 'business_type', 'product.product', 'next_call', 'next_meeting_date', 'comment', 'CommProposal.res', 'Contract.contract_status', 'manager_comment'));
+        	
+        }
+
+		$this->render('RpMeetingsProcessing',array('dataProvider'=>$dataProvider, 'exportdataProvider'=>$exportdataProvider, 'model'=>$model));
 	}
 
 		public function actionRpMeetingsArchive()
@@ -680,6 +717,20 @@ class CallerManagerReportController extends Controller
 			'model'=>$model,
 		));
 	}
+
+		public function behaviors() {
+    return array(
+        'exportableGrid' => array(
+            'class' => 'application.components.ExportableGridBehavior',
+            'filename' => 'PostsWithUsers.xls',
+            'csvDelimiter' => ';', //i.e. Excel friendly csv delimiter
+            ),
+       	 'eexcelview'=>array(
+	                'class'=>'ext.eexcelview.EExcelBehavior',
+	            ),
+
+        );
+	} 
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

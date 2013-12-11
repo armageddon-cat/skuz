@@ -51,7 +51,7 @@ class CommProposal extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'res' => 'Res',
+			'res' => 'Комм. предложение',
 		);
 	}
 

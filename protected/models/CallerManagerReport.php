@@ -39,11 +39,11 @@ class CallerManagerReport extends CActiveRecord
 		return array(
 			array('company', 'required'),
 			
-			array('company, business_type, comm_proposal, contract', 'length', 'max'=>255),
+			array('company, comm_proposal, contract', 'length', 'max'=>255),
 			array('phone_number, service_type, contact_type, caller_id', 'length', 'max'=>255),
-			array('time, site_address, company_address, email, contact_person, next_call, comment, call_status', 'length', 'max'=>255),
+			array('site_address, company_address, email, contact_person, next_call, call_status', 'length', 'max'=>255),
 			array('email', 'length', 'max'=>255),
-			array('importancy, manager_comment, next_meeting_date, seo_audit_done, seo_file, additional_products, call_status, meeting_result', 'safe'),
+			array('time, importancy, manager_comment,  business_type, next_meeting_date, seo_audit_done, seo_file, additional_products, call_status, comment, meeting_result', 'safe'),
 			array('contact_person', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -69,6 +69,7 @@ class CallerManagerReport extends CActiveRecord
 			'Contract'=>array(self::BELONGS_TO, 'Contract', 'contract'),
 			'Importancy'=>array(self::BELONGS_TO, 'Importancy', 'importancy'),
 			'SeoAudit'=>array(self::BELONGS_TO, 'SeoAuditDone', 'seo_audit_done'),
+			'OrdersHistory'=>array(self::BELONGS_TO, 'OrdersHistory', 'id'),
 		);
 	}
 

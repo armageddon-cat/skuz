@@ -22,7 +22,7 @@ $this->menu=array(
 ?>
 
 <h1>Просмотр отчета<?php //echo $model->id; ?></h1>
-<p><a href="http://test.dr-intellectus.ru/callerReport/TestExport/<?php echo $model->id ?>">Загрузка этой онлайн заявки в Excel</a></p>
+<p><a href="/callerReport/TestExport/<?php echo $model->id ?>">Загрузка этой онлайн заявки в Excel</a></p>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(

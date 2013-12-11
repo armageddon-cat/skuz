@@ -13,6 +13,7 @@
             'type' => 'raw',
             'value'=>'CHtml::link(\'Подробно о №\'.CHtml::encode($data->id), array(\'view\', \'id\'=>$data->id))',
         ),
+        'time',
         'next_call' => array(
             'name' => 'next_call',
             'value' => function($data){
