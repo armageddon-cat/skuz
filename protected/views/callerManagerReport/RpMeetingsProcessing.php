@@ -83,7 +83,7 @@
     ),
 )); ?>
 <div style="display:none;">
-<?php $gridWidget=$this->widget('zii.widgets.grid.CGridView', array(
+<?php /* $gridWidget=$this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'caller-report-grid',
     'dataProvider'=>$exportdataProvider,
     'filter'=>$model,
@@ -116,11 +116,11 @@
         //'seo_file',
         //'changed',  
     ),
-));
+));*/
 ?>
 </div>
 <p>
-<?php
-$this->renderExportGridButton($gridWidget,'Експорт отчета',array('class'=>'btn btn-info pull-right'));
+<?php echo CHtml::link(CHtml::encode('Експорт отчета'), array('ReportExport'));
+//$this->renderExportGridButton($gridWidget,'Експорт отчета',array('class'=>'btn btn-info pull-right'));
 ?>
 </p>

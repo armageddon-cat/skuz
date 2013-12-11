@@ -9349,3 +9349,838 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
+2013/12/09 12:07:49 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "isExportRequest".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(162): CComponent->__call('isExportRequest', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(162): CallerManagerReportController->isExportRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionManagerMeetingsProcessing()
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('ManagerMeetings...')
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#13 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/callerManagerReport/ManagerMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/callerManagerReport/LowImportancy
+---
+2013/12/09 12:08:21 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "isExportRequest".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(162): CComponent->__call('isExportRequest', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(162): CallerManagerReportController->isExportRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionManagerMeetingsProcessing()
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('ManagerMeetings...')
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('callerManagerRe...')
+#13 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/callerManagerReport/ManagerMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/callerManagerReport/LowImportancy
+---
+2013/12/09 12:27:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 12:49:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 12:50:08 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "renderExportGridButton".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CComponent->__call('renderExportGri...', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CallerManagerReportController->renderExportGridButton(Object(CGridView), '?????????????? ...', Array)
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('RpMeetingsProce...', Array, true)
+#6 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(666): CController->render('RpMeetingsProce...', Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionRpMeetingsProcessing()
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('RpMeetingsProce...')
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('CallerManagerRe...')
+#18 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/CallerManagerReport/RpMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/
+---
+2013/12/09 12:50:08 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "renderExportGridButton".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CComponent->__call('renderExportGri...', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CallerManagerReportController->renderExportGridButton(Object(CGridView), '?????????????? ...', Array)
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('RpMeetingsProce...', Array, true)
+#6 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(666): CController->render('RpMeetingsProce...', Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionRpMeetingsProcessing()
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('RpMeetingsProce...')
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('CallerManagerRe...')
+#18 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/CallerManagerReport/RpMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/CallerManagerReport/RpMeetingsProcessing
+---
+2013/12/09 12:50:17 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "renderExportGridButton".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CComponent->__call('renderExportGri...', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CallerManagerReportController->renderExportGridButton(Object(CGridView), '?????????????? ...', Array)
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('RpMeetingsProce...', Array, true)
+#6 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(666): CController->render('RpMeetingsProce...', Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionRpMeetingsProcessing()
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('RpMeetingsProce...')
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('CallerManagerRe...')
+#18 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/CallerManagerReport/RpMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/
+---
+2013/12/09 12:50:18 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "renderExportGridButton".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CComponent->__call('renderExportGri...', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CallerManagerReportController->renderExportGridButton(Object(CGridView), '?????????????? ...', Array)
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('RpMeetingsProce...', Array, true)
+#6 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(666): CController->render('RpMeetingsProce...', Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionRpMeetingsProcessing()
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('RpMeetingsProce...')
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('CallerManagerRe...')
+#18 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/CallerManagerReport/RpMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/CallerManagerReport/RpMeetingsProcessing
+---
+2013/12/09 12:50:25 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "renderExportGridButton".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CComponent->__call('renderExportGri...', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CallerManagerReportController->renderExportGridButton(Object(CGridView), '?????????????? ...', Array)
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('RpMeetingsProce...', Array, true)
+#6 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(666): CController->render('RpMeetingsProce...', Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionRpMeetingsProcessing()
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('RpMeetingsProce...')
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('CallerManagerRe...')
+#18 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/CallerManagerReport/RpMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/CallerManagerReport/RpMeetings
+---
+2013/12/09 12:50:26 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "renderExportGridButton".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CComponent->__call('renderExportGri...', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CallerManagerReportController->renderExportGridButton(Object(CGridView), '?????????????? ...', Array)
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('RpMeetingsProce...', Array, true)
+#6 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(666): CController->render('RpMeetingsProce...', Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionRpMeetingsProcessing()
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('RpMeetingsProce...')
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('CallerManagerRe...')
+#18 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/CallerManagerReport/RpMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/CallerManagerReport/RpMeetingsProcessing
+---
+2013/12/09 12:51:41 [error] [exception.CException] exception 'CException' with message 'В классе CallerManagerReportController и его поведениях не найден метод или замыкание с именем "renderExportGridButton".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CComponent->__call('renderExportGri...', Array)
+#1 /home/ahc03/abcweb.com.ua/crm/protected/views/callerManagerReport/RpMeetingsProcessing.php(124): CallerManagerReportController->renderExportGridButton(Object(CGridView), '?????????????? ...', Array)
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('RpMeetingsProce...', Array, true)
+#6 /home/ahc03/abcweb.com.ua/crm/protected/controllers/CallerManagerReportController.php(666): CController->render('RpMeetingsProce...', Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): CallerManagerReportController->actionRpMeetingsProcessing()
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('RpMeetingsProce...')
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('CallerManagerRe...')
+#18 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/CallerManagerReport/RpMeetingsProcessing
+HTTP_REFERER=http://crm.abcweb.com.ua/
+---
+2013/12/09 12:53:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 12:54:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:42:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:48:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:48:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:48:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:48:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:48:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:48:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:50:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:50:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:52:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:53:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 13:53:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 14:52:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/09 16:54:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 08:19:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 08:30:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 08:35:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 08:36:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 08:39:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://crm.abcweb.com.ua/
+---
+2013/12/10 09:25:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 09:35:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 09:58:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 11:44:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У вас недостаточно прав для выполнения указанного действия.' in /home/ahc03/abcweb.com.ua/crm/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), '?? ?????? ?????...')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('taskSystem/admi...')
+#9 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/taskSystem/admin
+HTTP_REFERER=http://crm.abcweb.com.ua/taskSystem/create
+---
+2013/12/10 12:07:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 12:07:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 12:14:43 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "TaskSystem.next_meeting_date".' in /home/ahc03/abcweb.com.ua/crm/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/db/ar/CActiveRecord.php(145): CComponent->__get('next_meeting_da...')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('next_meeting_da...')
+#2 /home/ahc03/abcweb.com.ua/crm/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(TaskSystem), 'next_meeting_da...')
+#3 /home/ahc03/abcweb.com.ua/crm/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(TaskSystem), 'next_meeting_da...', Array)
+#4 /home/ahc03/abcweb.com.ua/crm/protected/extensions/timepicker/EJuiDateTimePicker.php(96): CHtml::activeTextField(Object(TaskSystem), 'next_meeting_da...', Array)
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(173): EJuiDateTimePicker->run()
+#6 /home/ahc03/abcweb.com.ua/crm/protected/views/taskSystem/_form.php(44): CBaseController->widget('application.ext...', Array)
+#7 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#10 /home/ahc03/abcweb.com.ua/crm/protected/views/taskSystem/create.php(14): CController->renderPartial('_form', Array)
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#12 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#15 /home/ahc03/abcweb.com.ua/crm/protected/controllers/TaskSystemController.php(79): CController->render('create', Array)
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): TaskSystemController->actionCreate()
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#19 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#20 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#21 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#23 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#24 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('create')
+#26 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('taskSystem/crea...')
+#27 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/taskSystem/create
+---
+2013/12/10 12:38:12 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Test' in 'where clause'. Выполнявшийся SQL-запрос: select id, full_name from o_user where full_name != Test.
+in /home/ahc03/abcweb.com.ua/crm/protected/models/User.php (118)
+in /home/ahc03/abcweb.com.ua/crm/protected/views/taskSystem/_form.php (50)
+in /home/ahc03/abcweb.com.ua/crm/protected/views/taskSystem/create.php (14)
+2013/12/10 12:38:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Test' in 'where clause'. The SQL statement executed was: select id, full_name from o_user where full_name != Test' in /home/ahc03/abcweb.com.ua/crm/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/ahc03/abcweb.com.ua/crm/framework/db/ar/CActiveRecord.php(1581): CDbCommand->queryAll()
+#2 /home/ahc03/abcweb.com.ua/crm/protected/models/User.php(118): CActiveRecord->findAllBySql('select id, full...')
+#3 /home/ahc03/abcweb.com.ua/crm/protected/views/taskSystem/_form.php(50): User::allNames()
+#4 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#5 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#6 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#7 /home/ahc03/abcweb.com.ua/crm/protected/views/taskSystem/create.php(14): CController->renderPartial('_form', Array)
+#8 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(126): require('/home/ahc03/abc...')
+#9 /home/ahc03/abcweb.com.ua/crm/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/ahc03/abc...', Array, true)
+#10 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(869): CBaseController->renderFile('/home/ahc03/abc...', Array, true)
+#11 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#12 /home/ahc03/abcweb.com.ua/crm/protected/controllers/TaskSystemController.php(79): CController->render('create', Array)
+#13 /home/ahc03/abcweb.com.ua/crm/framework/web/actions/CInlineAction.php(49): TaskSystemController->actionCreate()
+#14 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /home/ahc03/abcweb.com.ua/crm/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(291): CFilterChain->run()
+#21 /home/ahc03/abcweb.com.ua/crm/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(282): CController->run('create')
+#23 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('taskSystem/crea...')
+#24 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/taskSystem/create
+---
+2013/12/10 12:39:48 [warning] [application] Не удалось присвоить небезопасный атрибут "deadline" класса "TaskSystem".
+in /home/ahc03/abcweb.com.ua/crm/protected/controllers/TaskSystemController.php (72)
+in /home/ahc03/abcweb.com.ua/crm/index.php (13)
+2013/12/10 12:57:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 13:28:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:04:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:04:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:13:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:13:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:13:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:13:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:14:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:15:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:15:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:15:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:26:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:26:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:27:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:27:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:27:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:27:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:27:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:27:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:29:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:29:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:29:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:32:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/10 17:32:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 08:07:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 09:00:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 09:13:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 09:13:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 09:15:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 09:55:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 09:56:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 10:55:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://crm.abcweb.com.ua/callerManagerReport/773
+---
+2013/12/11 10:56:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/12/11 11:05:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ahc03/abcweb.com.ua/crm/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/ahc03/abcweb.com.ua/crm/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ahc03/abcweb.com.ua/crm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

@@ -236,8 +236,9 @@ if(!Yii::app()->user->isGuest) {
 				array('label'=>'Скачать отчет', 'url'=>array('/callerReport/admin'), 'visible'=>Yii::app()->user->role==6),
 				array('label'=>'Войти', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				/*array('label'=>'Регистрация', 'url'=>array('/site/registration'), 'visible'=>Yii::app()->user->isGuest),*/
-				array('label'=>'Выйти ('.$user_name." ".$user_surname.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-				
+				array('label'=>'Выйти ('.$user_name." ".$user_surname.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
+		            array('label'=>'Создание задания', 'url'=>array('/TaskSystem/index')),
+		       	)),
 			),
 			/*'encodeLabel'=>false,*/
 		)); ?>

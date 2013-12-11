@@ -115,7 +115,7 @@ class User extends CActiveRecord
 		
 	}
 	public static function allNames(){
-		return CHtml::listData(self::model()->findAll(), 'id', 'surname');
+		return CHtml::listData(self::model()->findAllBySql('select id, full_name from {{user}} where full_name != \'Test\''), 'id', 'full_name');
 		
 	}
 

@@ -32,7 +32,7 @@ class CallerManagerReportController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download','RpMeetings','RpMeetingsProcessing','RpMeetingsArchive','Callendar'),
+				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download','RpMeetings','RpMeetingsProcessing','RpMeetingsArchive','Callendar','ReportExport'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -159,16 +159,16 @@ class CallerManagerReportController extends Controller
         $exportcriteria->select = '*';
 		$exportdataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$exportcriteria));
 
-		if ($this->isExportRequest()) { //<==== [[ADD THIS BLOCK BEFORE RENDER]]
+	//	if ($this->isExportRequest()) { //<==== [[ADD THIS BLOCK BEFORE RENDER]]
             //set_time_limit(0); //Uncomment to export lage datasets
             //Add to the csv a single line of text
          //   $this->exportCSV(array('Вид продукта: 1 - Создание сайта; 2 - Продвижение сайта; 3 - Контекстная реклама; 4 - Тех поддержка сайта; 5 - Создание фирменного стиля; 6 - Создание лого'), null, false);
              //Add to the csv a single model data with 3 empty rows after the data
             //$this->exportCSV($model, array_keys($model->attributeLabels()), false, 3);
             //Add to the csv a lot of models from a CDataProvider
-            $this->exportCSV($exportdataProvider, array('id', 'time', 'company', 'business_type', 'product.product', 'next_call', 'next_meeting_date', 'comment', 'CommProposal.res', 'Contract.contract_status', 'manager_comment'));
+     //       $this->exportCSV($exportdataProvider, array('id', 'time', 'company', 'business_type', 'product.product', 'next_call', 'next_meeting_date', 'comment', 'CommProposal.res', 'Contract.contract_status', 'manager_comment'));
         	
-        }
+      //  }
 		$this->render('ManagerMeetingsProcessing',array('dataProvider'=>$dataProvider,'exportdataProvider'=>$exportdataProvider, 'model'=>$model));
 	}
 
@@ -652,16 +652,16 @@ class CallerManagerReportController extends Controller
         $exportcriteria->select = '*';
 		$exportdataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$exportcriteria));
 
-		if ($this->isExportRequest()) { //<==== [[ADD THIS BLOCK BEFORE RENDER]]
+		//if ($this->isExportRequest()) { //<==== [[ADD THIS BLOCK BEFORE RENDER]]
             //set_time_limit(0); //Uncomment to export lage datasets
             //Add to the csv a single line of text
             //$this->exportCSV(array('Легенда:'), null, false);
             //Add to the csv a single model data with 3 empty rows after the data
             //$this->exportCSV($model, array_keys($model->attributeLabels()), false, 3);
             //Add to the csv a lot of models from a CDataProvider
-            $this->exportCSV($exportdataProvider, array('id', 'time', 'company', 'business_type', 'product.product', 'next_call', 'next_meeting_date', 'comment', 'CommProposal.res', 'Contract.contract_status', 'manager_comment'));
+            //$this->exportCSV($exportdataProvider, array('id', 'time', 'company', 'business_type', 'product.product', 'next_call', 'next_meeting_date', 'comment', 'CommProposal.res', 'Contract.contract_status', 'manager_comment'));
         	
-        }
+        //}
 
 		$this->render('RpMeetingsProcessing',array('dataProvider'=>$dataProvider, 'exportdataProvider'=>$exportdataProvider, 'model'=>$model));
 	}
@@ -718,7 +718,7 @@ class CallerManagerReportController extends Controller
 		));
 	}
 
-		public function behaviors() {
+	/*	public function behaviors() {
     return array(
         'exportableGrid' => array(
             'class' => 'application.components.ExportableGridBehavior',
@@ -730,7 +730,20 @@ class CallerManagerReportController extends Controller
 	            ),
 
         );
-	} 
+	} */
+	public function actionReportExport()
+	{
+
+		$criteria=new CDbCriteria;
+		$criteria->select='*';
+ 		$criteria->condition='call_status=:callStatus and meeting_result=:meetingResult';
+		$criteria->params=array(':callStatus'=>2,':meetingResult'=>0);
+		$cur_date = date('d-m-Y');
+		$model = CallerManagerReport::model()->findAll($criteria);
+		Yii::app()->getRequest()->sendFile('Reports-'.$cur_date.'.xls',
+			$this->renderPartial('excel',array('model'=>$model,),true));
+
+	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
