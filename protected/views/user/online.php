@@ -13,14 +13,14 @@ if ($dom != "localhost"){
 //$fl = "http://ip-whois.net/ip_geo.php?ip=".$ipus;
 //	$fl = "http://ip-whois.net/ip_geo.php?ip=".$ipus;
 	$fl = "http://ipgeobase.ru:7020/geo/?ip=".$ipus;
-	echo $fl;
+	//echo $fl;
 // Получаем эти данные через file_get_contents()
 /*
 Примечание: при использовании fopen() - не прокатывало...
 */
 $data = file_get_contents($fl);
 //echo $data;
-var_dump($data);
+//var_dump($data);
 
 //$data=iconv("windows-1251", "utf-8", $data);
 /*
@@ -55,10 +55,10 @@ $data3 = "Неподходящий хост";
 	'dataProvider'=>$dataProvider,
 	/*'filter'=>$model,*/
 	'columns'=>array(
-		'id'=>array(
+		/*'id'=>array(
 			'name'=>'id',
 			'headerHtmlOptions'=>array('width'=>30)
-		),
+		),*/
 		'login',
 		'realname',
 		'surname',

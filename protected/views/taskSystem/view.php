@@ -5,10 +5,11 @@
 
 $this->menu=array(
 	array('label'=>'Все задания', 'url'=>array('index')),
+    array('label'=>'Список заданий', 'url'=>array('admin')),
 	/*array('label'=>'Create TaskSystem', 'url'=>array('create')),*/
 	array('label'=>'Изменить', 'url'=>array('update', 'id'=>$model->id)),
 	/*array('label'=>'Delete TaskSystem', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage TaskSystem', 'url'=>array('admin')),*/
+	*/
 );
 ?>
 
@@ -74,7 +75,8 @@ $this->menu=array(
 		'deadline_change_by'=>array(
 			'name'=>'deadline_change_by',
 			'value'=>$model->DeadlineModifier->realname ." ". $model->DeadlineModifier->surname,
-		),		
+		),
+        'topic',	
 		'task',
 		'task_change_time' => array(
             'name' => 'task_change_time',
@@ -91,12 +93,22 @@ $this->menu=array(
 		),
 		'first_executor'=>array(
 			'name'=>'first_executor',
-			'value'=>$model->FirstExecutor->realname ." ". $model->FirstExecutor->surname,
+			'value'=> function($data){
+                    if (is_numeric($model->first_executor)) {
+                        return $data->FirstExecutor->realname ." ". $data->FirstExecutor->surname;
+                    } else {
+                    return $data->first_executor;}
+            }, 
 		),
 		'executor'=>array(
 			'name'=>'executor',
-			'value'=>$model->Executor->realname ." ". $model->Executor->surname,
-		),
+			'value'=> function($data){
+                    if (is_numeric($model->first_executor)) {
+                        return $data->Executor->realname ." ". $data->Executor->surname;
+                    } else {
+                    return $data->first_executor;}
+            }, 
+        ),
 		'executor_change_time' => array(
             'name' => 'executor_change_time',
             'value' => function($data){
@@ -141,8 +153,28 @@ $this->menu=array(
 			'name'=>'status_change_by',
 			'value'=>$model->StatusModifier->realname ." ". $model->StatusModifier->surname,
 		),
-		'task_file',
-		'executor_file',
+        'task_file'=>array(
+            'name'=>'task_file',
+            'type' => 'raw',
+            'value'=>function($data){
+                $TaskFilename = TaskSystem::TaskFileExists($data->id);
+                if ($TaskFilename!=NULL) {
+                    return CHtml::link("Скачать ".$TaskFilename, array('download', 'id'=>$data->id, 'filetype'=>1));
+                } else { 
+                    return $data->task_file; }
+            }, 
+        ),
+        'executor_file'=>array(
+            'name'=>'executor_file',
+            'type' => 'raw',
+            'value'=>function($data){
+                $ExecutorFilename = TaskSystem::ExecutorFileExists($data->id);
+                if ($ExecutorFilename!=NULL) {
+                    return CHtml::link("Скачать ".$ExecutorFilename, array('download', 'id'=>$data->id, 'filetype'=>2));
+                } else { 
+                    return $data->executor_file; }
+            }, 
+        ),
 		'priority',
 	),
 )); ?>

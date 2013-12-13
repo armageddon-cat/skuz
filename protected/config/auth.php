@@ -80,4 +80,23 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
+    '9' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'designers',
+        'children' => array(
+            'manager',         // позволим админу всё, что позволено модератору
+        ),
+        'bizRule' => null,
+        'data' => null
+    ),
+    '10' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'developer',
+        'children' => array(
+            'manager',         // позволим админу всё, что позволено модератору
+        ),
+        'bizRule' => null,
+        'data' => null
+    ),
+
 );

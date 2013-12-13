@@ -45,6 +45,10 @@
 	?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('topic')); ?>:</b>
+	<?php echo CHtml::encode($data->topic); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('task')); ?>:</b>
 	<?php echo CHtml::encode($data->task); ?>
 	<br />

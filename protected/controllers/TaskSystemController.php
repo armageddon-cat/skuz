@@ -32,7 +32,7 @@ class TaskSystemController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update'),
+				'actions'=>array('admin','create','update','Download','ViewAll'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -56,6 +56,24 @@ class TaskSystemController extends Controller
 		));
 	}
 
+	public function actionDownload($id, $filetype)
+    {	
+    	$DIR = YiiBase::getPathOfAlias('webroot').'/upload/taskfiles/';
+    	if ($filetype==1) {
+    	 	$filename = TaskSystem::TaskFileExists($id);
+    	 } else {
+    	 	$filename = TaskSystem::ExecutorFileExists($id);
+    	 }
+        
+    	return Yii::app()->getRequest()->sendFile(
+		    $filename, // название файла, который получит юзер
+		    file_get_contents($DIR.$filename),
+		   'mime/type', // необязательно, определяется автоматически
+		    true // остановить аппликейшен во время отправки default: true
+		);
+		// если включено логирование, при отправке файла лучше его отключить
+    }
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -70,11 +88,23 @@ class TaskSystemController extends Controller
 		if(isset($_POST['TaskSystem']))
 		{
 			$model->attributes=$_POST['TaskSystem'];
+
+			$model->task_file=CUploadedFile::getInstance($model,'task_file');
+
+			//$model->executor = implode(",", $_POST["TaskSystem"]['executor']);
+			if ($_POST['TaskSystem']['neverStopTask']==1) {
+				$model->deadline = '2099-01-01 00:00:00';
+			}
 			$model->create_time=date('Y-m-d H:i:s');
+			$model->modify_time=date('Y-m-d H:i:s');
 			$model->created_by=Yii::app()->user->id;
-			$model->first_deadline=$_POST['TaskSystem']['deadline'];
+			$model->first_deadline=$model->deadline;
 			$model->first_executor=$_POST['TaskSystem']['executor'];
+
 			if($model->save())
+				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/taskfiles/';
+				if (is_object($model->task_file))
+					$model->task_file->saveAs($DIR.$model->task_file);
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -94,11 +124,53 @@ class TaskSystemController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		$OldTask = $model->task;
+		$OldExecutor = $model->executor;
+		$OldDeadline = $model->deadline;
+		$OldExecutorComment = $model->executor_comment;
+		$OldStatus = $model->status;
 
 		if(isset($_POST['TaskSystem']))
 		{
 			$model->attributes=$_POST['TaskSystem'];
+			$model->modify_time=date('Y-m-d H:i:s');
+			$model->modified_by=Yii::app()->user->id;
+
+			if($OldTask!=$model->task) {
+				$model->task_change_time=date('Y-m-d H:i:s');
+				$model->task_change_by=Yii::app()->user->id; }
+
+			if($OldExecutor!=$model->executor) {
+				$model->executor_change_time=date('Y-m-d H:i:s');
+				$model->executor_change_by=Yii::app()->user->id; }
+
+			if($OldDeadline!=$model->deadline) {
+				$model->deadline_change_time=date('Y-m-d H:i:s');
+				$model->deadline_change_by=Yii::app()->user->id; }
+
+			if($OldExecutorComment!=$model->executor_comment) {
+				$model->executor_comment_change_time=date('Y-m-d H:i:s');
+				$model->executor_comment_change_by=Yii::app()->user->id; }
+
+			if($OldStatus!=$model->status) {
+				$model->status_change_time=date('Y-m-d H:i:s');
+				$model->status_change_by=Yii::app()->user->id; }
+			
+
+			if (is_object(CUploadedFile::getInstance($model,'task_file'))) {
+					$model->task_file=CUploadedFile::getInstance($model,'task_file');
+				} elseif (is_object(CUploadedFile::getInstance($model,'executor_file'))) {
+					$model->executor_file=CUploadedFile::getInstance($model,'executor_file');
+				}
+
 			if($model->save())
+				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/taskfiles/';
+				if (is_object($model->task_file)){
+					$model->task_file->saveAs($DIR.$model->task_file);
+				} elseif (is_object($model->executor_file)) {
+					$model->executor_file->saveAs($DIR.$model->executor_file);
+				}
+
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -127,8 +199,29 @@ class TaskSystemController extends Controller
 	public function actionIndex()
 	{
 		
+		//$defineExecutor=$this->loadModel($id);
+		$curUserRole = Yii::app()->user->role;
+
 		$criteria = new CDbCriteria();
-		$criteria->condition = "created_by = ".Yii::app()->user->id." or executor = ".Yii::app()->user->id."";
+		/*if(is_numeric($defineExecutor->executor)) {
+			$criteria->condition = "created_by = ".Yii::app()->user->id." or executor = ".Yii::app()->user->id."";
+		} else {*/
+			switch ($curUserRole) {
+				case '3':
+					$role = 'seo';
+					break;
+				case '8':
+					$role = 'html';
+					break;
+				case '9':
+					$role = 'diz';
+					break;
+				case '10':
+					$role = 'dev';
+					break;
+			}
+
+		$criteria->condition = "created_by = ".Yii::app()->user->id." or executor = ".Yii::app()->user->id." or executor = '".$role."'";
         $criteria->select = '*';
 
         $dataProvider=new CActiveDataProvider('TaskSystem',array('criteria'=>$criteria,));
@@ -145,11 +238,33 @@ class TaskSystemController extends Controller
 	{
 		$model=new TaskSystem('search');
 		$model->unsetAttributes();  // clear any default values
+		$criteria = new CDbCriteria();
+		$criteria->condition = "created_by = ".Yii::app()->user->id." or executor = ".Yii::app()->user->id."";
+        $criteria->select = '*';
+
+        $dataProvider=new CActiveDataProvider('TaskSystem',array('criteria'=>$criteria,));
 		if(isset($_GET['TaskSystem']))
 			$model->attributes=$_GET['TaskSystem'];
 
 		$this->render('admin',array(
-			'model'=>$model,
+			'model'=>$model,'dataProvider'=>$dataProvider,
+		));
+	}
+
+		public function actionViewAll()
+	{
+		$model=new TaskSystem('search');
+		$model->unsetAttributes();  // clear any default values
+
+		$criteria = new CDbCriteria();
+        $criteria->select = '*';
+
+        $dataProvider=new CActiveDataProvider('TaskSystem',array('criteria'=>$criteria,));
+		if(isset($_GET['TaskSystem']))
+			$model->attributes=$_GET['TaskSystem'];
+
+		$this->render('admin',array(
+			'model'=>$model,'dataProvider'=>$dataProvider,
 		));
 	}
 

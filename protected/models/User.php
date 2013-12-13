@@ -120,8 +120,43 @@ class User extends CActiveRecord
 	}
 
 	public static function allCalles(){	
+		return CHtml::listData(self::model()->findAllBySql('select id from {{user}} where role = 1'), 'id', 'surname');	
+	}
 
-		return CHtml::listData(self::model()->findAllBySql('select id, surname from {{user}} where role = 1'), 'id', 'surname');	
+	public static function allSeo(){	
+		$result = self::model()->findAllBySql('select id, surname from {{user}} where role = 3');
+		foreach ($result as $res) {
+			$endres[] = $res['id'];
+		}
+		$endres = implode(",", $endres);
+		return $endres;
+	}
+
+	public static function allHtml(){	
+		$result = self::model()->findAllBySql('select id, surname from {{user}} where role = 8');
+		foreach ($result as $res) {
+			$endres[] = $res['id'];
+		}
+		$endres = implode(",", $endres);
+		return $endres;
+	}
+
+	public static function allDesigners(){	
+		$result = self::model()->findAllBySql('select id, surname from {{user}} where role = 9');
+		foreach ($result as $res) {
+			$endres[] = $res['id'];
+		}
+		$endres = implode(",", $endres);
+		return $endres;
+	}
+
+	public static function allDevelopers(){	
+		$result = self::model()->findAllBySql('select id, surname from {{user}} where role = 10');
+		foreach ($result as $res) {
+			$endres[] = $res['id'];
+		}
+		$endres = implode(",", $endres);
+		return $endres;
 	}
 	
 	public static function allManagers(){

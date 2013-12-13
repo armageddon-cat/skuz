@@ -4,6 +4,7 @@
 
 $this->menu=array(
 	array('label'=>'Создание задания', 'url'=>array('create')),
+	array('label'=>'Список заданий', 'url'=>array('admin')),
 );
 ?>
 

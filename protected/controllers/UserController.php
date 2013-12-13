@@ -49,7 +49,11 @@ class UserController extends Controller
 		$model=new User('search');
 		$model->unsetAttributes();  // clear any default values
 
-		$dataProvider=new CActiveDataProvider('User', array(
+		$criteria = new CDbCriteria();
+		$criteria->condition = "full_name != 'Test' group by login";
+        $criteria->select = '*';
+
+		$dataProvider=new CActiveDataProvider('User',array('criteria'=>$criteria,
                         'pagination'=>array(
                                 'pageSize'=>'50',
                         ),              

@@ -142,7 +142,10 @@ if(!Yii::app()->user->isGuest) {
 				array('label'=>'Все отчеты', 'url'=>array('callerManagerReport/index'), 'visible'=>Yii::app()->user->role==2),
 
 				array('label'=>'Создать отчет', 'url'=>array('/projectManagerReport/create'), 'visible'=>Yii::app()->user->role==4),
-				array('label'=>'Список отчетов', 'url'=>array('/callerReport/index'), 'visible'=>Yii::app()->user->role==4),
+				array('label'=>'Список отчетов', 'url'=>array('/callerReport/index'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
+					            array('label'=>'Задания', 'url'=>array('/TaskSystem/index')),
+					            array('label'=>'Все задания', 'url'=>array('/TaskSystem/viewAll')),
+					       	)),
 				array('label'=>'Отчеты по приоритетам', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
 					            array('label'=>'Обычный приоритет', 'url'=>array('/callerManagerReport/LowImportancyRp')),
 					            array('label'=>'Высокий приоритет', 'url'=>array('/callerManagerReport/MediumImportancyRp')),
@@ -234,11 +237,13 @@ if(!Yii::app()->user->isGuest) {
 					            array('label'=>'Не Отправленные Ком.Пред.', 'url'=>array('/callerManagerReport/RpCommProposalsNotSent')),
 					       	)),
 				array('label'=>'Скачать отчет', 'url'=>array('/callerReport/admin'), 'visible'=>Yii::app()->user->role==6),
+				array('label'=>'Кликни сюда и Попади в свои Задания', 'url'=>array('/TaskSystem/index'), 'visible'=>(Yii::app()->user->role==8 || Yii::app()->user->role==9 || Yii::app()->user->role==10)),
 				array('label'=>'Войти', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				/*array('label'=>'Регистрация', 'url'=>array('/site/registration'), 'visible'=>Yii::app()->user->isGuest),*/
 				array('label'=>'Выйти ('.$user_name." ".$user_surname.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
-		            array('label'=>'Создание задания', 'url'=>array('/TaskSystem/index')),
+		            array('label'=>'Задания', 'url'=>array('/TaskSystem/index'), 'visible'=>(Yii::app()->user->role!=4 && Yii::app()->user->role!=8 && Yii::app()->user->role!=9 && Yii::app()->user->role!=10)),
 		       	)),
+
 			),
 			/*'encodeLabel'=>false,*/
 		)); ?>

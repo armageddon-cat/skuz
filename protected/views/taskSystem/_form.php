@@ -13,13 +13,21 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions' => array(
+        'enctype' => 'multipart/form-data'
+    )
 )); ?>
 
 	<p class="note">Обязательные поля <span class="required">*</span></p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php if(!$model->isNewRecord && $model->executor!=Yii::app()->user->id || $model->isNewRecord) { ?>
+	<?php if(!$model->isNewRecord && $model->executor!=Yii::app()->user->id || $model->isNewRecord || $model->created_by==$model->executor) { ?>
+	<div class="row">
+		<?php echo $form->labelEx($model,'topic'); ?>
+		<?php echo $form->textField($model,'topic'); ?>
+		<?php echo $form->error($model,'topic'); ?>
+	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'task'); ?>
 		<?php echo $form->textArea($model,'task',array('rows'=>6, 'cols'=>50)); ?>
@@ -43,11 +51,30 @@
 			        ),
 			    ));
 		?>
-		<?php echo $form->error($model,'deadline'); ?>
+
 	</div>
 	<div class="row">
-		<?php echo $form->labelEx($model,'executor'); ?>
-		<?php echo $form->dropDownList($model, 'executor', User::allNames(), array('empty'=>'')); ?>
+		<?php echo CHtml::Label('Задание без срока завершения:'); ?>
+		<?php echo $form->checkBox($model,'neverStopTask'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'executor'); ?><br>
+		<?php echo $form->dropDownList($model, 'executor', 
+		array('empty'=>'Выберите человека или отдел', 
+			User::allNames(),
+			'seo'=>'SEO',
+			'diz'=>'Дизайнеры',
+			'html'=>'Верстка',
+			'dev'=>'Разработчики',
+		)); ?>
+		<br>
+		<?/*<div>Или отдел(не работает)</div>
+		<?php echo $form->dropDownList($model, 'executor',
+			array('empty'=>'', 
+			0=>'SEO',
+			1=>'Дизайнеры',
+			2=>'Верстка',
+			3=>'Разработчики',)); ?>*/?>
 		<?php echo $form->error($model,'executor'); ?>
 	</div>
 	<div class="row">
@@ -55,8 +82,11 @@
 		<?php echo $form->dropDownList($model, 'priority', Priority::all()); ?>
 		<?php echo $form->error($model,'priority'); ?>
 	</div>
+	<div class="row">
+		<?php echo CHtml::activeFileField($model, 'task_file'); ?>
+	</div>
 	<?php } ?>
-	<?php if(!$model->isNewRecord && $model->executor==Yii::app()->user->id) { ?>
+	<?php if(!$model->isNewRecord && $model->executor==Yii::app()->user->id || !$model->isNewRecord && $model->created_by==$model->executor) { ?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->dropDownList($model, 'status', SeoAuditDone::all()); ?>
@@ -66,6 +96,9 @@
 		<?php echo $form->labelEx($model,'executor_comment'); ?>
 		<?php echo $form->textArea($model,'executor_comment',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'executor_comment'); ?>
+	</div>
+	<div class="row">
+		<?php echo CHtml::activeFileField($model, 'executor_file'); ?>
 	</div>
 	<?php } ?>
 <?/*
