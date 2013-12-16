@@ -29,6 +29,11 @@
 		<?php echo $form->error($model,'topic'); ?>
 	</div>
 	<div class="row">
+		<?php echo $form->labelEx($model,'project_name'); ?>
+		<?php echo $form->dropDownList($model, 'project_name', Projects::all()); ?>
+		<?php echo $form->error($model,'project_name'); ?>
+	</div>
+	<div class="row">
 		<?php echo $form->labelEx($model,'task'); ?>
 		<?php echo $form->textArea($model,'task',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'task'); ?>

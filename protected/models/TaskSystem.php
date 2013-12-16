@@ -30,6 +30,7 @@
  * @property string $executor_file
  * @property string $priority
  * @property string $topic
+ * @property string $project_name
  */
 class TaskSystem extends CActiveRecord
 {
@@ -53,7 +54,7 @@ class TaskSystem extends CActiveRecord
 			array('task', 'required'),
 			array('created_by, modified_by, deadline_change_by, task_change_by, executor_change_by, executor_comment_change_by, status, status_change_by', 'numerical', 'integerOnly'=>true),
 			array('task_file, executor_file', 'length', 'max'=>255),
-			array('neverStopTask, executor, priority, topic, task_change_time, task_change_by, first_deadline, deadline, first_executor, executor_change_time, executor_change_by, executor_comment, executor_comment_change_time, executor_comment_change_by, status, status_change_time, status_change_by, task_file, executor_file', 'safe'),
+			array('project_name, neverStopTask, executor, priority, topic, task_change_time, task_change_by, first_deadline, deadline, first_executor, executor_change_time, executor_change_by, executor_comment, executor_comment_change_time, executor_comment_change_by, status, status_change_time, status_change_by, task_file, executor_file', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, created_by, modified_by, create_time, modify_time, first_deadline, deadline, deadline_change_time, deadline_change_by, task, task_change_time, task_change_by, first_executor, executor, executor_change_time, executor_change_by, executor_comment, executor_comment_change_time, executor_comment_change_by, status, status_change_time, status_change_by, task_file, executor_file, priority', 'safe', 'on'=>'search'),
@@ -112,7 +113,8 @@ class TaskSystem extends CActiveRecord
 			'task_file' => 'Файл задания',
 			'executor_file' => 'Файл исполнителя',
 			'priority'=>'Приоритет',
-			'topic'=>'Тема'
+			'topic'=>'Тема',
+			'project_name'=>'Имя проекта',
 		);
 	}
 
@@ -160,6 +162,7 @@ class TaskSystem extends CActiveRecord
 		$criteria->compare('executor_file',$this->executor_file,true);
 		$criteria->compare('priority',$this->priority,true);
 		$criteria->compare('topic',$this->topic,true);
+		$criteria->compare('project_name',$this->topic,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -179,6 +182,7 @@ class TaskSystem extends CActiveRecord
  		$res1 = $result[0]['executor_file'];
  		return $res1;
 	}
+
 
 	/**
 	 * Returns the static model of the specified AR class.

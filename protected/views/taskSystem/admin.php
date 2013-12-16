@@ -124,6 +124,7 @@ $('.search-form form').submit(function(){
 		// 'task_file',
 		// 'executor_file',
 		'priority',
+        'project_name',
 		
 		array(
 			'class'=>'CButtonColumn',

@@ -245,6 +245,14 @@ class TaskSystemController extends Controller
         $dataProvider=new CActiveDataProvider('TaskSystem',array('criteria'=>$criteria,));
 		if(isset($_GET['TaskSystem']))
 			$model->attributes=$_GET['TaskSystem'];
+			$dataProvider->criteria->compare('id',$model->id,true);
+			$dataProvider->criteria->compare('created_by',$model->created_by,true);
+			$dataProvider->criteria->compare('create_time',$model->create_time,true);
+			$dataProvider->criteria->compare('deadline',$model->deadline,true);
+			$dataProvider->criteria->compare('executor',$model->executor,true);
+			$dataProvider->criteria->compare('status',$model->status,true);
+			$dataProvider->criteria->compare('priority',$model->priority,true);
+			$dataProvider->criteria->compare('project_name',$model->project_name,true);
 
 		$this->render('admin',array(
 			'model'=>$model,'dataProvider'=>$dataProvider,

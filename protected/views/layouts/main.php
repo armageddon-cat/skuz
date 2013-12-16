@@ -143,8 +143,9 @@ if(!Yii::app()->user->isGuest) {
 
 				array('label'=>'Создать отчет', 'url'=>array('/projectManagerReport/create'), 'visible'=>Yii::app()->user->role==4),
 				array('label'=>'Список отчетов', 'url'=>array('/callerReport/index'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
-					            array('label'=>'Задания', 'url'=>array('/TaskSystem/index')),
+					            array('label'=>'Задания', 'url'=>array('/TaskSystem/admin')),
 					            array('label'=>'Все задания', 'url'=>array('/TaskSystem/viewAll')),
+					            array('label'=>'Ежедневные отчеты', 'url'=>array('/everydayReport/admin')),
 					       	)),
 				array('label'=>'Отчеты по приоритетам', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
 					            array('label'=>'Обычный приоритет', 'url'=>array('/callerManagerReport/LowImportancyRp')),
@@ -168,6 +169,7 @@ if(!Yii::app()->user->isGuest) {
 				array('label'=>'Персонал', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
 		            array('label'=>'Пользователи Онлайн', 'url'=>array('/user/online')),
 		            array('label'=>'Эффективность диспетчеров', 'url'=>array('/callerResult/my')),
+		            array('label'=>'Ежедневные отчеты', 'url'=>array('/everydayReport/admin')),
 		       	)),
 				array('label'=>'SEO', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
 					array('label'=>'Аудиты', 'url'=>array('/callerManagerReport/HighImportancySeo')),
@@ -178,12 +180,14 @@ if(!Yii::app()->user->isGuest) {
 		       	)),
 
 
-				array('label'=>'Добавление компании', 'url'=>array('/seoCompanies/create'), 'visible'=>Yii::app()->user->role==3, 'items'=>array(
+				array('label'=>'Всякое по сео', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==3, 'items'=>array(
+		            array('label'=>'Добавление компании', 'url'=>array('/seoCompanies/create')),
 		            array('label'=>'Добавление клиента', 'url'=>array('/user/create')),
+		            array('label'=>'Импорт ключевых слов', 'url'=>array('/keyword/keywordImport')),
+		            array('label'=>'Просмотр ключевых слов', 'url'=>array('/keyword/ChooseCompany')),
+		            array('label'=>'Просмотр компаний', 'url'=>array('/seoCompanies/admin')),
+
 		       	)),
-				array('label'=>'Импорт ключевых слов', 'url'=>array('/keyword/keywordImport'), 'visible'=>Yii::app()->user->role==3),
-				array('label'=>'Просмотр ключевых слов', 'url'=>array('/keyword/ChooseCompany'), 'visible'=>Yii::app()->user->role==3),
-				array('label'=>'Просмотр компаний', 'url'=>array('/seoCompanies/admin'), 'visible'=>Yii::app()->user->role==3),
 				array('label'=>'Аудиты', 'url'=>array('/callerManagerReport/HighImportancySeo'), 'visible'=>Yii::app()->user->role==3),
 
 				array('label'=>'Просмотр ключевых слов', 'url'=>array('/keyword/ChooseCompany'), 'visible'=>Yii::app()->user->role==7),
@@ -237,11 +241,13 @@ if(!Yii::app()->user->isGuest) {
 					            array('label'=>'Не Отправленные Ком.Пред.', 'url'=>array('/callerManagerReport/RpCommProposalsNotSent')),
 					       	)),
 				array('label'=>'Скачать отчет', 'url'=>array('/callerReport/admin'), 'visible'=>Yii::app()->user->role==6),
-				array('label'=>'Кликни сюда и Попади в свои Задания', 'url'=>array('/TaskSystem/index'), 'visible'=>(Yii::app()->user->role==8 || Yii::app()->user->role==9 || Yii::app()->user->role==10)),
+				array('label'=>'Добавление проекта', 'url'=>array('/projects/create'), 'visible'=>Yii::app()->user->role==3),
+				array('label'=>'Кликни сюда и Попади в свои Задания', 'url'=>array('/TaskSystem/admin'), 'visible'=>(Yii::app()->user->role==3 || Yii::app()->user->role==8 || Yii::app()->user->role==9 || Yii::app()->user->role==10)),
+				array('label'=>'Ежедневные отчеты', 'url'=>array('/everydayReport/admin'), 'visible'=>(Yii::app()->user->role==3 || Yii::app()->user->role==8 || Yii::app()->user->role==9 || Yii::app()->user->role==10)),
 				array('label'=>'Войти', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				/*array('label'=>'Регистрация', 'url'=>array('/site/registration'), 'visible'=>Yii::app()->user->isGuest),*/
 				array('label'=>'Выйти ('.$user_name." ".$user_surname.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
-		            array('label'=>'Задания', 'url'=>array('/TaskSystem/index'), 'visible'=>(Yii::app()->user->role!=4 && Yii::app()->user->role!=8 && Yii::app()->user->role!=9 && Yii::app()->user->role!=10)),
+		            array('label'=>'Задания', 'url'=>array('/TaskSystem/admin'), 'visible'=>(Yii::app()->user->role!=3 && Yii::app()->user->role!=4 && Yii::app()->user->role!=8 && Yii::app()->user->role!=9 && Yii::app()->user->role!=10)),
 		       	)),
 
 			),

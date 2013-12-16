@@ -1,6 +1,6 @@
 <?php
 
-class OrdersHistoryController extends Controller
+class EverydayReportController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,11 +32,11 @@ class OrdersHistoryController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('admin','create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -60,38 +60,28 @@ class OrdersHistoryController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate($rep_id)
-	{	
-		$model=new OrdersHistory;
+	public function actionCreate()
+	{
+		$model=new EverydayReport;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		$this->renderPartial('application.views.ordersHistory.create',array(
-			'model'=>$model,
-		));
-
-		if(isset($_POST['OrdersHistory']))
+		if(isset($_POST['EverydayReport']))
 		{
-			$model->attributes=$_POST['OrdersHistory'];
-			$model->modify_time=date('Y-m-d H:i:s');
-			$model->created_by=Yii::app()->user->id;
-			$model->modified_by=Yii::app()->user->id;
-			$model->report_id=$rep_id;
-			Yii::app()->db->createCommand("UPDATE `ahc03_adminpanel`.`o_caller_report` SET `next_meeting_date` = '".$model->next_contact_date."' WHERE `o_caller_report`.`id` = ".$rep_id."")->execute();
-			Yii::app()->db->createCommand("UPDATE `ahc03_adminpanel`.`o_caller_report` SET `manager_comment` = '".$model->description."' WHERE `o_caller_report`.`id` = ".$rep_id."")->execute();
+			$model->attributes=$_POST['EverydayReport'];
+			//$model->create_time=date('Y-m-d H:i:s');
+			$model->date=date('Y-m-d');
+			$model->user_id=Yii::app()->user->id;
+			$model->department=Yii::app()->user->role;
+			
 			if($model->save())
-			 	//$this->redirect(array('view','id'=>$model->id));
-				$url = Yii::app()->request->getUrl();
-			 	$this->redirect($url);
-
-			//$model->save();
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		
-		// $this->render('application.views.CallerReport.view',array(
-		// 	'model'=>$model,
-		// )); 
+		$this->render('create',array(
+			'model'=>$model,
+		));
 	}
 
 	/**
@@ -106,16 +96,11 @@ class OrdersHistoryController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['OrdersHistory']))
+		if(isset($_POST['EverydayReport']))
 		{
-			$model->attributes=$_POST['OrdersHistory'];
-			$model->modify_time=date('Y-m-d H:i:s');
-			$model->modified_by=Yii::app()->user->id;
-			Yii::app()->db->createCommand("UPDATE `ahc03_adminpanel`.`o_caller_report` SET `next_call` = '".$model->next_contact_date."' WHERE `o_caller_report`.`id` = ".$model->report_id."")->execute();
-			Yii::app()->db->createCommand("UPDATE `ahc03_adminpanel`.`o_caller_report` SET `manager_comment` = '".$model->description."' WHERE `o_caller_report`.`id` = ".$model->report_id."")->execute();
+			$model->attributes=$_POST['EverydayReport'];
 			if($model->save())
-				$this->redirect(array('callerManagerReport/view','id'=>$model->report_id));
-				//Yii::app()->request->redirect($_SERVER['HTTP_REFERER']);
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
@@ -140,14 +125,11 @@ class OrdersHistoryController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex($order_num)
-	{	
-		$criteria = new CDbCriteria;
-		$criteria->condition = "report_id=".$order_num."";
-		$dataProvider=new CActiveDataProvider('OrdersHistory', array('pagination'=>array('pageSize'=>50), 'criteria'=>$criteria));
-		$this->renderPartial('application.views.ordersHistory.index',array(
+	public function actionIndex()
+	{
+		$dataProvider=new CActiveDataProvider('EverydayReport');
+		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-
 		));
 	}
 
@@ -156,10 +138,10 @@ class OrdersHistoryController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new OrdersHistory('search');
+		$model=new EverydayReport('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['OrdersHistory']))
-			$model->attributes=$_GET['OrdersHistory'];
+		if(isset($_GET['EverydayReport']))
+			$model->attributes=$_GET['EverydayReport'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -170,12 +152,12 @@ class OrdersHistoryController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return OrdersHistory the loaded model
+	 * @return EverydayReport the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=OrdersHistory::model()->findByPk($id);
+		$model=EverydayReport::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -183,11 +165,11 @@ class OrdersHistoryController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param OrdersHistory $model the model to be validated
+	 * @param EverydayReport $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='orders-history-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='everyday-report-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
