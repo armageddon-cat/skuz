@@ -32,7 +32,7 @@ class CallerManagerReportController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download','RpMeetings','RpMeetingsProcessing','RpMeetingsArchive','Callendar','ReportExport'),
+				'actions'=>array('create','update', 'all_reports', 'CommProposalsNotSent', 'CommProposalsSent', 'ManagerMeetingsArchive', 'HighImportancySeo', 'LowImportancyRp', 'MediumImportancyRp','HighImportancyRp', 'RpCommProposalsSent','RpCommProposalsNotSent','Download','RpMeetings','RpMeetingsProcessing','RpMeetingsArchive','Callendar','ReportExport','MeetingsSuccess'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -122,6 +122,21 @@ class CallerManagerReportController extends Controller
 		$this->render('callendar',array(
 			'model'=>$model,
 		));
+	}
+
+	public function actionMeetingsSuccess()
+	{
+		$this->layout='//layouts/column1';
+		
+		$criteria = new CDbCriteria();
+        $criteria->condition = "contract=1";
+        $criteria->select = 'id, next_call, company, call_status, caller_id, meeting_result, next_meeting_date';
+
+		$dataProvider=new CActiveDataProvider('CallerManagerReport', array('criteria'=>$criteria, 'pagination' => array(
+                            'pageSize' => 50,
+                        ),
+		));
+		$this->render('ManagerMeetings',array('dataProvider'=>$dataProvider, 'model'=>$model));
 	}
 
 	public function actionManagerMeetings()
@@ -522,7 +537,7 @@ class CallerManagerReportController extends Controller
 		if(isset($_POST['CallerManagerReport']))
 		{
 			$model->attributes=$_POST['CallerManagerReport'];
-			if (is_object($model->seo_file))
+			//if (is_object($model->seo_file))
 				$model->seo_file=CUploadedFile::getInstance($model,'seo_file');
 			if($model->save())
 				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/temp/';

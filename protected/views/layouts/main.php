@@ -22,10 +22,12 @@ jquery-ui-1.10.3.custom.css" rel="stylesheet" />
 custom.js"></script>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+
 </head>
 
 <body>
 	<!--noindex-->
+
 <?if (Yii::app()->user->role!=7) { if(!Yii::app()->user->isGuest) { ?>
 	<div id="slideout-callendar">
 		<p>Календарь</p>
@@ -86,6 +88,7 @@ custom.js"></script>
 
 
 	<div id="header">
+				<div><?php echo "Поздравляю всех"; ?></div>
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 					<?php
 if(!Yii::app()->user->isGuest) {
@@ -134,7 +137,9 @@ if(!Yii::app()->user->isGuest) {
 				array('label'=>'Мои сообщения', 'url'=>array('/post/my'), 'visible'=>Yii::app()->user->role==5),
 				array('label'=>'Отчет по звонку', 'url'=>array('/callerResult/create'), 'visible'=>Yii::app()->user->role==5),
 				array('label'=>'Этап 1', 'url'=>array('/callerResult/create'), 'visible'=>Yii::app()->user->role==1),
-				array('label'=>'Ежедневный отчет', 'url'=>array('/callerResult/my'), 'visible'=>Yii::app()->user->role==6),
+				array('label'=>'Ежедневный отчет', 'url'=>array('/callerResult/my'), 'visible'=>Yii::app()->user->role==6, 'items'=>array(
+					array('label'=>'Скачать отчет', 'url'=>array('/callerReport/admin')),
+					)),
 				array('label'=>'План по контактам', 'url'=>array('/callerReport/timeTable'), 'visible'=>Yii::app()->user->role==6),
 				array('label'=>'Написать сообщение', 'url'=>array('/post/create'), 'visible'=>Yii::app()->user->role==5),
 				array('label'=>'Этап 2', 'url'=>array('/callerReport/create'), 'visible'=>Yii::app()->user->role==1),
@@ -144,6 +149,7 @@ if(!Yii::app()->user->isGuest) {
 				array('label'=>'Создать отчет', 'url'=>array('/projectManagerReport/create'), 'visible'=>Yii::app()->user->role==4),
 				array('label'=>'Список отчетов', 'url'=>array('/callerReport/index'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
 					            array('label'=>'Задания', 'url'=>array('/TaskSystem/admin')),
+					            array('label'=>'Добавление проекта', 'url'=>array('/projects/create')),
 					            array('label'=>'Все задания', 'url'=>array('/TaskSystem/viewAll')),
 					            array('label'=>'Ежедневные отчеты', 'url'=>array('/everydayReport/admin')),
 					       	)),
@@ -157,6 +163,7 @@ if(!Yii::app()->user->isGuest) {
 		            array('label'=>'Назначенные встречи', 'url'=>array('/CallerManagerReport/RpMeetings')),
 		            array('label'=>'Встречи в процессе', 'url'=>array('/CallerManagerReport/RpMeetingsProcessing')),
 		            array('label'=>'Архив Встреч', 'url'=>array('/CallerManagerReport/RpMeetingsArchive')),
+		            array('label'=>'Подписанные договоры', 'url'=>array('/callerManagerReport/MeetingsSuccess')),
 		       	)),
 
 		       	array('label'=>'Все Ком.Пред.', 'url'=>array('/callerManagerReport/RpCommProposals'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
@@ -165,6 +172,7 @@ if(!Yii::app()->user->isGuest) {
 					       	)),
 
 				array('label'=>'Онлайн заявки', 'url'=>array('/commOfferShort/index'), 'visible'=>Yii::app()->user->role==4),
+				array('label'=>'Онлайн заявки', 'url'=>array('/commOfferShort/index'), 'visible'=>Yii::app()->user->role==6),
 
 				array('label'=>'Персонал', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==4, 'items'=>array(
 		            array('label'=>'Пользователи Онлайн', 'url'=>array('/user/online')),
@@ -202,12 +210,15 @@ if(!Yii::app()->user->isGuest) {
 					            array('label'=>'Высокий приоритет', 'url'=>array('/callerManagerReport/MediumImportancyRp')),
 					            array('label'=>'СверхВысокий приоритет', 'url'=>array('/callerManagerReport/HighImportancyRp')),
 					       	)),
-				array('label'=>'Все Встречи', 'url'=>array('/callerReport/Meetings'), 'visible'=>Yii::app()->user->role==6),
+				array('label'=>'Все Встречи', 'url'=>array('/callerReport/Meetings'), 'visible'=>Yii::app()->user->role==6, 'items'=>array(
+		            array('label'=>'Подписанные договоры', 'url'=>array('/callerManagerReport/MeetingsSuccess')),
+		       	)),
 
 				array('label'=>'Встречи', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==2, 'items'=>array(
 		            array('label'=>'Назначенные встречи', 'url'=>array('/callerManagerReport/ManagerMeetings')),
 		            array('label'=>'Встречи в процессе', 'url'=>array('/callerManagerReport/ManagerMeetingsProcessing')),
 		            array('label'=>'Архив Встреч', 'url'=>array('/callerManagerReport/ManagerMeetingsArchive')),
+		            array('label'=>'Подписанные договоры', 'url'=>array('/callerManagerReport/MeetingsSuccess')),
 		       	)),
 
 				array('label'=>'Отчеты по приоритетам', 'url'=>array('#'), 'visible'=>Yii::app()->user->role==2, 'items'=>array(
@@ -240,7 +251,7 @@ if(!Yii::app()->user->isGuest) {
 					            array('label'=>'Отправленные Ком.Пред.', 'url'=>array('/callerManagerReport/RpCommProposalsSent')),
 					            array('label'=>'Не Отправленные Ком.Пред.', 'url'=>array('/callerManagerReport/RpCommProposalsNotSent')),
 					       	)),
-				array('label'=>'Скачать отчет', 'url'=>array('/callerReport/admin'), 'visible'=>Yii::app()->user->role==6),
+				
 				array('label'=>'Добавление проекта', 'url'=>array('/projects/create'), 'visible'=>Yii::app()->user->role==3),
 				array('label'=>'Кликни сюда и Попади в свои Задания', 'url'=>array('/TaskSystem/admin'), 'visible'=>(Yii::app()->user->role==3 || Yii::app()->user->role==8 || Yii::app()->user->role==9 || Yii::app()->user->role==10)),
 				array('label'=>'Ежедневные отчеты', 'url'=>array('/everydayReport/admin'), 'visible'=>(Yii::app()->user->role==3 || Yii::app()->user->role==8 || Yii::app()->user->role==9 || Yii::app()->user->role==10)),

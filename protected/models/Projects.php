@@ -28,10 +28,10 @@ class Projects extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_by, project_name, comment', 'required'),
+			array('project_name', 'required'),
 			array('created_by', 'numerical', 'integerOnly'=>true),
 			array('project_name', 'length', 'max'=>255),
-			array('create_time,', 'safe'),
+			array('created_by, create_time, comment, responding', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, created_by, create_time, project_name, comment', 'safe', 'on'=>'search'),
@@ -46,6 +46,7 @@ class Projects extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'Responding'=>array(self::BELONGS_TO, 'User', 'responding'),
 		);
 	}
 
@@ -60,6 +61,7 @@ class Projects extends CActiveRecord
 			'create_time' => 'Время создания',
 			'project_name' => 'Имя проекта',
 			'comment' => 'Комментарий',
+			'responding'=>'Ответственный'
 		);
 	}
 

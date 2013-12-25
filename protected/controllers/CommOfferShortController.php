@@ -28,11 +28,11 @@ class CommOfferShortController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','create','view'),
+				'actions'=>array('create','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update','admin','ViewSkyz','Download'),
+				'actions'=>array('index','update','admin','ViewSkyz','Download'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -125,12 +125,12 @@ class CommOfferShortController extends Controller
 
 			if($model->save())
 				 	mail('info@dr-intellectus.com', 'Заполненая онлайн-заявка Dr.Intellectus', 
-         			"Пришла новая заявка\n Просмотр заявок по ссылке\n http://test.dr-intellectus.ru/commersialOffer/index", "Content-type: text/plain; charset=utf-8");
+         			"Пришла новая заявка\n Просмотр заявок по ссылке\n http://crm.abcweb.com.ua/commersialOffer/index", "Content-type: text/plain; charset=utf-8");
 				$DIR = YiiBase::getPathOfAlias('webroot').'/upload/onlinerequest/';
 				if (is_object($model->file))
 					$model->file->saveAs($DIR.$model->file);
-				$this->redirect(array('view','id'=>$model->id));
-		}
+				//$this->redirect(array('view','id'=>$model->id));
+		}		$this->redirect('http://dr-intellectus.com/');
 
 		$this->render('create',array(
 			'model'=>$model,

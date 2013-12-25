@@ -96,14 +96,14 @@
 	?>
 	<br />
 	<b><?php echo CHtml::encode($data->getAttributeLabel('contract')); ?>:</b>
-	<?php $contract_status=CHtml::encode($data->Contract->contract_status); 
+	<?php $contractStatus=CHtml::encode($data->Contract->contract_status); 
 		
-			switch ($contract_status) {
-				case "Не Отправлено":
-					echo "<span class=\"red\">$contract_status</span>";
+			switch ($contractStatus) {
+				case "Нет":
+					echo "<span class=\"red\">$contractStatus</span>";
 					break;
-				case "Отправлено":
-					echo "<span class=\"green\">$contract_status</span>";
+				case "Да":
+					echo "<span class=\"green\">$contractStatus</span>";
 					break;
 			}
 	?>

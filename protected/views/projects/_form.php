@@ -43,6 +43,12 @@
 		<?php echo $form->error($model,'comment'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'responding'); ?>
+		<?php echo $form->dropDownList($model, 'responding', User::allNames()); ?>
+		<?php echo $form->error($model,'responding'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 	</div>

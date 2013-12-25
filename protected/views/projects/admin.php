@@ -45,6 +45,12 @@ $('.search-form form').submit(function(){
 		'create_time',*/
 		'project_name',
 		/*'comment',*/
+		'responding'=>array(
+            'name'=>'responding',
+            'value'=>function($data){
+                          return $data->Responding->realname ." ". $data->Responding->surname;
+                        },
+        ),
 		array(
 			'class'=>'CButtonColumn',
 			'template'=>'{view}{update}'
