@@ -1,8 +1,18 @@
 <h1>Только коммерческие предложения и их статусы</h1>
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+
+
+<?php 
+$userag = $_SERVER['HTTP_USER_AGENT'];
+        if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) {
+            $baseurl = Yii::app()->request->baseUrl;
+            $style = $baseurl.'/css/320.css';
+        }
+
+$this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'caller-report-grid',
     'filter'=>$model,
     'dataProvider'=>$dataProvider,
+    'cssFile'=>$style,
     'columns'=>array(
                 array(
             'header' => '№',

@@ -30,7 +30,10 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$userag = $_SERVER['HTTP_USER_AGENT'];
+		if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad')) && Yii::app()->user->isGuest) {
+		$this->redirect('site/login'); } else {
+		$this->render('index'); }
 	}
 	
 	public function actionChat()

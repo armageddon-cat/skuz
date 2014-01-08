@@ -4,7 +4,27 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
+	<? $userag = $_SERVER['HTTP_USER_AGENT'];
+	if (strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad')) { ?>
+	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.min.css">
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-checkbox.css">
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mmain.css">
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/320.css">
+		<link rel="stylesheet" media="only screen and (min-width: 480px)" href="<?php echo Yii::app()->request->baseUrl; ?>/css/480.css">
+		<link rel="stylesheet" media="only screen and (min-width: 768px)" href="<?php echo Yii::app()->request->baseUrl; ?>/css/768.css">
+		<link rel="stylesheet" media="only screen and (min-width: 1140px)" href="<?php echo Yii::app()->request->baseUrl; ?>/css/1140.css">
+		
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/wSelect.css">
 
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.10.1.min.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script>
+		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-checkbox.js"></script>
+		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/wSelect.js"></script>
+
+		<?}else{?>
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
@@ -15,19 +35,36 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	
-	<link type="text/css" href="/scripts/jquery-ui/css/ui-lightness/
-jquery-ui-1.10.3.custom.css" rel="stylesheet" />
-	<script src="/scripts/jquery-ui/js/jquery-1.9.1.js"></script>
-<script src="/scripts/jquery-ui/js/jquery-ui-1.10.3.
-custom.js"></script>
-
+	<link type="text/css" href="/scripts/jquery-ui/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+	<script type="text/javascript" src="/scripts/jquery-ui/js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="/scripts/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
+<?}?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
 </head>
 
 <body>
+<style>.dropdown_list a {
+text-decoration: none;}</style>
 	<!--noindex-->
 
+	<? if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))&&!Yii::app()->user->isGuest) { ?>
+	<div class="navbar clearfix" style="position: relative;">
+						<a href="#" class="menu" id="main_menu_btn"></a>
+						<div class="paginator" id="paginator">
+							<a class="prev" value="window.history.back()" onclick="goBack()"></a>
+							<a class="next" value="window.history.forward()" onclick="goForward()"></a>
+						</div>
+					</div>
+
+	<?php } ?>
+		<? if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))&&Yii::app()->user->isGuest) { ?>
+
+
+					<?php echo $content; ?>
+
+		<?}else{?>
+		<?if (!(strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) {?>
 <?if (Yii::app()->user->role!=7) { if(!Yii::app()->user->isGuest) { ?>
 	<div id="slideout-callendar">
 		<p>Календарь</p>
@@ -83,12 +120,14 @@ custom.js"></script>
  	</table>
   </div>
 </div>
-<?}}?>
+<?}}}?>
 <div class="container" id="page">
 
 
 	<div id="header">
-				<div><?php echo "Поздравляю всех"; ?></div>
+				<div><?php $browser = get_browser(null, true);
+						echo $browser['ismobiledevice']; 
+				?></div>
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 					<?php
 if(!Yii::app()->user->isGuest) {
@@ -270,18 +309,18 @@ if(!Yii::app()->user->isGuest) {
 			'links'=>$this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
-
+	
 	<?php echo $content; ?>
 
 	<div class="clear"></div>
-
+<?if (!(strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) {?>
 	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?><br/>
 		Все права защищены.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
-
-</div><!-- page -->
+<?php } ?>
+</div><!-- page --><?}?>
 <!--/noindex-->
 </body>
 </html>

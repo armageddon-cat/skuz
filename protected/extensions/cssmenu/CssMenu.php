@@ -7,7 +7,7 @@ class CssMenu extends CWidget
 	public $readCurrentPage = false;
 	private $currentPage = '';
 	
-	
+
 	//Public
 	
 	/*
@@ -34,13 +34,27 @@ class CssMenu extends CWidget
 	*	Calls the top level generator for each top level item
 	*/
 	private function makeMenu()
-	{
+	{	$userag = $_SERVER['HTTP_USER_AGENT'];
+		if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) {
+			$cur_url = $_SERVER["REQUEST_URI"]; 
+			$cur_url = trim($cur_url);
+			($cur_url=='/')? $define_menu_visibility = 'block':$define_menu_visibility = 'none';
+			echo '<div class="main_menu" id="main_menu" style="display:'.$define_menu_visibility.'";">';
+				echo '<div class="main-container list_page">';
+				echo '<div class="wrap">';
+				echo '<div class="main wrapper clearfix">';
+		foreach($this->_items->getChildren() as $item)
+		{
+			$this->menuTopLevelItem($item);
+		}
+		echo '</div>';echo '</div>';echo '</div>';echo '</div>';
+		}else{
 		echo '<div class="css_menu">';
 		foreach($this->_items->getChildren() as $item)
 		{
 			$this->menuTopLevelItem($item);
 		}
-		echo '</div>';
+		echo '</div>';}
 	}
 	
 	/*
@@ -48,7 +62,26 @@ class CssMenu extends CWidget
 	*	Calls the sub level generator for each of its children
 	*/
 	private function menuTopLevelItem($item)
-	{
+	{	$userag = $_SERVER['HTTP_USER_AGENT'];
+
+		if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) {
+		echo '<div class="dropdown_list"><a class="ico" href="#"></a>';
+
+		if($this->readCurrentPage and $item->scanForUrl($this->currentPage)) echo ' current';
+
+		$item->makeItem();
+		if($item->hasChildren())
+		{
+			echo '<ul style="display: none;" class="main1 dropdown_item"><li>';
+			foreach($item->getChildren() as $child)
+			{
+				$this->menuSubLevelItem($child);
+			}
+			echo '</li></ul>';
+		}
+		echo '</div>';
+
+		}else{
 		echo '<div class="css_top_item';
 		if($item->first) echo ' first';
 		if($item->last) echo ' last';
@@ -64,7 +97,7 @@ class CssMenu extends CWidget
 			}
 			echo '</div>';
 		}
-		echo '</div>';
+		echo '</div>';}
 	}
 	
 	/*
@@ -72,8 +105,28 @@ class CssMenu extends CWidget
 	*	Self-recursive for each of its children
 	*/
 	private function menuSubLevelItem($item)
-	{
-		echo '<div class="css_sub_item';
+	{	
+		$userag = $_SERVER['HTTP_USER_AGENT'];
+
+		if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) {
+			echo '<ul class="in';
+		if($item->first) echo ' first';
+		if($item->last) echo ' last';
+		echo '">';;
+		$item->makeItem();
+		if($item->hasChildren())
+		{
+			echo '<div class="css_sub_menu2">';
+			foreach($item->getChildren() as $child)
+			{
+				$this->menuSubLevelItem($child);
+			}
+			echo '</div>';
+		}
+		echo '</ul>';
+		}
+			else {
+				echo '<div class="css_sub_item';
 		if($item->first) echo ' first';
 		if($item->last) echo ' last';
 		echo '">';;
@@ -88,6 +141,8 @@ class CssMenu extends CWidget
 			echo '</div>';
 		}
 		echo '</div>';
+			}
+		
 	}
 	
 	/*
@@ -174,8 +229,21 @@ class CssMenuItem
 	*	Uses hrefs and spans
 	*/
 	public function makeItem()
-	{
-		echo '<a href="';
+	{	$userag = $_SERVER['HTTP_USER_AGENT'];
+
+		if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) {
+					echo '<a href="';
+		echo $this->makeLinkUrl();
+		echo '"';
+		echo $this->parseExtra();
+		echo '>';
+		echo '<h4>';
+		echo $this->label;
+		echo '</h4>';
+		echo '</a>';
+		}
+			else {
+						echo '<a href="';
 		echo $this->makeLinkUrl();
 		echo '"';
 		echo $this->parseExtra();
@@ -184,6 +252,8 @@ class CssMenuItem
 		echo $this->label;
 		echo '</span>';
 		echo '</a>';
+			}
+
 	}
 	
 	/*

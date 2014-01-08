@@ -4,8 +4,13 @@
 ?>
 <?php $call = CHtml::encode($data->call_status); ?>
 <?php if($call != 0 && $call != 5){ ?>
-<div class="inline_report">
+<? $userag = $_SERVER['HTTP_USER_AGENT']; 
+if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) { ?>
+<div class="left_list list">
+						<div class="opacity">
+							<div class="item clearfix">
 
+<?php }else{echo '<div class="inline_report">';} ?>
 <b><?php echo CHtml::encode($data->getAttributeLabel('time')); ?>:</b>
 	<?php echo CHtml::encode($data->time); ?>
 	<br />
@@ -126,4 +131,10 @@
 			}
 	?>
 
-</div><?php } ?>
+
+<? if ((strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) { ?>
+</div></div></div>
+
+<?php }else{echo '</div>';} ?>
+
+<?php } ?>

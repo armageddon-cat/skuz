@@ -26,6 +26,9 @@ $('.search-form form').submit(function(){
 
 <h1>Все отчеты</h1>
 
+<p><?php echo CHtml::link(CHtml::encode('Скачать базу'), array('ExportDatabase'));
+?></p>
+
 <?php echo CHtml::link('Выберите критерий поиска','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(

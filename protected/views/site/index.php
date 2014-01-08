@@ -22,6 +22,9 @@ $this->pageTitle=Yii::app()->name;
 the <a href="http://www.yiiframework.com/doc/">documentation</a>.
 Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p>-->
+<?
+$userag = $_SERVER['HTTP_USER_AGENT'];
+if (!(strpos($userag, 'Android') || strpos($userag, 'iPhone') || strpos($userag, 'iPad'))) {?>
 <h4>Доступные действия:</h4>
 <div><?php 
 
@@ -47,5 +50,5 @@ if(Yii::app()->user->isGuest) {
 	}
 
 ?>
-
+<?php } ?>
 </div>

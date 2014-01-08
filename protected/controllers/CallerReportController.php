@@ -32,7 +32,7 @@ class CallerReportController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update', 'MyReport', 'View2', 'ManagerMeetings', 'CallerMeetingsArchive', 'RpMeetingsArchive', 'CallerMeetingsRating', 'Callendar'),
+				'actions'=>array('admin','create','update', 'MyReport', 'View2', 'ManagerMeetings', 'CallerMeetingsArchive', 'RpMeetingsArchive', 'CallerMeetingsRating', 'Callendar','ExportDatabase'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -106,6 +106,19 @@ class CallerReportController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 		));
+	}
+	public function actionExportDatabase()
+	{
+
+		$criteria=new CDbCriteria;
+		$criteria->select='*';
+ 		$criteria->condition='call_status=:callStatus and time>:Time';
+		$criteria->params=array(':callStatus'=>6,':Time'=>'2013-12-23');
+		$cur_date = date('d-m-Y');
+		$model = CallerReport::model()->findAll($criteria);
+		Yii::app()->getRequest()->sendFile('База-'.$cur_date.'.xls',
+			$this->renderPartial('excel',array('model'=>$model,),true));
+
 	}
 
 	/**
